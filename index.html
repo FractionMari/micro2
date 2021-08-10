@@ -18,21 +18,6 @@
 <main>
 
 
-<!--     <button type="button" class="collapsible" id="helpButton">?</button>
-   
-    <div class="content">
-      <p>How to use this app:
-        <br>
-          <div class="dots">
-    
-            <li> This app must be used on a phone/tablet</li>
-            <li> This app uses motion to be controlled</li>
-            <li> Press button below to start </li>
-            <li> Tilt your phone to activate/deactivate random loops</li>
-            <li> Tilt your phone to control effects</li>
-            <li> The speed of the loop goes down when you move your phone. </li>
-            <li> Use the Inverse button to get the opposite effect. </li>
-</div> -->
       </p>
     </div> 
     <h2>Micro 2.0</h2>
@@ -60,33 +45,10 @@
     <li>     <a href="./feedback.html">Feedback?</a></li>
   </div>
   </p>  
-    <div id="container7">
-        <span id="filterwheel">0</span>
-        <span id="pitchwheel">0</span> <br>
-    Volume: <br>
-    <span id="volume_acc">0</span><br> 
-        Short side tilt<br>
-      Y dots: <br> <span id="y_dots">0</span><span>&deg;</span><br> 
-    Long side Tilt <br>
-      X dots: <br> <span id="x_dots">0</span><span>&deg;</span><br> 
-
-    <span id="volume_acc2">0</span><br> 
- <li>X-axis: <span id="Accelerometer_gx">0</span><span> m/s<sup>2</sup></span></li>
-  <li>Y-axis: <span id="Accelerometer_gy">0</span><span> m/s<sup>2</sup></span></li>
-    <li>Z-axis: <span id="Accelerometer_gz">0</span><span> m/s<sup>2</sup></span></li>
-X-axis (&beta;): <span id="Orientation_b">0</span><span>&deg;</span>
-Y-axis (&gamma;): <span id="Orientation_g">0</span><span>&deg;</span>
-Z-axis (&alpha;): <span id="Orientation_a">0</span><span>&deg;</span>
-X-axis: <span id="test_x">0</span>
-
-Y-axis: <span id="test_y">0</span>
-
-Z-axis: <span id="test_z">0</span>
-
-Total acc: <span id="total_acc">0</span>
-Total filter: <span id="total_filter">0</span>
-Difference: <span id="diff_acc">0</span>
-
+<div id="container7">
+<span id="filterwheel">0</span><span id="pitchwheel">0</span> 
+<span id="volume_acc">0</span><span id="y_dots">0</span><span>&deg;</span><span id="x_dots">0</span><span>&deg;</span> <span id="volume_acc2">0</span><span id="Accelerometer_gx">0</span><span> m/s<sup>2</sup></span><span id="Accelerometer_gy">0</span><span> m/s<sup>2</sup></span><span id="Accelerometer_gz">0</span><span> m/s<sup>2</sup></span>
+<span id="Orientation_b">0</span><span>&deg;</span><span id="Orientation_g">0</span><span>&deg;</span><span id="Orientation_a">0</span><span>&deg;</span> <span id="test_x">0</span> <span id="test_y">0</span><span id="test_z">0</span><span id="total_acc">0</span><span id="total_filter">0</span><span id="diff_acc">0</span>
 </div>
 
 
@@ -101,22 +63,7 @@ Difference: <span id="diff_acc">0</span>
 
 
 </main>
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-        } else {
-          content.style.display = "block";
-        }
-      });
-    }
-    </script>
+
 <script src="prototype2.0.js"></script>
 
 

@@ -17,6 +17,10 @@
 
 // 26. mai
 
+// 9. august:
+// working on a new version that is stripped down regarding buttons and attributes. 
+// Will try to enable sound to appear instantly, to enable motion sensor when page is 
+// loaded
  
 // Tone.js parameters:
 const gainNode = new Tone.Gain().toDestination();
