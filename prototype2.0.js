@@ -256,8 +256,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         else if (yDotValues > 70)
         pattern3.mute = true;
+        let gainValue = yDotValues / 200;
 
-        gainNode.gain.value = 0.01;
+        gainNode.gain.rampTo(gainValue, 0.1);
     }
  
 
