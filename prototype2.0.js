@@ -236,10 +236,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pingPong.feedback.value = (xDotValues / 200);
         
         // On and off Pattern1
-        if ((yDotValues < 30) && (xDotValues < 30))
+        if ((yDotValues < 40) && (xDotValues < 40))
         pattern.mute = false;
 
-        else if ((yDotValues > 100) && (xDotValues > 80))
+        else if ((yDotValues > 80) && (xDotValues < 40))
         pattern.mute = true;
 
         // On and off Pattern2
@@ -256,9 +256,11 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         else if (yDotValues > 70)
         pattern3.mute = true;
-        let gainValue = yDotValues / 200;
 
-        gainNode.gain.rampTo(gainValue, 0.1);
+
+        let gainValue = ((event.accelerationIncludingGravity.y  + 10) * -1) / 200;
+
+        gainNode.gain.rampTo(gainValue, 0.3);
     }
  
 
