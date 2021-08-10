@@ -234,7 +234,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     var fn = generateScaleFunction(0.3, 3, 0.9, 0);
     newAcc = fn(totAcc);
     newAcc = (clamp(0, 0.9, newAcc));
-    let tempo = Math.floor(newAcc * 100);
+    let tempo = Math.floor(newAcc * 150);
 
     // Scaling values for non-inverted volume-control
     var fn2 = generateScaleFunction(0.3, 3, 0, 0.9);
@@ -256,7 +256,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     updateFieldIfNotNull('volume_acc', newAcc);
     updateFieldIfNotNull('volume_acc2', newAcc2);
-     
+    // pitch
+    pitchShift(yDotValues, freeSynth, scaleSelect);
     ////////////////////////////////////////////
     ///////// Red Dot Monitoring in GUI ///////
     ///////////////////////////////////////////
@@ -320,8 +321,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         else if (yDotValues > 45)
         pattern3.mute = true;
 
-        // pitch
-        pitchShift(pitchWheel, freeSynth, scaleSelect);
+
         
     }
  
