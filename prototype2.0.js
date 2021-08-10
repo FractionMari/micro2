@@ -56,7 +56,7 @@ const synth3 = new Tone.PluckSynth().connect(phaser);
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
 const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShift2);
 
-gainNode.gain.value = 0.01;
+
 
 // Other Variables
 let newAcc;
@@ -257,7 +257,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         else if (yDotValues > 70)
         pattern3.mute = true;
 
-        
+        gainNode.gain.value = 0.01;
     }
  
 
