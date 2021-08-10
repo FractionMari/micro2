@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    font-family: 'Rowdies';
+    font-family: 'Happy Monkey', cursive;
     font-size: 30px;
     letter-spacing: 2px;
     word-spacing: 2px;
@@ -43,10 +43,11 @@ body {
 
 button  {
     background-color: rgba(169, 255, 176, 0.084);
-    font-family: 'Rowdies';
+
     border-radius: 17px;
     color: #00ff15;
     padding: 5px 10px;
+    font-family: 'Happy Monkey', cursive;
 
     height: 50px;
     font-variant: small-caps;
