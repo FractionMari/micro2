@@ -103,7 +103,7 @@ Tone.Transport.bpm.value = 20;
                   ) {
                     DeviceMotionEvent.requestPermission();
                   }
-
+                  
   }
 
 
@@ -267,10 +267,20 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         
     }
  
+    window.onload = function() {
+      if (
+        DeviceMotionEvent &&
+        typeof DeviceMotionEvent.requestPermission === "function"
+      ) {
+        DeviceMotionEvent.requestPermission();
+      }
+    };
 
     document.getElementById("looper1").addEventListener("click", function() {
 
+                   // Request permission for iOS 13+ devices
 
+      
 
       if(this.className == 'is-playing'){
       this.className = "";
