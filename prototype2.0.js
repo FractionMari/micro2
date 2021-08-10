@@ -56,7 +56,7 @@ const synth3 = new Tone.PluckSynth().connect(phaser);
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
 const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShift2);
 
-gainNode.gain.value = 0.3;
+gainNode.gain.value = 0.1;
 
 // Other Variables
 let newAcc;
@@ -260,15 +260,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         
     }
  
-    document.addEventListener("DOMContentLoaded", function() {
-      createRandomness();
 
-
-      gainNode.gain.value = 0.3;
-      Tone.Transport.start();
-      Tone.start();
-      
-    });
 
 
 
