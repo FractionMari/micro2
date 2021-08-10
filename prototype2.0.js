@@ -274,6 +274,11 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       ) {
         DeviceMotionEvent.requestPermission();
       }
+
+      gainNode.gain.value = 0.3;
+      Tone.Transport.start();
+      Tone.start();
+      window.addEventListener("devicemotion", handleMotion);
     };
 
     document.getElementById("looper1").addEventListener("click", function() {
