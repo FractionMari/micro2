@@ -96,13 +96,6 @@ Tone.Transport.bpm.value = 20;
   };
 
 
-                   // Request permission for iOS 13+ devices
-                   if (
-                    DeviceMotionEvent &&
-                    typeof DeviceMotionEvent.requestPermission === "function"
-                  ) {
-                    DeviceMotionEvent.requestPermission();
-                  }
                   
   }
 
