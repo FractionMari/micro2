@@ -6,27 +6,14 @@
     <title>Micro App Prototype 2</title>
     <link href="micro2.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Rowdies' rel='stylesheet'>
-    <script type="text/javascript">
-      function codeAddress() {
-        if (
-        DeviceMotionEvent &&
-        typeof DeviceMotionEvent.requestPermission === "function"
-      ) {
-        DeviceMotionEvent.requestPermission();
-      }
 
-      window.addEventListener("devicemotion", handleMotion);
-      }
-      window.onload = codeAddress;
-      </script>
 
 </head>
 
 <script src="https://tonejs.github.io/build/Tone.js"></script>
 
 
-<!-- <body onload="createRandomness()"> -->
-<body>
+<body onload="createRandomness()">
 <main>
 
 
@@ -47,7 +34,7 @@
 <br>
     <div id="loops">
     <button id="looper1">Press to start</button>
-    <button id="button2">Inverse: ON</button><br>
+    <!-- <button id="button2">Inverse: ON</button><br> -->
     
     </div>
 <div id="about">
