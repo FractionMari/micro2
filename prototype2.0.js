@@ -93,9 +93,17 @@ Tone.Transport.bpm.value = 20;
      let random3 = freq(randomNote3());
      randomArray3.push(random3);
 
-
-
   };
+
+
+                   // Request permission for iOS 13+ devices
+                   if (
+                    DeviceMotionEvent &&
+                    typeof DeviceMotionEvent.requestPermission === "function"
+                  ) {
+                    DeviceMotionEvent.requestPermission();
+                  }
+
   }
 
 
@@ -262,14 +270,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     document.getElementById("looper1").addEventListener("click", function() {
 
-                   // Request permission for iOS 13+ devices
-  if (
-    DeviceMotionEvent &&
-    typeof DeviceMotionEvent.requestPermission === "function"
-  ) {
-    DeviceMotionEvent.requestPermission();
-  }
-      
+
 
       if(this.className == 'is-playing'){
       this.className = "";
