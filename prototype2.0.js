@@ -200,9 +200,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
         // multiplying with 6 to get values from 0-120
-        let xDotValues = (((event.accelerationIncludingGravity.x * -1) + 10) * 6);
+        let xDotValues = (((event.accelerationIncludingGravity.x * -1) + 10) * 12);
         // multiplying with 3 to get values from 0-60
-        let yDotValues = ((event.accelerationIncludingGravity.y  + 10) * 3);
+        let yDotValues = ((event.accelerationIncludingGravity.y  + 10) * 6);
     elem.style.top = yDotValues + 'px'; 
     elem.style.left = xDotValues + 'px'; 
 
