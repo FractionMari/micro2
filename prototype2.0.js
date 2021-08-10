@@ -258,7 +258,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pattern3.mute = true;
 
 
-        let gainValue = ((event.accelerationIncludingGravity.y  + 10) / 2000) * -1;
+        let gainValue = ((event.accelerationIncludingGravity.y  + 10) / 400) * -1;
 
         gainNode.gain.rampTo(gainValue, 0.3);
     }
