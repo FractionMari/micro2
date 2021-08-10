@@ -260,10 +260,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         
     }
  
-    window.onload = function() {
-
+    document.addEventListener("DOMContentLoaded", function() {
       createRandomness();
-
       if (
         DeviceMotionEvent &&
         typeof DeviceMotionEvent.requestPermission === "function"
@@ -275,9 +273,11 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       Tone.Transport.start();
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
-    };
+    });
 
-    document.getElementById("looper1").addEventListener("click", function() {
+
+
+ /*    document.getElementById("looper1").addEventListener("click", function() {
 
                    // Request permission for iOS 13+ devices
 
@@ -302,7 +302,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
   });
-
+ */
 
   document.getElementById("button2").addEventListener("click", function(){
   
