@@ -100,7 +100,7 @@ const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShif
 // Other Variables
 let newAcc;
 let newAcc2;
-let inverse = true;
+// let inverse = true;
 let is_running = false;
 let demo_button = document.getElementById("start_demo");
 Tone.Transport.bpm.value = 50;
@@ -220,14 +220,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     // Switch between inverted and non-inverted volume-control, 
     // and visual feedback indicated by the opacity of the element in GUI
-    if (inverse == false)
+ /*    if (inverse == false)
     //gainNode.gain.rampTo(newAcc2, 0.1),
     Tone.Transport.bpm.rampTo(tempo2, 0.5);
     //elem.style.opacity = newAcc2; //Uncomment to map the opacity of red dot to motion
-    else
+    else */
     // more smooth change of volume:
     //gainNode.gain.rampTo(newAcc, 0.1),
-    gainNode.gain.rampTo(newAcc2, 0.1),
+    gainNode.gain.rampTo(newAcc2, 0.1);
     Tone.Transport.bpm.rampTo(tempo, 0.5);
     //elem.style.opacity = newAcc;//Uncomment to map the opacity of red dot to motion
 
@@ -339,7 +339,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
   }}
   );
 
-
+/* 
   document.getElementById("button2").addEventListener("click", function(){
   
       
@@ -357,5 +357,5 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
   
     }}
     ); 
-
+ */
 
