@@ -311,7 +311,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     document.getElementById("looper1").addEventListener("click", function() {
-
+          if(this.className == ''){
+          synth4.triggerAttackRelease(synth4pitch, 0.5);
                    // Request permission for iOS 13+ devices
                    if (
                     DeviceMotionEvent &&
@@ -328,8 +329,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       Tone.Transport.start();
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
-
-          if(this.className == 'is-playing'){
+}
+          else{
           synth4.triggerAttackRelease(synth4pitch, 0.5);
 
 
