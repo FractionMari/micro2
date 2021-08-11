@@ -300,7 +300,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pattern3.mute = true;
 
 
-        let gainValue = ((event.accelerationIncludingGravity.y  + 10) / 50);
+        let gainValue = (((event.accelerationIncludingGravity.y * -1)  + 10) / 50);
         synth4pitch = (yDotValues * -1) * 30;
 
 
@@ -333,15 +333,15 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
 }
-          else if (this.className == 'is-playing'){
-          synth4.triggerAttackRelease(440, 0.5);
+          else{
+          synth4.triggerAttackRelease(440, 0.2);
 
 
     
   }}
   );
 
-
+/* 
   document.getElementById("button2").addEventListener("click", function(){
   
       
@@ -359,5 +359,5 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
   
     }}
     ); 
-
+ */
 
