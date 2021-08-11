@@ -54,7 +54,7 @@ const synth2 = new Tone.MonoSynth({
 
 const synth3 = new Tone.MonoSynth({
   oscillator: {
-    type: "sine8"
+    type: "sine3"
   },
   envelope: {
     attack: 0.5,
@@ -70,7 +70,7 @@ const synth3 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(phaser);
+}).connect(pitchShift);
 
 const synth4 = new Tone.MonoSynth({
   oscillator: {
@@ -79,7 +79,7 @@ const synth4 = new Tone.MonoSynth({
   envelope: {
     attack: 0.05,
     decay: 0.3,
-    sustain: 0.4,
+    sustain: 1.4,
     release: 0.8,
   },
   filterEnvelope: {
@@ -88,7 +88,7 @@ const synth4 = new Tone.MonoSynth({
     sustain: 0.1,
     release: 0.8,
     baseFrequency: 300,
-    octaves: 4
+    octaves: 3
   }
 }).connect(phaser);
 
