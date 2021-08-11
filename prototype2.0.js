@@ -211,7 +211,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     var fn = generateScaleFunction(0.3, 3, 0.9, 0);
     newAcc = fn(totAcc);
     newAcc = (clamp(0, 0.9, newAcc));
-    let tempo = Math.floor(newAcc * 100);
+    let tempo = Math.floor(newAcc * 150);
 
     // Scaling values for non-inverted volume-control
     var fn2 = generateScaleFunction(0.3, 3, 0, 0.9);
@@ -335,7 +335,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       window.addEventListener("devicemotion", handleMotion);
 }
           else{
-          synth4.triggerAttackRelease(synth4pitch, 0.2);
+          synth4.triggerAttackRelease(randomArray3, 0.2);
 
 
     
