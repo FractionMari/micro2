@@ -26,6 +26,7 @@
 const gainNode = new Tone.Gain().toDestination();
 const pingPong = new Tone.PingPongDelay().connect(gainNode);
 const phaser = new Tone.Phaser().connect(pingPong);
+const pitchShift = new Tone.PitchShift().connect(phaser);
 
 let synth4pitch;
 const synth = new Tone.MonoSynth({
@@ -38,7 +39,7 @@ const synth = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(phaser);
+}).connect(pitchShift);
 const synth2 = new Tone.MonoSynth({
 	oscillator: {
 		type: "sine"
@@ -49,7 +50,7 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(phaser);
+}).connect(pitchShift);
 
 const synth3 = new Tone.MonoSynth({
   oscillator: {
@@ -69,7 +70,7 @@ const synth3 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(phaser);
+}).connect(pitchShift);
 
 const synth4 = new Tone.MonoSynth({
   oscillator: {
@@ -89,7 +90,7 @@ const synth4 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(phaser);
+}).connect(gainNode);
 
 
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
@@ -274,6 +275,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
+        pitchShift.pitch = yDotValues;
         
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
@@ -346,12 +348,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     if(this.className == 'is-playing'){
       this.className = "";
       this.innerHTML = " 1"
-      synth4.triggerAttackRelease(synth4pitch, 0.5);
+      synth4.triggerAttackRelease(440, 0.5);
   
     }else{
       this.className = "is-playing";
       this.innerHTML = "2";
-      synth4.triggerAttackRelease(synth4pitch, 0.5);
+      synth4.triggerAttackRelease(550, 0.5);
 
 
   
