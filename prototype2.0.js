@@ -297,8 +297,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pattern3.mute = true;
 
 
-        let gainValue = (event.accelerationIncludingGravity.y  + 10) / 400;
-        let synth4pitch = yDotValues * xDotValues;
+        let gainValue = ((event.accelerationIncludingGravity.y  + 10) / 50);
+        let synth4pitch = (yDotValues * -1) + 300;
 
 
         gainNode.gain.rampTo(gainValue, 0.3);
