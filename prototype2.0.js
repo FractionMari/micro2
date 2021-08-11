@@ -38,7 +38,7 @@ const synth = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(pingPong);
+}).connect(phaser);
 const synth2 = new Tone.MonoSynth({
 	oscillator: {
 		type: "sine"
@@ -49,7 +49,7 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(pingPong);
+}).connect(phaser);
 
 const synth3 = new Tone.MonoSynth({
   oscillator: {
@@ -69,7 +69,7 @@ const synth3 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(pingPong);
+}).connect(phaser);
 
 const synth4 = new Tone.MonoSynth({
   oscillator: {
@@ -89,7 +89,7 @@ const synth4 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(pingPong);
+}).connect(phaser);
 
 
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
@@ -330,7 +330,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
 }
-          else{
+          else if (this.className == 'is-playing')
           synth4.triggerAttackRelease(synth4pitch, 0.5);
 
 
