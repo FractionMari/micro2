@@ -39,7 +39,7 @@ const synth = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(pitchShift);
+}).connect(phaser);
 const synth2 = new Tone.MonoSynth({
 	oscillator: {
 		type: "sine"
@@ -50,7 +50,7 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(pitchShift);
+}).connect(phaser);
 
 const synth3 = new Tone.MonoSynth({
   oscillator: {
@@ -90,7 +90,7 @@ const synth4 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(phaser);
+}).connect(pitchShift);
 
 
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
@@ -276,7 +276,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = Math.abs(((yDotValues * -1) + 150) / 10);
+        pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 10);
         
         updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
         // On and off Pattern1
