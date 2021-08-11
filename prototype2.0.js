@@ -312,7 +312,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     document.getElementById("looper1").addEventListener("click", function() {
           if(this.className == ''){
-          synth4.triggerAttackRelease(synth4pitch, 0.5);
+          
                    // Request permission for iOS 13+ devices
                    if (
                     DeviceMotionEvent &&
