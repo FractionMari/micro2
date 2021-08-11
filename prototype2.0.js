@@ -298,11 +298,11 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
         let gainValue = ((event.accelerationIncludingGravity.y  + 10) / 50);
-        let synth4pitch = (yDotValues * -1) + 300;
+        let synth4pitch = (yDotValues * -1) * 30;
 
 
         gainNode.gain.rampTo(gainValue, 0.3);
-        synth4.triggerAttackRelease(synth4pitch, 0.5);
+        
 
     }
  
@@ -328,6 +328,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       Tone.Transport.start();
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
+
+          if(this.className == 'is-playing'){
+          synth4.triggerAttackRelease(synth4pitch, 0.5);
+
 
       
 	
