@@ -51,7 +51,46 @@ const synth2 = new Tone.MonoSynth({
 	}
 }).connect(pingPong);
 
-const synth3 = new Tone.PluckSynth().connect(pingPong);
+const synth3 = new Tone.MonoSynth({
+  oscillator: {
+    type: "sine8"
+  },
+  envelope: {
+    attack: 0.05,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.8,
+  },
+  filterEnvelope: {
+    attack: 0.001,
+    decay: 0.7,
+    sustain: 0.1,
+    release: 0.8,
+    baseFrequency: 300,
+    octaves: 4
+  }
+}).connect(pingPong);
+
+const synth4 = new Tone.MonoSynth({
+  oscillator: {
+    type: "square8"
+  },
+  envelope: {
+    attack: 0.05,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.8,
+  },
+  filterEnvelope: {
+    attack: 0.001,
+    decay: 0.7,
+    sustain: 0.1,
+    release: 0.8,
+    baseFrequency: 300,
+    octaves: 4
+  }
+}).connect(pingPong);
+
 
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
 const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShift2);
@@ -233,7 +272,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.baseFrequency.value = 100;
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 10);
-        pingPong.feedback.value = (xDotValues / 400);
+        pingPong.feedback.value = (xDotValues / 300);
         
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
@@ -258,9 +297,13 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pattern3.mute = true;
 
 
-        let gainValue = ((event.accelerationIncludingGravity.y  + 10) / 400) * -1;
+        let gainValue = (event.accelerationIncludingGravity.y  + 10) / 400;
+        let synth4pitch = yDotValues * xDotValues;
+
 
         gainNode.gain.rampTo(gainValue, 0.3);
+        synth4.triggerAttackRelease(synth4pitch, 0.5);
+
     }
  
 
