@@ -111,7 +111,8 @@ Tone.Transport.bpm.value = 50;
   // Random tone generator 
   const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
-  const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
+  //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
+  const notes = [-12, -10,  -8, -5, -3 ,0, 2, 4,  7, 9, 12]; 
 
   let randomArray = [];
   let randomArray2 = [];
