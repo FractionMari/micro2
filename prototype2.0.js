@@ -283,17 +283,17 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         // On and off Pattern2
         if ((yDotValues < 30) && (xDotValues > 200))
-        pattern2.mute = false;
-
-        else if ((yDotValues > 80) && (xDotValues < 50))
         pattern2.mute = true;
+
+        else if ((yDotValues > 80) && (xDotValues < 200))
+        pattern2.mute = false;
 
     
         // On and off Pattern3
-        if (yDotValues < 3)
+        if (yDotValues < 10)
         pattern3.mute = false;
 
-        else if (yDotValues > 70)
+        else if (yDotValues > 100)
         pattern3.mute = true;
 
 
