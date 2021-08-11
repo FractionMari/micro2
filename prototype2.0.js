@@ -227,6 +227,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     else
     // more smooth change of volume:
     //gainNode.gain.rampTo(newAcc, 0.1),
+    gainNode.gain.rampTo(newAcc2, 0.1),
     Tone.Transport.bpm.rampTo(tempo, 0.5);
     //elem.style.opacity = newAcc;//Uncomment to map the opacity of red dot to motion
 
