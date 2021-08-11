@@ -103,7 +103,7 @@ let newAcc2;
 let inverse = true;
 let is_running = false;
 let demo_button = document.getElementById("start_demo");
-Tone.Transport.bpm.value = 30;
+Tone.Transport.bpm.value = 50;
 
 
 
