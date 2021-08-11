@@ -275,7 +275,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = yDotValues;
+        pitchShift.pitch = yDotValues / 20;
         
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
@@ -334,7 +334,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       window.addEventListener("devicemotion", handleMotion);
 }
           else if (this.className == 'is-playing'){
-          synth4.triggerAttackRelease(synth4pitch, 0.5);
+          synth4.triggerAttackRelease(440, 0.5);
 
 
     
@@ -348,12 +348,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     if(this.className == 'is-playing'){
       this.className = "";
       this.innerHTML = " 1"
-      synth4.triggerAttackRelease(440, 0.5);
+      synth4.triggerAttackRelease(440, 0);
   
     }else{
       this.className = "is-playing";
       this.innerHTML = "2";
-      synth4.triggerAttackRelease(550, 0.5);
+      synth4.triggerAttackRelease(550, 0);
 
 
   
