@@ -348,12 +348,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     if(this.className == 'is-playing'){
       this.className = "";
       this.innerHTML = " 1"
-      synth4.triggerAttackRelease(440, 0);
+      synth4.triggerAttackRelease(440, 0.2);
   
     }else{
       this.className = "is-playing";
       this.innerHTML = "2";
-      synth4.triggerAttackRelease(550, 0);
+      synth4.triggerAttackRelease(550, 0.2);
 
 
   
