@@ -104,7 +104,7 @@ let newAcc2;
 // let inverse = true;
 let is_running = false;
 let demo_button = document.getElementById("start_demo");
-Tone.Transport.bpm.value = 50;
+Tone.Transport.bpm.value = 100;
 
 
 
@@ -275,7 +275,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = ((yDotValues * -1) + 120) / 4;
+        pitchShift.pitch = ((yDotValues * -1) + 120);
         
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
