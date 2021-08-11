@@ -38,7 +38,7 @@ const synth = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(phaser);
+}).connect(pingPong);
 const synth2 = new Tone.MonoSynth({
 	oscillator: {
 		type: "sine"
@@ -49,9 +49,9 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(phaser);
+}).connect(pingPong);
 
-const synth3 = new Tone.PluckSynth().connect(phaser);
+const synth3 = new Tone.PluckSynth().connect(pingPong);
 
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
 const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShift2);
