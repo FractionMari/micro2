@@ -336,7 +336,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       window.addEventListener("devicemotion", handleMotion);
 }
           else{
-              const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
+/*               const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
   //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
   const notes = [ -17, -15, -12, -10,  -8, -5, -3 ,0, 2, 4,  7, 9, 12]; 
@@ -346,10 +346,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
   
       let random = freq(randomNote());
 
-synth4.triggerAttackRelease(random, 0.4);
+//synth4.triggerAttackRelease(random, 0.4);
 
-  };
-         
+  }; */
+     synth4.triggerAttackRelease(220, 0.4);    
 
 
     
