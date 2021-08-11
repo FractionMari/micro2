@@ -70,7 +70,7 @@ const synth3 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(pitchShift);
+}).connect(phaser);
 
 const synth4 = new Tone.MonoSynth({
   oscillator: {
@@ -339,7 +339,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
               const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
   //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
-  const notes = [20, -17, -15, -12, -10,  -8, -5, -3 ,0, 2, 4,  7, 9, 12]; 
+  const notes = [ -17, -15, -12, -10,  -8, -5, -3 ,0, 2, 4,  7, 9, 12]; 
           for (var i = 0; i < 100; i += 1) {
 
       const randomNote = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
