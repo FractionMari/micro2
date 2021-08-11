@@ -211,7 +211,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     var fn = generateScaleFunction(0.3, 3, 0.9, 0);
     newAcc = fn(totAcc);
     newAcc = (clamp(0, 0.9, newAcc));
-    let tempo = Math.floor(newAcc * 200);
+    let tempo = Math.floor(newAcc * 100);
 
     // Scaling values for non-inverted volume-control
     var fn2 = generateScaleFunction(0.3, 3, 0, 0.9);
@@ -275,7 +275,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = (yDotValues * -1) + 10;
+        pitchShift.pitch = ((yDotValues * -1) + 150) / 10;
         
         updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
         // On and off Pattern1
