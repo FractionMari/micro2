@@ -262,7 +262,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         
            updateFieldIfNotNull('filterwheel', filterWheel);
-           updateFieldIfNotNull('pitchwheel', pitchWheel);
+
     
 
         // Effects
@@ -275,8 +275,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = ((yDotValues * -1) + 150) / 2;
+        pitchShift.pitch = (yDotValues * -1);
         
+        updateFieldIfNotNull('pitchwheel', pitchShift);
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
         pattern.mute = false;
