@@ -31,7 +31,7 @@ const pitchShift = new Tone.PitchShift().connect(pingPong);
 let synth4pitch;
 const synth = new Tone.MonoSynth({
 	oscillator: {
-		type: "square"
+		type: "square2"
 	},
 	envelope: {
 		attack: 0.5,
@@ -63,7 +63,7 @@ const synth3 = new Tone.MonoSynth({
     release: 0.8,
   },
   filterEnvelope: {
-    attack: 0.001,
+    attack: 0.01,
     decay: 0.7,
     sustain: 0.1,
     release: 0.8,
@@ -90,7 +90,7 @@ const synth4 = new Tone.MonoSynth({
     baseFrequency: 300,
     octaves: 4
   }
-}).connect(gainNode);
+}).connect(phaser);
 
 
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
@@ -339,7 +339,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
               const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
   //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
-  const notes = [-12, -10,  -8, -5, -3 ,0, 2, 4,  7, 9, 12]; 
+  const notes = [20, -17, -15, -12, -10,  -8, -5, -3 ,0, 2, 4,  7, 9, 12]; 
           for (var i = 0; i < 100; i += 1) {
 
       const randomNote = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
