@@ -275,7 +275,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = yDotValues / 20;
+        pitchShift.pitch = ((yDotValues * -1) + 120) / 4;
         
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
