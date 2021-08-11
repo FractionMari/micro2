@@ -339,23 +339,23 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
   }}
   );
 
-/* 
+
   document.getElementById("button2").addEventListener("click", function(){
   
       
     if(this.className == 'is-playing'){
       this.className = "";
-      this.innerHTML = "Inverse: ON"
-      inverse = true;
+      this.innerHTML = " 1"
+      synth4.triggerAttackRelease(synth4pitch, 0.5);
   
     }else{
       this.className = "is-playing";
-      this.innerHTML = "Inverse: OFF";
-      inverse = false;
+      this.innerHTML = "2";
+      synth4.triggerAttackRelease(synth4pitch, 0.5);
 
 
   
     }}
     ); 
- */
+
 

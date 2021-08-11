@@ -37,6 +37,14 @@ body {
     
 }
 
+#button2 {
+   
+    width: 100px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: rgba(0, 233, 8, 0.269);
+    
+}
 #looper1:hover {
     background-color:  rgba(228, 220, 220, 0);
     
