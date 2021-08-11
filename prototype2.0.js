@@ -27,7 +27,7 @@ const gainNode = new Tone.Gain().toDestination();
 const pingPong = new Tone.PingPongDelay().connect(gainNode);
 const phaser = new Tone.Phaser().connect(pingPong);
 
-
+let synth4pitch;
 const synth = new Tone.MonoSynth({
 	oscillator: {
 		type: "square"
@@ -269,7 +269,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         //let harmonicity = pitchWheel / 10;
         //updateFieldIfNotNull('harmonicity', harmonicity);
         //synth.harmonicity.value = harmonicity;
-        phaser.baseFrequency.value = 100;
+        phaser.baseFrequency.value = 50;
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 10);
         pingPong.feedback.value = (xDotValues / 300);
@@ -298,7 +298,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
         let gainValue = ((event.accelerationIncludingGravity.y  + 10) / 50);
-        let synth4pitch = (yDotValues * -1) * 30;
+        synth4pitch = (yDotValues * -1) * 30;
 
 
         gainNode.gain.rampTo(gainValue, 0.3);
