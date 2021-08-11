@@ -304,7 +304,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         synth4pitch = (yDotValues * -1) * 30;
 
 
-        //gainNode.gain.rampTo(gainValue, 0.3);
+        gainNode.gain.rampTo(gainValue, 0.3);
         
 
     }
@@ -348,7 +348,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     if(this.className == 'is-playing'){
       this.className = "";
       this.innerHTML = " 1"
-      synth4.triggerAttackRelease(440, 0.2);
+      synth4.triggerAttackRelease(synth4pitch, 0.2);
   
     }else{
       this.className = "is-playing";
