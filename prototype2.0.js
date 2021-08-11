@@ -271,7 +271,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         //synth.harmonicity.value = harmonicity;
         phaser.baseFrequency.value = 50;
         phaser.frequency.value = xDotValues;
-        phaser.octaves = (yDotValues / 10);
+        phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
         
         // On and off Pattern1
