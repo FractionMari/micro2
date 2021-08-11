@@ -336,7 +336,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       window.addEventListener("devicemotion", handleMotion);
 }
           else{
-          synth4.triggerAttackRelease(randomArray3, 0.2);
+            createRandomness(),
+          synth4.triggerAttackRelease(randomArray3[1], 0.2);
 
 
     
