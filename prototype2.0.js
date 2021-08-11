@@ -104,14 +104,14 @@ let newAcc2;
 // let inverse = true;
 let is_running = false;
 let demo_button = document.getElementById("start_demo");
-Tone.Transport.bpm.value = 400;
+Tone.Transport.bpm.value = 50;
 
 
 
   // Random tone generator 
   const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
-  const notes = [ -21, -20, -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9, -8, -7,  -6, -5, -4, -3 ,-2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9]; // Close to your 100, 400, 1600 and 6300
+  const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
 
   let randomArray = [];
   let randomArray2 = [];
@@ -211,7 +211,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     var fn = generateScaleFunction(0.3, 3, 0.9, 0);
     newAcc = fn(totAcc);
     newAcc = (clamp(0, 0.9, newAcc));
-    let tempo = Math.floor(newAcc * 200);
+    let tempo = Math.floor(newAcc * 150);
 
     // Scaling values for non-inverted volume-control
     var fn2 = generateScaleFunction(0.3, 3, 0, 0.9);
