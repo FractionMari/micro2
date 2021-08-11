@@ -334,11 +334,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
           synth4.triggerAttackRelease(synth4pitch, 0.5);
 
 
-      
-	
-
-
-  });
+    
+  }}
+  );
 
 
   document.getElementById("button2").addEventListener("click", function(){
