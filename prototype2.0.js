@@ -31,7 +31,7 @@ const pitchShift = new Tone.PitchShift().connect(pingPong);
 let synth4pitch;
 const synth = new Tone.MonoSynth({
 	oscillator: {
-		type: "square2"
+		type: "sine2"
 	},
 	envelope: {
 		attack: 0.5,
@@ -94,7 +94,7 @@ const synth4 = new Tone.MonoSynth({
 
 
 const pitchShift2 = new Tone.PitchShift().connect(gainNode);
-const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShift2);
+//const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShift2);
 
 
 
@@ -189,8 +189,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     let zValue = event.acceleration.z;
     let totAcc = (Math.abs(xValue) + Math.abs(yValue) + Math.abs(zValue));
     let elem = document.getElementById("myAnimation3"); 
-    let filterWheel = event.accelerationIncludingGravity.x;
-    let pitchWheel = event.accelerationIncludingGravity.y;
+    //let filterWheel = event.accelerationIncludingGravity.x;
+    //let pitchWheel = event.accelerationIncludingGravity.y;
     //let zWheel = event.accelerationIncludingGravity.z;
     // Updating values to HTML
     updateFieldIfNotNull('test_x', event.acceleration.x);
@@ -201,7 +201,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('Accelerometer_gy', event.accelerationIncludingGravity.y);
     updateFieldIfNotNull('Accelerometer_gz', event.accelerationIncludingGravity.z);
     
-    updateFieldIfNotNull('filterwheel', filterWheel);
+   // updateFieldIfNotNull('filterwheel', filterWheel);
    
 
     ///////////////////////////////////////////////
@@ -257,12 +257,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ///////////////////////////////////////////////
     // Filter
     var filterScale = generateScaleFunction(-10, 10, 10, 300);
-    filterWheel = Math.abs(filterWheel);
-    filterWheel = filterScale(filterWheel);
-    autoFilter.baseFrequency = filterWheel;
+    //filterWheel = Math.abs(filterWheel);
+    //filterWheel = filterScale(filterWheel);
+    //autoFilter.baseFrequency = filterWheel;
 
         
-           updateFieldIfNotNull('filterwheel', filterWheel);
+       //    updateFieldIfNotNull('filterwheel', filterWheel);
 
     
 
