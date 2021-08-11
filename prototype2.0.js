@@ -330,7 +330,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
 }
-          else if (this.className == 'is-playing')
+          else if (this.className == 'is-playing'){
           synth4.triggerAttackRelease(synth4pitch, 0.5);
 
 
