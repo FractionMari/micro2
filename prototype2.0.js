@@ -57,7 +57,7 @@ const synth3 = new Tone.MonoSynth({
     type: "sine8"
   },
   envelope: {
-    attack: 0.05,
+    attack: 0.5,
     decay: 0.3,
     sustain: 0.4,
     release: 0.8,
@@ -211,7 +211,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     var fn = generateScaleFunction(0.3, 3, 0.9, 0);
     newAcc = fn(totAcc);
     newAcc = (clamp(0, 0.9, newAcc));
-    let tempo = Math.floor(newAcc * 150);
+    let tempo = Math.floor(newAcc * 200);
 
     // Scaling values for non-inverted volume-control
     var fn2 = generateScaleFunction(0.3, 3, 0, 0.9);
@@ -275,7 +275,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = ((yDotValues * -1) + 60);
+        pitchShift.pitch = ((yDotValues * -1) + 150) / 2;
         
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
