@@ -201,7 +201,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('Accelerometer_gz', event.accelerationIncludingGravity.z);
     
     updateFieldIfNotNull('filterwheel', filterWheel);
-    updateFieldIfNotNull('pitchwheel', pitchWheel);
+   
 
     ///////////////////////////////////////////////
     /////////////// VOLUME VARIABLES //////////////
