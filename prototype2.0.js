@@ -197,14 +197,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     //let pitchWheel = event.accelerationIncludingGravity.y;
     //let zWheel = event.accelerationIncludingGravity.z;
     // Updating values to HTML
-    updateFieldIfNotNull('test_x', event.acceleration.x);
+/*     updateFieldIfNotNull('test_x', event.acceleration.x);
     updateFieldIfNotNull('test_y', event.acceleration.y);
     updateFieldIfNotNull('test_z', event.acceleration.z);
     updateFieldIfNotNull('total_acc', totAcc);
     updateFieldIfNotNull('Accelerometer_gx', event.accelerationIncludingGravity.x);
     updateFieldIfNotNull('Accelerometer_gy', event.accelerationIncludingGravity.y);
     updateFieldIfNotNull('Accelerometer_gz', event.accelerationIncludingGravity.z);
-    
+     */
    // updateFieldIfNotNull('filterwheel', filterWheel);
    
 
