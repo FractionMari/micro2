@@ -236,10 +236,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     gainNode.gain.rampTo(newAcc2, 0.1);
     Tone.Transport.bpm.rampTo(tempo, 0.5);
     //elem.style.opacity = newAcc;//Uncomment to map the opacity of red dot to motion
-
+/* 
     updateFieldIfNotNull('volume_acc', newAcc);
     updateFieldIfNotNull('volume_acc2', newAcc2);
-     
+      */
     ////////////////////////////////////////////
     ///////// Red Dot Monitoring in GUI ///////
     ///////////////////////////////////////////
@@ -280,7 +280,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues / 2;
         phaser.octaves = (yDotValues / 20);
 
-     // phaser.frequency.value = yDotValues / 160;
+       phaser.wet.value = yDotValues / 160;
 
 
         pingPong.feedback.value = (xDotValues / 300);
