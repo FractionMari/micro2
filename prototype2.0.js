@@ -279,7 +279,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.frequency.value = xDotValues;
         phaser.octaves = (yDotValues / 20);
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 10);
+        pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 5);
         
         updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
         // On and off Pattern1
@@ -352,7 +352,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 //synth4.triggerAttackRelease(random, 0.4);
 
   }; */
-     synth4.triggerAttackRelease(220, 0.4);    
+     synth4.triggerAttackRelease(440, 0.4);    
 
 
     
