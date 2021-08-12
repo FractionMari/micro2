@@ -283,10 +283,11 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pingPong.feedback.value = (xDotValues / 300);
         pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 2);
         
-        updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
+        
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
-        pattern.mute = false;
+        pattern.mute = false,
+        updateFieldIfNotNull('pitchwheel', "Off");
 
         else if ((yDotValues > 80) && (xDotValues < 40))
         pattern.mute = true;
@@ -316,8 +317,6 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     }
  
-
-
 
 
     document.getElementById("looper1").addEventListener("click", function() {
