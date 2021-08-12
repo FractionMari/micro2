@@ -78,10 +78,10 @@ const synth4 = new Tone.MonoSynth({
     type: "square2"
   },
   envelope: {
-    attack: 0.05,
+    attack: 0.5,
     decay: 0.3,
     sustain: 0.4,
-    release: 0.8,
+    release: 0.3,
   }/* ,
   filterEnvelope: {
     attack: 0.001,
