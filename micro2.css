@@ -200,5 +200,11 @@ a:visited {
 #about {
     position:absolute; 
     bottom: 0px;
+    z-index: -1;
+}
+
+#feedback{
+    position:absolute; 
+    bottom: 0px;
     z-index: 0;
 }

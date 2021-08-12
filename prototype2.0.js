@@ -356,7 +356,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 //synth4.triggerAttackRelease(random, 0.4);
 
   }; */
-     synth4.triggerAttackRelease(440, 0.4);    
+     synth4.triggerAttackRelease(220, 0.3);    
 
 
     
