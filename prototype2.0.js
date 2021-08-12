@@ -50,7 +50,7 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(phaser;
+}).connect(phaser);
 
 const synth3 = new Tone.MonoSynth({
   oscillator: {
@@ -280,7 +280,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         phaser.octaves = (yDotValues / 20);
 
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 5);
+        pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 2);
         
         updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
         // On and off Pattern1
