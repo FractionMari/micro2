@@ -112,7 +112,10 @@ Tone.Transport.bpm.value = 50;
   const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
   //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
-  const notes = [-12, -10,  -8, -5, -3 ,0, 2, 4,  7, 9, 12]; 
+  const notes = [7, 9, 12, 14, 16, 19]; 
+  const notes2 = [0, 2, 4,  7, 9, 12]; 
+  const notes3 = [-8, -5, -3 ,0, 2, 4]; 
+   // const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19]; 
 
   let randomArray = [];
   let randomArray2 = [];
@@ -126,11 +129,11 @@ Tone.Transport.bpm.value = 50;
       randomArray.push(random);
   
   
-      const randomNote2 = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
+      const randomNote2 = () => notes[Math.random() * notes2.length | 0]; // the bitwise Or does the same as Math.floor
      let random2 = freq(randomNote2());
      randomArray2.push(random2);
   
-     const randomNote3 = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
+     const randomNote3 = () => notes[Math.random() * notes3.length | 0]; // the bitwise Or does the same as Math.floor
      let random3 = freq(randomNote3());
      randomArray3.push(random3);
 
