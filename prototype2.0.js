@@ -284,13 +284,13 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
         pingPong.feedback.value = (xDotValues / 300);
-        pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 2);
+        pitchShift.pitch = Math.floor(((yDotValues * -1) + 150) / 3);
         
         
         // On and off Pattern1
         if ((yDotValues < 40) && (xDotValues < 40))
         pattern.mute = false,
-        updateFieldIfNotNull('pitchwheel', "Off");
+        updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
 
         else if ((yDotValues > 80) && (xDotValues < 40))
         pattern.mute = true;
@@ -312,7 +312,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
         let gainValue = (((event.accelerationIncludingGravity.y * -1)  + 10) / 50);
-        synth4pitch = Math.abs((yDotValues * -1) * 30);
+        synth4pitch = Math.abs((yDotValues * -1) * 2);
 
 
         gainNode.gain.rampTo(gainValue, 0.3);
