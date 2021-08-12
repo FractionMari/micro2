@@ -81,7 +81,7 @@ const synth4 = new Tone.MonoSynth({
     decay: 0.3,
     sustain: 0.4,
     release: 0.8,
-  },
+  }/* ,
   filterEnvelope: {
     attack: 0.001,
     decay: 0.7,
@@ -89,7 +89,7 @@ const synth4 = new Tone.MonoSynth({
     release: 0.8,
     baseFrequency: 300,
     octaves: 4
-  }
+  } */
 }).connect(pitchShift);
 
 
