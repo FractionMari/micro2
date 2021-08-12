@@ -39,7 +39,7 @@ const synth = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(pingPong);
+}).connect(phaser);
 const synth2 = new Tone.MonoSynth({
 	oscillator: {
 		type: "sine"
@@ -50,7 +50,7 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(pingPong);
+}).connect(phaser;
 
 const synth3 = new Tone.MonoSynth({
   oscillator: {
@@ -61,7 +61,7 @@ const synth3 = new Tone.MonoSynth({
     decay: 0.3,
     sustain: 0.4,
     release: 0.8,
-  },
+  }/* ,
   filterEnvelope: {
     attack: 0.01,
     decay: 0.7,
@@ -69,8 +69,8 @@ const synth3 = new Tone.MonoSynth({
     release: 0.8,
     baseFrequency: 300,
     octaves: 4
-  }
-}).connect(pingPong);
+  } */
+}).connect(phaser);
 
 const synth4 = new Tone.MonoSynth({
   oscillator: {
