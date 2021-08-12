@@ -35,7 +35,7 @@ const synth = new Tone.MonoSynth({
 	},
 	envelope: {
 		attack: 0.5,
-		decay: 0.2,
+		decay: 0.3,
 		sustain: 1.0,
 		release: 0.8
 	}
@@ -46,7 +46,7 @@ const synth2 = new Tone.MonoSynth({
 	},
 	envelope: {
 		attack: 0.5,
-		decay: 0.2,
+		decay: 0.3,
 		sustain: 1.0,
 		release: 0.8
 	}
