@@ -21,20 +21,25 @@
 // working on a new version that is stripped down regarding buttons and attributes. 
 // Will try to enable sound to appear instantly, to enable motion sensor when page is 
 // loaded
+
+// 18. august
+// tidying up, and trying to create a more musical loop rather than random?
  
 // Tone.js parameters:
 const gainNode = new Tone.Gain().toDestination();
 const pingPong = new Tone.PingPongDelay().connect(gainNode);
 const phaser = new Tone.Phaser().connect(pingPong);
+const pitchShift = new Tone.PitchShift().connect(pingPong);
 
 
+let synth4pitch;
 const synth = new Tone.MonoSynth({
 	oscillator: {
-		type: "square"
+		type: "sine2"
 	},
 	envelope: {
 		attack: 0.5,
-		decay: 0.2,
+		decay: 0.3,
 		sustain: 1.0,
 		release: 0.8
 	}
@@ -45,96 +50,58 @@ const synth2 = new Tone.MonoSynth({
 	},
 	envelope: {
 		attack: 0.5,
-		decay: 0.2,
+		decay: 0.3,
 		sustain: 1.0,
 		release: 0.8
 	}
 }).connect(phaser);
 
-const synth3 = new Tone.PluckSynth().connect(phaser);
-
-const freeSynth = new Tone.MonoSynth({
-	oscillator: {
-		type: "sine"
-	},
-	envelope: {
-		attack: 0.5,
-		decay: 0.2,
-		sustain: 1.0,
-		release: 0.8
-	}
+const synth3 = new Tone.MonoSynth({
+  oscillator: {
+    type: "sine8"
+  },
+  envelope: {
+    attack: 0.5,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.8,
+  }
 }).connect(phaser);
 
-const pitchShift2 = new Tone.PitchShift().connect(gainNode);
-const autoFilter = new Tone.PitchShift().connect(gainNode); // connect(pitchShift2);
+const synth4 = new Tone.MonoSynth({
+  oscillator: {
+    type: "square2"
+  },
+  envelope: {
+    attack: 0.5,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.3,
+  }
+}).connect(pitchShift);
 
-gainNode.gain.value = 0.3;
+
+const synth5 = new Tone.MembraneSynth().toDestination();
+
 
 // Other Variables
 let newAcc;
 let newAcc2;
-let inverse = true;
+// let inverse = true;
 let is_running = false;
 let demo_button = document.getElementById("start_demo");
-Tone.Transport.bpm.value = 20;
+Tone.Transport.bpm.value = 50;
 
 
-// Scales
-var scaleSelect = ["G1", "A1","C2", "D2", "F2", "G2", "A2","C3", "D3", "F3", "G3", "A3","C4", "D4", "F4", "G4", "A4", "C5", "D5", "F5", "G5", "A5", "C6"];
-
-// Function for shifting pitch
-function pitchShift (pitch, instrument, scale) {
-  // const intervalChange = 1;
-//   const points = Math.floor(pitch / intervalChange);
-const points = pitch;
-
-  if (points >= 20)
-  instrument.frequency.value = scale[19];
-  else if (points >= 19)
-  instrument.frequency.value = scale[18];
-  else if (points >= 18)
-  instrument.frequency.value = scale[17];
-  else if (points >= 17)
-  instrument.frequency.value = scale[16];
-  else if (points >= 16)
-  instrument.frequency.value = scale[15];
-  else if (points >= 15)
-  instrument.frequency.value = scale[14];
-  else if (points >= 14)
-  instrument.frequency.value = scale[13];
-  else if (points >= 13)
-  instrument.frequency.value = scale[12];
-  else if (points >= 12)
-  instrument.frequency.value = scale[11];
-  else if (points >= 11)
-  instrument.frequency.value = scale[10];
-  else if (points >= 10)
-  instrument.frequency.value = scale[9];
-  else if (points >= 9)
-  instrument.frequency.value = scale[8];  
-  else if (points >= 8)
-  instrument.frequency.value = scale[7];
-  else if (points >= 7)
-  instrument.frequency.value = scale[6];
-  else if (points >= 6)
-  instrument.frequency.value = scale[5];
-  else if (points >= 5)
-  instrument.frequency.value = scale[4];
-  else if (points >= 4)
-  instrument.frequency.value = scale[3];
-  else if (points >= 3)
-  instrument.frequency.value = scale[2];
-  else if (points >= 2)
-  instrument.frequency.value = scale[1]; 
-  else if (points >= 1)
-  instrument.frequency.value = scale[0];
-      
-}
 
   // Random tone generator 
   const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
-  const notes = [ -15, -14, -13, -12, -11, -10, -9, -8, -7,  -6, -5, -4, -3 ,-2, -1, 1, 2, 3, 4, 5, 6, 7, 8, 9]; // Close to your 100, 400, 1600 and 6300
+  //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
+  const notes = [7, 9, 12, 14, 16, 19]; 
+  const notes2 = [0, 2, 4,  7, 9, 12]; 
+  const notes3 = [-8, -5, -3 ,0, 2, 4]; 
+   // const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19]; 
 
   let randomArray = [];
   let randomArray2 = [];
@@ -148,16 +115,16 @@ const points = pitch;
       randomArray.push(random);
   
   
-      const randomNote2 = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
+      const randomNote2 = () => notes[Math.random() * notes2.length | 0]; // the bitwise Or does the same as Math.floor
      let random2 = freq(randomNote2());
      randomArray2.push(random2);
   
-     const randomNote3 = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
+     const randomNote3 = () => notes[Math.random() * notes3.length | 0]; // the bitwise Or does the same as Math.floor
      let random3 = freq(randomNote3());
      randomArray3.push(random3);
 
   };
-  freeSynth.triggerAttack("C4"); 
+
 
                   
   }
@@ -173,12 +140,18 @@ var pattern3 = new Tone.Pattern(function(time, note){
 	synth3.triggerAttackRelease(note, 0.5);
 }, randomArray3);
 
+var pattern5 = new Tone.Pattern(function(time, note){
+	synth5.triggerAttackRelease(note, 0.5);
+}, ["C1", "C1", "E3", "C1"]);
+
 pattern.start();
 pattern2.start();
 pattern3.start();
+pattern5.start();
 pattern.mute = false;
 pattern2.mute = true;
 pattern3.mute = true;
+pattern5.mute = false;
 
 
 // With this function the values won't go below a threshold 
@@ -211,27 +184,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     let zValue = event.acceleration.z;
     let totAcc = (Math.abs(xValue) + Math.abs(yValue) + Math.abs(zValue));
     let elem = document.getElementById("myAnimation3"); 
-    let filterWheel = event.accelerationIncludingGravity.x;
-    let pitchWheel = event.accelerationIncludingGravity.y;
-    //let zWheel = event.accelerationIncludingGravity.z;
-    // Updating values to HTML
-    updateFieldIfNotNull('test_x', event.acceleration.x);
-    updateFieldIfNotNull('test_y', event.acceleration.y);
-    updateFieldIfNotNull('test_z', event.acceleration.z);
-    updateFieldIfNotNull('total_acc', totAcc);
-    updateFieldIfNotNull('Accelerometer_gx', event.accelerationIncludingGravity.x);
-    updateFieldIfNotNull('Accelerometer_gy', event.accelerationIncludingGravity.y);
-    updateFieldIfNotNull('Accelerometer_gz', event.accelerationIncludingGravity.z);
-    
-    updateFieldIfNotNull('filterwheel', filterWheel);
-    updateFieldIfNotNull('pitchwheel', pitchWheel);
+ 
 
     ///////////////////////////////////////////////
     /////////////// VOLUME VARIABLES //////////////
     ///////////////////////////////////////////////
 
     // Scaling values for inverted volume-control
-    var fn = generateScaleFunction(0.3, 3, 0.9, 0);
+    var fn = generateScaleFunction(0.3, 3, 0.9, 0.1);
     newAcc = fn(totAcc);
     newAcc = (clamp(0, 0.9, newAcc));
     let tempo = Math.floor(newAcc * 150);
@@ -244,20 +204,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     // Switch between inverted and non-inverted volume-control, 
     // and visual feedback indicated by the opacity of the element in GUI
-    if (inverse == false)
-    //gainNode.gain.rampTo(newAcc2, 0.1),
-    Tone.Transport.bpm.rampTo(tempo2, 0.5);
-    //elem.style.opacity = newAcc2; //Uncomment to map the opacity of red dot to motion
-    else
-    // more smooth change of volume:
-    //gainNode.gain.rampTo(newAcc, 0.1),
-    Tone.Transport.bpm.rampTo(tempo, 0.5);
-    //elem.style.opacity = newAcc;//Uncomment to map the opacity of red dot to motion
 
-    updateFieldIfNotNull('volume_acc', newAcc);
-    updateFieldIfNotNull('volume_acc2', newAcc2);
-    // pitch
-    pitchShift(yDotValues, freeSynth, scaleSelect);
+    gainNode.gain.rampTo(newAcc2, 0.1);
+    Tone.Transport.bpm.rampTo(tempo, 0.5);
+
     ////////////////////////////////////////////
     ///////// Red Dot Monitoring in GUI ///////
     ///////////////////////////////////////////
@@ -279,66 +229,58 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ///////////////////////////////////////////////
     // Filter
     var filterScale = generateScaleFunction(-10, 10, 10, 300);
-    filterWheel = Math.abs(filterWheel);
-    filterWheel = filterScale(filterWheel);
-    autoFilter.baseFrequency = filterWheel;
-
-        
-           updateFieldIfNotNull('filterwheel', filterWheel);
-           updateFieldIfNotNull('pitchwheel', pitchWheel);
-    
-
+   
         // Effects
         
+
+        phaser.frequency.value = xDotValues / 2;
+        phaser.octaves = (yDotValues / 20);
+
+       phaser.wet.value = yDotValues / 160;
+
+
+        pingPong.feedback.value = (xDotValues / 300);
+        pitchShift.pitch = Math.floor(((yDotValues * -1) + 75) / 10);
         
-        //let harmonicity = pitchWheel / 10;
-        //updateFieldIfNotNull('harmonicity', harmonicity);
-        //synth.harmonicity.value = harmonicity;
-        phaser.baseFrequency.value = 100;
-        phaser.frequency.value = xDotValues;
-        phaser.octaves = (yDotValues / 10);
-        pingPong.feedback.value = (xDotValues / 200);
         
         // On and off Pattern1
-        if ((yDotValues < 30) && (xDotValues < 30))
-        pattern.mute = false;
+        if ((yDotValues < 40) && (xDotValues < 40))
+        pattern.mute = false,
+        updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
 
-        else if ((yDotValues > 40) && (xDotValues > 80))
+        else if ((yDotValues > 80) && (xDotValues < 40))
         pattern.mute = true;
 
         // On and off Pattern2
-        if ((yDotValues < 30) && (xDotValues > 80))
-        pattern2.mute = false;
-
-        else if ((yDotValues > 40) && (xDotValues < 30))
+        if ((yDotValues < 30) && (xDotValues > 200))
         pattern2.mute = true;
+
+        else if ((yDotValues > 80) && (xDotValues < 200))
+        pattern2.mute = false;
 
     
         // On and off Pattern3
-        if (yDotValues < 3)
+        if (yDotValues < 10)
         pattern3.mute = false;
 
-        else if (yDotValues > 45)
+        else if (yDotValues > 100)
         pattern3.mute = true;
 
 
+        let gainValue = (((event.accelerationIncludingGravity.y * -1)  + 10) / 50);
+        synth4pitch = Math.abs((yDotValues * -1) * 2);
+
+
+        gainNode.gain.rampTo(gainValue, 0.3);
         
+
     }
  
-    document.addEventListener("DOMContentLoaded", function() {
-      createRandomness();
-
-
-      gainNode.gain.value = 0.3;
-      Tone.Transport.start();
-      Tone.start();
-      
-    });
-
 
 
     document.getElementById("looper1").addEventListener("click", function() {
-
+          if(this.className == ''){
+          
                    // Request permission for iOS 13+ devices
                    if (
                     DeviceMotionEvent &&
@@ -348,43 +290,22 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
                   }
       
 
-      if(this.className == 'is-playing'){
-      this.className = "";
-      this.innerHTML = "Press to START"
-      gainNode.gain.value = 0;
-      window.removeEventListener("devicemotion", handleMotion);
 
-      }else{
       this.className = "is-playing";
-      this.innerHTML = "Press to STOP";
-      gainNode.gain.value = 0.3;
+      this.innerHTML = "";
+      
       Tone.Transport.start();
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
+}
+          else{
 
-      }
-	
-
-
-  });
+     synth4.triggerAttackRelease(440, 0.2);    
 
 
-  document.getElementById("button2").addEventListener("click", function(){
-  
-      
-    if(this.className == 'is-playing'){
-      this.className = "";
-      this.innerHTML = "Inverse: ON"
-      inverse = true;
-  
-    }else{
-      this.className = "is-playing";
-      this.innerHTML = "Inverse: OFF";
-      inverse = false;
+    
+  }}
+  );
 
-
-  
-    }}
-    ); 
 
 
