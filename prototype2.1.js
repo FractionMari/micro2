@@ -142,7 +142,7 @@ var pattern3 = new Tone.Pattern(function(time, note){
 
 var pattern5 = new Tone.Pattern(function(time, note){
 	synth5.triggerAttackRelease(note, 0.5);
-}, ["C1", ("C1", "C1"), "E3", "C1"]);
+}, ["C1", ["D1", "D1"], "E3", "C1"]);
 
 pattern.start();
 pattern2.start();
