@@ -515,26 +515,18 @@ color: white;
 /* Animation for gradually disappearing box with instructions. Thanks to https://stackoverflow.com/questions/39513705/make-html-element-disappear-with-css-animation */
 
 @keyframes myAnimation{
-    0%{
-        opacity: 0;
-      }
-    
-    10%{
-      opacity: 0.9;
-    }
 
-
-    100%{
-
-      opacity: 0;
-      z-index: -1;
-      display: none;
-     
-     
-
-    }
-  }
   
+
+  0%   {opacity: 0;}
+  1%   {opacity: 0.9;}
+  25% {opacity: 0.9;}
+  40%  {opacity: 0.3;}
+  50%  {opacity: 0;}
+
+  100% {z-index: -1; opacity: 0;}
+
+}
   #myelement{
     position: absolute;
 
@@ -548,7 +540,7 @@ color: white;
     font-size: 15px;
     
       animation-name: myAnimation;
-      animation-duration: 35000ms;
+      animation-duration: 60000ms;
       animation-fill-mode: forwards;
   
   }
