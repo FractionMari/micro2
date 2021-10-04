@@ -2,84 +2,133 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    <title>Micro 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Micro 1</title>
     <link href="micro2.css" rel="stylesheet">
-    
     <link href='https://fonts.googleapis.com/css?family=Rowdies' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Raleway&display=swap" rel="stylesheet">
 
 </head>
-
+ 
 <script src="https://tonejs.github.io/build/Tone.js"></script>
 
+<body>
+  <div class="topnav">
+    <a class="active" href="./index.html">App 1</a>
+    <a href="./prototype2.html"> App 2</a>
+    <a href="./prototype3.html">App 3</a>
+    <a href="./feedback.html">Feedback?</a>
+  </div>
+  <p id="myelement"> How to use this web-app: <br>
+						&#9829; This app must be used on a phone/tablet
+						<br> 	&#9829;  This app uses motion to be controlled
+						<br> 	&#9829;  Tap the SYNTH button to start
+						<br> 	&#9829; Inverted mapping makes the volume decrease when you move your phone
+						<br> 	&#9829; Control pitch by moving your phone on the X axis
+						<br> 	&#9829; Activate effects from the right menu, and control them by tilting the phone
+						<br> 	&#9829; Please give me feedback after testing! :)
 
-<body onload="createRandomness()">
 
-      <div id="feedback">
-   <a href="./feedback.html">Feedback?</a>
-    </div>
-<main>
-  <div id="loops">
-    <button id="looper1">Tap here to begin!</button>
+      				</p>
+    <button type="button" class="collapsible" id="helpButton">?</button>
 
+
+    <div class="content">
+      <p>How to use this app:
+          <div class="dots">
     
-    </div>
-
+        <li> This app must be used on a phone/tablet</li>
+        <li> This app uses motion to be controlled</li>
+        <li> Tap the SYNTH button to start </li>
+        <li> Inverted mapping makes the volume decrease when you move your phone </li>
+        <li> Control pitch by moving your phone on the X axis </li> 
+        <li> Activate effects from the right menu, and control them by tilting the phone</li>
+      </div>
       </p>
     </div> 
-    <h2>Micro 2.0</h2>
-    <div id="container3">
+    <h2>Micro 1</h2>
+    <div id="container">
 
- <div id="microContainer3">
- <canvas id="myContainer3">Your browser does not support the HTML5 canvas tag.</canvas>
-<div id ="myContainer3">
-<div id ="myAnimation3">
+<div id="microContainer">
+<div id ="myContainer">
+<div id ="myAnimation">
 </div></div>
-<!-- <img class='img3' src="assets/micro5.png" width="250">
-</img> -->
-
+<img class='img' src="assets/micro2.png" width="250">
+</img>
+    <button id="effectButton1">FX1: OFF</button>
+    <button id="effectButton2">FX2: OFF</button>
+    <button id="effectButton3">FX3: OFF</button>
 </div>
+
+
 <br>
+    <button id="button1">Synth: OFF</button>
+    <button id="button2">Inverse: ON</button><br>
+    <button id="scaleButton1">Scale</button><br>
 
-<div id="about">
-    <li> Use a smartphone</li>
-    <li> Control by moving and tapping your phone</li>
-    <li> Enjoy!</li>
 
-<br> <br>
-    <a href= "https://github.com/FractionMari/micro2"><img src="./assets/GitHub-Mark-Light-64px.png" width="30px"></a>
-    <a rel="license"
-    href="http://creativecommons.org/licenses/by-nc/4.0/">
-    <img alt="Creative Commons License" style="border-width:0" 
-    src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>
-    <br />
-  </div>
-  </p>  
 
-<div id="container7">
-    Y dots: <span id="y_dots">0</span><span>&deg;</span>
-    X dots: <span id="x_dots">0</span>
-    <br> Pitch: <span id="pitchwheel">0</span> 
-<span id="volume_acc">0</span><span>&deg;</span>
-<span id="volume_acc2">0</span><span id="Accelerometer_gx">0</span><span> m/s<sup>2</sup></span><span id="Accelerometer_gy">0</span><span> m/s<sup>2</sup></span><span id="Accelerometer_gz">0</span><span> m/s<sup>2</sup></span>
-<span id="Orientation_b">0</span><span>&deg;</span><span id="Orientation_g">0</span><span>&deg;</span><span id="Orientation_a">0</span><span>&deg;</span> <span id="test_x">0</span> <span id="test_y">0</span><span id="test_z">0</span>
-<span id="total_acc">0</span><span id="total_filter">0</span><span id="diff_acc">0</span>
+
+
+    <div id="container7">
+              Filter Wheel <span id="filterwheel">0</span><span>&deg;</span><br>
+            Volume: <span id="volume_acc">0</span><br>
+        Inverted Volume: <span id="volume_acc2">0</span>
+      Pitch Wheel <span id="pitchwheel">0</span><span>&deg;</span><br>
+        Total acc: <span id="total_acc">0</span><br>
+      X dots: <br> <span id="x_dots">0</span><span>&deg;</span><br> 
+
+      Y dots: <br> <span id="y_dots">0</span><span>&deg;</span><br> 
+  <li>X-axis: <span id="Accelerometer_gx">0</span><span> m/s<sup>2</sup></span></li>
+  <li>Y-axis: <span id="Accelerometer_gy">0</span><span> m/s<sup>2</sup></span></li>
+      Z-axis (&alpha;): <span id="Orientation_a">0</span><span>&deg;</span>
+      X-axis (&beta;): <br> <span id="Orientation_b">0</span><span>&deg;</span><br> 
+      Y-axis (&gamma;): <br> <span id="Orientation_g">0</span><span>&deg;</span><br> 
+        <li>Z-axis: <span id="Accelerometer_gz">0</span><span> m/s<sup>2</sup></span></li>
+      Total filter: <span id="total_filter">0</span><br>
+      Difference: <span id="diff_acc">0</span>
+
+      X-axis: <span id="test_x">0</span>
+      X-axis with filter: <span id="filter_x">0</span>
+      Y-axis: <span id="test_y">0</span>
+      Y-axis with filter: <span id="filter_y">0</span>
+      Z-axis: <span id="test_z">0</span>
+      Z-axis with filter: <span id="filter_z">0</span>
+     
+
+
+      Event count <span id="eventcount">0</span><span>&deg;</span>
+      
+      </div>
+          </div>
+      
+           <a href= "https://github.com/FractionMari/micro"><img src="./assets/GitHub-Mark-Light-64px.png" width="10%"></a>
+     <a rel="license"
+     href="http://creativecommons.org/licenses/by-nc/4.0/">
+     <img alt="Creative Commons License" style="border-width:0" 
+     src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>
+     <br /> 
+      
+      
+      </main>
+      <script>
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+          
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.nextElementSibling;
+              if (content.style.display === "block") {
+                content.style.display = "none";
+              } else {
+                content.style.display = "block";
+              }
+            });
+          }
+          </script>
+
+<script src="prototype1.0.js"></script>
+
 </div>
-
-
-    </div>
-
-
-
-
-
-</main>
-
-<script src="prototype2.0.js"></script>
-
-
 </body>
 </html>
