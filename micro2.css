@@ -522,18 +522,14 @@ color: white;
     10%{
       opacity: 0.9;
     }
-    80%{
-        opacity: 0.9;
-      }
 
-    90%{
-        opacity: 0;
 
-      }
     100%{
-      display: none;
+
       opacity: 0;
-      position: relative;
+      z-index: -1;
+      display: none;
+     
      
 
     }
@@ -541,8 +537,9 @@ color: white;
   
   #myelement{
     position: absolute;
-    top: 200px;
-    left: 000px;
+
+    top: 100px;
+    left: 0px;
     height: 900px;
     width: auto;
     background-color: #000000;
@@ -551,7 +548,7 @@ color: white;
     font-size: 15px;
     
       animation-name: myAnimation;
-      animation-duration: 25000ms;
+      animation-duration: 35000ms;
       animation-fill-mode: forwards;
   
   }
