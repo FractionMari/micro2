@@ -522,28 +522,33 @@ color: white;
     10%{
       opacity: 0.9;
     }
-
-    70%{
+    80%{
         opacity: 0.9;
+      }
+
+    90%{
+        opacity: 0;
 
       }
     100%{
       display: none;
       opacity: 0;
+      position: relative;
+     
 
     }
   }
   
   #myelement{
     position: absolute;
-    top: 0px;
+    top: 200px;
     left: 000px;
     height: 900px;
     width: auto;
     background-color: #000000;
     text-align: center;
     color:rgb(255, 255, 255);
-    font-size: 10px;
+    font-size: 15px;
     
       animation-name: myAnimation;
       animation-duration: 25000ms;
