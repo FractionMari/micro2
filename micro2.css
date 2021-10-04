@@ -516,32 +516,37 @@ color: white;
 
 @keyframes myAnimation{
     0%{
+        opacity: 0;
+      }
+    
+    10%{
       opacity: 0.9;
-      transform: rotateX(90deg);
     }
-    50%{
-      opacity: 0.5;
-      transform: rotateX(0deg);
-    }
+
+    70%{
+        opacity: 0.9;
+
+      }
     100%{
       display: none;
       opacity: 0;
-      transform: rotateX(90deg);
+
     }
   }
   
   #myelement{
     position: absolute;
     top: 0px;
-    left: 200px;
+    left: 000px;
     height: 900px;
-    width: 700px;
+    width: auto;
     background-color: #000000;
     text-align: center;
     color:rgb(255, 255, 255);
+    font-size: 10px;
     
       animation-name: myAnimation;
-      animation-duration: 2000ms;
+      animation-duration: 25000ms;
       animation-fill-mode: forwards;
   
   }
