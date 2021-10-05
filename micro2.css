@@ -417,7 +417,7 @@ color: white;
   } */
 
   #myContainer {
-    top: 0px;
+    top: 40px;
     width: 700px; 
     height: 1200px;
     max-width: 100%;
@@ -567,7 +567,7 @@ color: white;
   }
 
   #looper1 {
-   
+    top: 20px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -584,6 +584,8 @@ color: white;
     font-size: 100%;
     text-align: center;
     color:rgba(0, 0, 0, 0.767);
+    border:4px solid black; 
+    border-radius: 10px; 
   }
 
   .rectangle2 {
