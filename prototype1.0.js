@@ -167,10 +167,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     // multiplying with 5 to get values from 0-100
     let xDotValues = (((event.accelerationIncludingGravity.x * -1) + 10) * 5);
-    // multiplying with 4 to get values from 0-80
-    let yDotValues = ((event.accelerationIncludingGravity.y  + 10) * 4);
-    elem.style.top = yDotValues + 'px'; 
-    elem.style.left = xDotValues + 'px'; 
+    // multiplying with 5 to get values from 0-100
+    let yDotValues = ((event.accelerationIncludingGravity.y  + 10) * 5);
+    elem.style.top = yDotValues + '%'; 
+    elem.style.left = xDotValues + '%'; 
 
     updateFieldIfNotNull('x_dots', xDotValues);
     updateFieldIfNotNull('y_dots', yDotValues);
