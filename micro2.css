@@ -566,6 +566,14 @@ color: white;
   
   }
 
+  #looper1 {
+   
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgba(0, 233, 8, 0.269);
+    
+}
   .button1 {
     position: absolute;
     bottom: 0px;

@@ -247,7 +247,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     }}
     ); 
 
-  document.getElementById("button1").addEventListener("click", function(){
+  document.getElementById("looper1").addEventListener("click", function(){
 
     // Request permission for iOS 13+ devices
     if (
