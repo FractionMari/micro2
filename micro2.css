@@ -574,7 +574,7 @@ color: white;
     background-color: rgba(0, 233, 8, 0.269);
     
 }
-  .button1 {
+  .rectangle {
     position: absolute;
     bottom: 0px;
     left: 0;
@@ -591,11 +591,13 @@ color: white;
   .rectangle2 {
     position: absolute;
     bottom: 0px;
-    left: 0;
+    left: 28%;
     height: 13%;
-    width: 27%;
+    width: 30%;
     background-color: #ff00ea46;
     font-size: 100%;
     text-align: center;
     color:rgba(0, 0, 0, 0.767);
+    border:4px solid black; 
+    border-radius: 10px; 
   }

@@ -172,9 +172,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     elem.style.top = yDotValues + '%'; 
     elem.style.left = xDotValues + '%'; 
 
-    if (yDotValues > 87 && xDotValues < 73)
+    if (yDotValues > 50)
 
-      document.getElementById("button1").innerHTML = "SYNTH: ON"; 
+      document.getElementById("rectangle").innerHTML = "SYNTH: ON"; 
 
 
     updateFieldIfNotNull('x_dots', xDotValues);
