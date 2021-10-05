@@ -172,9 +172,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     elem.style.top = yDotValues + '%'; 
     elem.style.left = xDotValues + '%'; 
 
-    if (yDotValues > 50)
-
-      document.getElementById("rectangle").innerHTML = "SYNTH: ON"; 
+ 
 
 
     updateFieldIfNotNull('x_dots', xDotValues);
@@ -226,6 +224,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pingPong.feedback.value = pingPongYaxis;
     pingPong.wet.value = pingPongXaxis;
     //tremolo.frequency = yDotValues;
+
+    if (yDotValues > 50)
+
+    document.getElementById("rectangle").innerHTML = "SYNTH: ON";
 
     }
     
