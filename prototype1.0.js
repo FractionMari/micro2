@@ -225,9 +225,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pingPong.wet.value = pingPongXaxis;
     //tremolo.frequency = yDotValues;
 
-    if (yDotValues > 50)
 
-    document.getElementById("rectangle").innerHTML = "SYNTH: ON";
+
+    document.getElementById("rectangle").innerHTML = yDotValues;
 
     }
     
