@@ -287,7 +287,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     }
 
-
+/* 
 // Buttons and interaction with GUI
   document.getElementById("button2").addEventListener("click", function(){
   
@@ -304,7 +304,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       
   
     }}
-    ); 
+    );  */
 
   document.getElementById("looper1").addEventListener("click", function(){
 
