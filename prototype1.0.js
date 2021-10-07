@@ -5,6 +5,7 @@ const phaser = new Tone.Phaser().connect(gainNode);
 const autoWah = new Tone.AutoWah(50, 6, -30).connect(gainNode);
 
 let buttonOn = false;
+let buttonOn2 = false;
 const synth = new Tone.MonoSynth({
 	oscillator: {
 		type: "square"
@@ -226,22 +227,33 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     //tremolo.frequency = yDotValues;
 
 
-    if ((buttonOn == true) && (yDotValues > 70) && (xDotValues < 35))
+    if ((buttonOn == true) && (yDotValues > 75) && (xDotValues < 35))
     document.getElementById("rectangle").innerHTML = "Hi",
     buttonOn = false;
 
 
     else if 
-    ((buttonOn == false) && (yDotValues > 70) && (xDotValues < 35))
+    ((buttonOn == false) && (yDotValues > 75) && (xDotValues < 35))
     document.getElementById("rectangle").innerHTML = "Hello!!",
     buttonOn = true;
 
-    else 
-    document.getElementById("rectangle").innerHTML = "";
+
+
+
+    
+    if ((buttonOn2 == true) && (yDotValues > 75) && (xDotValues > 35))
+    document.getElementById("rectangle2").innerHTML = "Hei",
+    buttonOn2 = false;
+
+
+    else if 
+    ((buttonOn2 == false) && (yDotValues > 75) && (xDotValues > 35))
+    document.getElementById("rectangle2").innerHTML = "Halla",
+    buttonOn2 = true;
+
 
 
     }
-    
 
 
 // Buttons and interaction with GUI
