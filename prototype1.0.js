@@ -4,7 +4,7 @@ const pingPong = new Tone.PingPongDelay().connect(gainNode);
 const phaser = new Tone.Phaser().connect(gainNode);
 const autoWah = new Tone.AutoWah(50, 6, -30).connect(gainNode);
 
-let buttonOn = false;
+let buttonOn = 3;
 let buttonOn2 = false;
 const synth = new Tone.MonoSynth({
 	oscillator: {
