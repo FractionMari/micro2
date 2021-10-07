@@ -6,6 +6,10 @@ const autoWah = new Tone.AutoWah(50, 6, -30).connect(gainNode);
 
 let buttonOn = 3;
 let buttonOn2 = false;
+let buttonOn3 = false;
+let buttonOn4 = false;
+let buttonOn5 = false;
+
 const synth = new Tone.MonoSynth({
 	oscillator: {
 		type: "square"
@@ -270,7 +274,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
 
-    
+    // On and off inverse mode
     if ((buttonOn2 == true) && (yDotValues > 75) && (xDotValues > 35))
     document.getElementById("rectangle2").innerHTML = "Inverse: ON",
     inverse = true,
@@ -283,9 +287,40 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     inverse = false,
     setTimeout(myTimeout5, 2000);
 
+    // Effects on and off
+
+    function myTimeout6() {
+      buttonOn3 = false;
+    }
+
+    function myTimeout7() {
+      buttonOn3 = true;
+    }
+
+
+
+    if ((buttonOn3 == true) && (yDotValues < 20) && (xDotValues > 40))
+    document.getElementById("rectangle3").innerHTML = "FX1: OFF",
+    synth.disconnect(pingPong),
+    synth2.disconnect(pingPong),
+    setTimeout(myTimeout6, 2000);
+
+
+    else if 
+    ((buttonOn3 == false) && (yDotValues > 20) && (xDotValues > 40))
+    document.getElementById("rectangle3").innerHTML = "FX1: ON",
+    synth.connect(pingPong),
+    synth2.connect(pingPong),
+    setTimeout(myTimeout7, 2000);
+
+
 
 
     }
+
+
+
+
 
 /* 
 // Buttons and interaction with GUI
