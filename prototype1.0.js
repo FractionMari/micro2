@@ -230,7 +230,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle").innerHTML = "Hi",
     buttonOn = false;
 
-    else if 
+    if 
     ((buttonOn = false) && (yDotValues > 75) && (xDotValues < 30))
     document.getElementById("rectangle").innerHTML = "Hello!!",
     buttonOn = true;
