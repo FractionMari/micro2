@@ -226,16 +226,18 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     //tremolo.frequency = yDotValues;
 
 
-    if ((buttonOn == true) && (yDotValues > 75) && (xDotValues < 30))
+    if ((buttonOn == true) && (yDotValues > 70) && (xDotValues < 35))
     document.getElementById("rectangle").innerHTML = "Hi",
     buttonOn = false;
-/*     else 
-    document.getElementById("rectangle").innerHTML = ""; */
+
 
     else if 
-    ((buttonOn == false) && (yDotValues > 75) && (xDotValues < 30))
+    ((buttonOn == false) && (yDotValues > 70) && (xDotValues < 35))
     document.getElementById("rectangle").innerHTML = "Hello!!",
     buttonOn = true;
+
+    else 
+    document.getElementById("rectangle").innerHTML = "";
 
 
     }
