@@ -307,7 +307,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     else if 
-    ((buttonOn3 == false) && (yDotValues > 20) && (xDotValues > 70))
+    ((buttonOn3 == false) && (yDotValues < 20) && (xDotValues > 70))
     document.getElementById("rectangle3").innerHTML = "FX1: ON",
     synth.connect(pingPong),
     synth2.connect(pingPong),
