@@ -226,7 +226,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     //tremolo.frequency = yDotValues;
 let buttonOn = false;
 
-    if ((buttonOn = true) && (yDotValues > 75) && (xDotValues < 30))
+    if ((buttonOn = false) && (yDotValues > 75) && (xDotValues < 30))
     document.getElementById("rectangle").innerHTML = "Hello!!",
     buttonOn = true;
     else if ((buttonOn = true) && (yDotValues > 75) && (xDotValues < 30))
