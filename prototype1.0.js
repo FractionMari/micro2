@@ -225,13 +225,19 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pingPong.feedback.value = pingPongYaxis;
     pingPong.wet.value = pingPongXaxis;
     //tremolo.frequency = yDotValues;
+    function myTimeout1() {
+      buttonOn = false;
+    }
 
+    function myTimeout2() {
+      buttonOn = true;
+    }
 
     if ((buttonOn == true) && (yDotValues > 75) && (xDotValues < 35))
     document.getElementById("rectangle").innerHTML = "Skala1",
     scaleSelect = ["G1", "A1","C2", "D2", "F2", "G2", "A2","C3", "D3", "F3", "G3", "A3","C4", "D4", "F4", "G4", "A4", "C5", "D5", "F5", "G5", "A5", "C6"],
   
-    setTimeout(buttonOn = false, 2000);
+    setTimeout(myTimeout1, 2000);
 
 
     else if 
@@ -239,7 +245,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle").innerHTML = "Skala2",
     scaleSelect = ["C2", "D2", "E2", "Gb2", "Ab2", "Bb2", "C3", "D3", "Gb3", "Ab3", "Bb3", "C4", "D4", "E4", "Gb4", "Ab4", "Bb4", "C5", "D5", "E5", "Gb5", "Ab5", "Bb5", "C6"],
 
-    setTimeout(buttonOn = true, 2000);
+    setTimeout(myTimeout2, 2000);
 
 
 
