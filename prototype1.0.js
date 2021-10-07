@@ -260,18 +260,28 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     setTimeout(myTimeout3, 2000);
 
 
+    function myTimeout4() {
+      buttonOn2 = false;
+    }
+
+    function myTimeout5() {
+      buttonOn2 = true;
+    }
+
 
 
     
     if ((buttonOn2 == true) && (yDotValues > 75) && (xDotValues > 35))
-    document.getElementById("rectangle2").innerHTML = "Hei",
-    buttonOn2 = false;
+    document.getElementById("rectangle2").innerHTML = "Inverse: ON",
+    inverse = true,
+    setTimeout(myTimeout4, 2000);
 
 
     else if 
     ((buttonOn2 == false) && (yDotValues > 75) && (xDotValues > 35))
-    document.getElementById("rectangle2").innerHTML = "Halla",
-    buttonOn2 = true;
+    document.getElementById("rectangle2").innerHTML = "Inverse: OFF",
+    inverse = false,
+    setTimeout(myTimeout5, 2000);
 
 
 
@@ -423,7 +433,7 @@ document.getElementById("effectButton3").addEventListener("click", function(){
 ); 
 
 
-document.getElementById("scaleButton1").addEventListener("click", function(){
+/* document.getElementById("scaleButton1").addEventListener("click", function(){
 
     if (this.className == 'is-playing')
       
@@ -450,4 +460,4 @@ document.getElementById("scaleButton1").addEventListener("click", function(){
   
   
   }}
-  ); 
+  );  */
