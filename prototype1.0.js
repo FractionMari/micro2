@@ -224,9 +224,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pingPong.feedback.value = pingPongYaxis;
     pingPong.wet.value = pingPongXaxis;
     //tremolo.frequency = yDotValues;
+let buttonOn = false;
 
-    if ((yDotValues > 75) && (xDotValues < 30))
-    document.getElementById("rectangle").innerHTML = "Hello!!";
+    if ((buttonOn = true) && (yDotValues > 75) && (xDotValues < 30))
+    document.getElementById("rectangle").innerHTML = "Hello!!",
+    buttonOn = true;
+    else if ((buttonOn = true) && (yDotValues > 75) && (xDotValues < 30))
+    document.getElementById("rectangle").innerHTML = "Hi",
+    buttonOn = false;
 
 
     }
