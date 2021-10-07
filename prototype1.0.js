@@ -226,8 +226,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     //tremolo.frequency = yDotValues;
 
 
-
     document.getElementById("rectangle").innerHTML = yDotValues;
+
 
     }
     
@@ -240,6 +240,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       this.className = "";
       this.innerHTML = "Inverse: ON"
       inverse = true;
+
   
     }else{
       this.className = "is-playing";
