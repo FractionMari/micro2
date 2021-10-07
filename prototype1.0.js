@@ -225,8 +225,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pingPong.wet.value = pingPongXaxis;
     //tremolo.frequency = yDotValues;
 
-
-    document.getElementById("rectangle").innerHTML = yDotValues;
+    if (yDotValues > 50)
+    document.getElementById("rectangle").innerHTML = "Synth 2: On";
 
 
     }
@@ -246,6 +246,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       this.className = "is-playing";
       this.innerHTML = "Inverse: OFF";
       inverse = false;
+      
   
     }}
     ); 
