@@ -226,26 +226,38 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pingPong.wet.value = pingPongXaxis;
     //tremolo.frequency = yDotValues;
     function myTimeout1() {
-      buttonOn = false;
+      buttonOn = 1;
     }
 
     function myTimeout2() {
-      buttonOn = true;
+      buttonOn = 2;
     }
 
-    if ((buttonOn == true) && (yDotValues > 75) && (xDotValues < 35))
-    document.getElementById("rectangle").innerHTML = "Skala1",
+    function myTimeout3() {
+      buttonOn = 3;
+    }
+
+    if ((buttonOn == 3) && (yDotValues > 75) && (xDotValues < 35))
+    document.getElementById("rectangle").innerHTML = "Scale 1",
     scaleSelect = ["G1", "A1","C2", "D2", "F2", "G2", "A2","C3", "D3", "F3", "G3", "A3","C4", "D4", "F4", "G4", "A4", "C5", "D5", "F5", "G5", "A5", "C6"],
   
     setTimeout(myTimeout1, 2000);
 
 
     else if 
-    ((buttonOn == false) && (yDotValues > 75) && (xDotValues < 35))
-    document.getElementById("rectangle").innerHTML = "Skala2",
+    ((buttonOn == 1) && (yDotValues > 75) && (xDotValues < 35))
+    document.getElementById("rectangle").innerHTML = "Scale 2",
     scaleSelect = ["C2", "D2", "E2", "Gb2", "Ab2", "Bb2", "C3", "D3", "Gb3", "Ab3", "Bb3", "C4", "D4", "E4", "Gb4", "Ab4", "Bb4", "C5", "D5", "E5", "Gb5", "Ab5", "Bb5", "C6"],
 
     setTimeout(myTimeout2, 2000);
+
+
+    else if 
+    ((buttonOn == 2) && (yDotValues > 75) && (xDotValues < 35))
+    document.getElementById("rectangle").innerHTML = "Scale 3",
+    scaleSelect = ["C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3", "D3", "E3", "F3", "G3", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5"],
+
+    setTimeout(myTimeout3, 2000);
 
 
 
