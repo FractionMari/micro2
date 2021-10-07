@@ -229,10 +229,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     if ((buttonOn == true) && (yDotValues > 75) && (xDotValues < 30))
     document.getElementById("rectangle").innerHTML = "Hi",
     buttonOn = false;
-    else 
-    document.getElementById("rectangle").innerHTML = "";
+/*     else 
+    document.getElementById("rectangle").innerHTML = ""; */
 
-    if 
+    else if 
     ((buttonOn == false) && (yDotValues > 75) && (xDotValues < 30))
     document.getElementById("rectangle").innerHTML = "Hello!!",
     buttonOn = true;
