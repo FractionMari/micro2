@@ -4,7 +4,7 @@ const pingPong = new Tone.PingPongDelay().connect(gainNode);
 const phaser = new Tone.Phaser().connect(gainNode);
 const autoWah = new Tone.AutoWah(50, 6, -30).connect(gainNode);
 
-
+let buttonOn = false;
 const synth = new Tone.MonoSynth({
 	oscillator: {
 		type: "square"
@@ -224,11 +224,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pingPong.feedback.value = pingPongYaxis;
     pingPong.wet.value = pingPongXaxis;
     //tremolo.frequency = yDotValues;
-let buttonOn = false;
+
 
     if ((buttonOn = true) && (yDotValues > 75) && (xDotValues < 30))
     document.getElementById("rectangle").innerHTML = "Hi",
     buttonOn = false;
+
     else if 
     ((buttonOn = false) && (yDotValues > 75) && (xDotValues < 30))
     document.getElementById("rectangle").innerHTML = "Hello!!",
