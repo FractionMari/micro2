@@ -36,56 +36,132 @@ const pitchShift = new Tone.PitchShift().connect(pingPong);
 
 
 let synth4pitch;
-const synth = new Tone.MonoSynth({
-	oscillator: {
-		type: "sine2"
-	},
-	envelope: {
-		attack: 0.5,
-		decay: 0.3,
-		sustain: 1.0,
-		release: 0.8
-	}
-}).connect(phaser);
 
-const synth2 = new Tone.MonoSynth({
-	oscillator: {
-		type: "sine"
-	},
-	envelope: {
-		attack: 0.5,
-		decay: 0.3,
-		sustain: 1.0,
-		release: 0.8
-	}
-}).connect(phaser);
+    // bass
+    const synth0 = new Tone.AMSynth({
+        volume: -9,
+        oscillator: {
+          type: "sine9"
+        },
+    });
 
-const synth3 = new Tone.MonoSynth({
-  oscillator: {
-    type: "sine8"
-  },
-  envelope: {
-    attack: 0.5,
-    decay: 0.3,
-    sustain: 0.4,
-    release: 0.8,
-  }
-}).connect(phaser);
+    // harmony
+    const synth = new Tone.DuoSynth({
+        volume: -19,
+        voice0: {
+            oscillator: {
+                type: "fmsawtooth",
 
-const synth4 = new Tone.MonoSynth({
-  oscillator: {
-    type: "square2"
-  },
-  envelope: {
-    attack: 0.5,
-    decay: 0.3,
-    sustain: 0.4,
-    release: 0.3,
-  }
-}).connect(pitchShift);
+              },
+            envelope: {
+                attack: 0.9,
+                decay: 0.3,
+                sustain: 1,
+                release: 0.9,
+            },
+            filter: {
+                Q: 17,
+                frequency: 850,
+
+            },
+        },
+
+        voice1: {
+            oscillator: {
+                type: "pulse",
+
+              },
+
+        },
 
 
-const synth5 = new Tone.MembraneSynth().toDestination();
+
+      })
+    const synth2 = new Tone.Synth({
+        volume: -9,
+        oscillator: {
+          type: "sine3"
+        },
+        envelope: {
+          attack: 0.1,
+          decay: 0.3,
+          sustain: 0.4,
+          release: 0.8,
+        }/* ,
+        filterEnvelope: {
+          attack: 0.01,
+          decay: 0.7,
+          sustain: 0.1,
+          release: 0.8,
+          baseFrequency: 300,
+          octaves: 4
+        } */
+      });
+  //  const synth3 = new Tone.PluckSynth();
+    const synth3 = new Tone.Synth({
+        volume: -9,
+        oscillator: {
+          type: "sine6"
+        },
+        envelope: {
+          attack: 0.1,
+          decay: 0.3,
+          sustain: 0.4,
+          release: 0.5,
+        }/* ,
+        filterEnvelope: {
+          attack: 0.001,
+          decay: 0.7,
+          sustain: 0.1,
+          release: 0.8,
+          baseFrequency: 300,
+          octaves: 4
+        } */
+      });
+
+      // melody synth: 
+      const synth4 = new Tone.Synth({
+        volume: 1,
+        oscillator: {
+            type: "sine7"
+        },
+        envelope: {
+          attack: 0.1,
+          decay: 0.3,
+          sustain: 0.4,
+          release: 0.5,
+        }/* ,
+        filterEnvelope: {
+          attack: 0.001,
+          decay: 0.7,
+          sustain: 0.1,
+          release: 0.8,
+          baseFrequency: 300,
+          octaves: 4
+        } */
+      });
+
+    const synth5 = new Tone.MembraneSynth({
+        envelope: {
+            attack: 0.9,
+            decay: 0.6,
+            sustain: 0.4,
+            release: 0.5,
+          },
+       volume: -7
+    }).connect(gainNode);
+
+    // Hi hat:
+    const synth6 = new Tone.MetalSynth({
+        envelope: {
+            attack: 0.1,
+            decay: 0.2,
+            sustain: 0.1,
+            release: 0.1,
+          },
+       volume: -15,
+    }
+    ).connect(gainNode);
 
 
 // Other Variables
