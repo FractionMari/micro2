@@ -218,7 +218,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pitchWheel = (pitchWheel * -1) + 10;
     updateFieldIfNotNull('pitchwheel', pitchWheel);
     pitchShift(pitchWheel, synth, scaleSelect);
-    pitchShift(pitchWheel, synth2, scaleSelect);
+    
+    //pitchShift(pitchWheel, synth2, scaleSelect);
 
     // Effects
     
@@ -330,7 +331,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     if ((buttonOn3 == true) && (yDotValues < 20) && (xDotValues > 70))
     document.getElementById("rectangle3").innerHTML = "FX1: OFF",
     synth.disconnect(pingPong),
-    synth2.disconnect(pingPong),
+    //synth2.disconnect(pingPong),
     setTimeout(myTimeout6, 2000);
 
 
@@ -338,14 +339,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ((buttonOn3 == false) && (yDotValues < 13) && (xDotValues > 70))
     document.getElementById("rectangle3").innerHTML = "FX1: ON",
     synth.connect(pingPong),
-    synth2.connect(pingPong),
+    //synth2.connect(pingPong),
     setTimeout(myTimeout7, 2000);
 
 // auto wah effect
     if ((buttonOn4 == true) && (yDotValues < 30) && (yDotValues > 20) && (xDotValues > 70))
     document.getElementById("rectangle4").innerHTML = "FX2: OFF",
     synth.disconnect(autoWah),
-    synth2.disconnect(autoWah),
+    //synth2.disconnect(autoWah),
     setTimeout(myTimeout8, 2000);
 
 
@@ -353,14 +354,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ((buttonOn4 == false) && (yDotValues < 30) && (yDotValues > 20) && (xDotValues > 70))
     document.getElementById("rectangle4").innerHTML = "FX2: ON",
     synth.connect(autoWah),
-    synth2.connect(autoWah),
+   // synth2.connect(autoWah),
     setTimeout(myTimeout9, 2000);
 
 // phaser effect
     if ((buttonOn5 == true) && (yDotValues < 50) && (yDotValues > 40) && (xDotValues > 70))
     document.getElementById("rectangle5").innerHTML = "FX3: OFF",
     synth.disconnect(phaser),
-    synth2.disconnect(phaser),
+    //synth2.disconnect(phaser),
     setTimeout(myTimeout10, 2000);
 
 
@@ -368,7 +369,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ((buttonOn5 == false) && (yDotValues < 50) && (yDotValues > 40) && (xDotValues > 70))
     document.getElementById("rectangle5").innerHTML = "FX3: ON",
     synth.connect(phaser),
-    synth2.connect(phaser),
+    //synth2.connect(phaser),
     setTimeout(myTimeout11, 2000);
     }
 
