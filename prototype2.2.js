@@ -25,7 +25,7 @@
 // 18. august
 // tidying up, and trying to create a more musical loop rather than random?
 
-// 8. Finishing the second iteration. applying some viusal feedback.
+// 8. october Finishing the second iteration. applying some viusal feedback.
 
 
 // Tone.js parameters:
@@ -217,12 +217,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ///////////////////////////////////////////
 
 
-        // default value from 0-20. multiplying with 15 to get values from 0-300
-        let xDotValues = (((event.accelerationIncludingGravity.x * -1) + 10) * 15);
-        // defaiøt values from 0-20. multiplying with 8 to get values from 0-160
-        let yDotValues = ((event.accelerationIncludingGravity.y  + 10) * 8);
-    elem.style.top = yDotValues + 'px'; 
-    elem.style.left = xDotValues + 'px'; 
+    // multiplying with 5 to get values from 0-100
+    let xDotValues = (((event.accelerationIncludingGravity.x * -1) + 10) * 5);
+    // multiplying with 5 to get values from 0-100
+    let yDotValues = ((event.accelerationIncludingGravity.y  + 10) * 5);
+    elem.style.top = yDotValues + '%'; 
+    elem.style.left = xDotValues + '%';  
 
     updateFieldIfNotNull('x_dots', xDotValues);
     updateFieldIfNotNull('y_dots', yDotValues);
@@ -256,10 +256,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pattern.mute = true;
 
         // On and off Pattern2
-        if ((yDotValues < 30) && (xDotValues > 200))
+        if ((yDotValues < 30) && (xDotValues > 80))
         pattern2.mute = true;
 
-        else if ((yDotValues > 80) && (xDotValues < 200))
+        else if ((yDotValues > 80) && (xDotValues < 800))
         pattern2.mute = false;
 
     
