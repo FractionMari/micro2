@@ -10,20 +10,9 @@ let buttonOn3 = false;
 let buttonOn4 = false;
 let buttonOn5 = false;
 
-    // deafault synth:
-    let synth = new Tone.MonoSynth({
-      oscillator: {
-          type: "sine2"
-      }/* ,
-      envelope: {
-          attack: 0.5,
-          decay: 0.3,
-          sustain: 1.0,
-          release: 0.8
-      } */
-  }).connect(gainNode);
 
-/* const synth = new Tone.MonoSynth({
+
+const synth = new Tone.MonoSynth({
 	oscillator: {
 		type: "square"
 	},
@@ -44,7 +33,7 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(gainNode); */
+}).connect(gainNode);
 
 
 //const synth = new Tone.FMSynth().connect(gainNode);
@@ -218,8 +207,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     pitchWheel = (pitchWheel * -1) + 10;
     updateFieldIfNotNull('pitchwheel', pitchWheel);
     pitchShift(pitchWheel, synth, scaleSelect);
-    
-    //pitchShift(pitchWheel, synth2, scaleSelect);
+    pitchShift(pitchWheel, synth2, scaleSelect);
 
     // Effects
     
@@ -331,7 +319,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     if ((buttonOn3 == true) && (yDotValues < 20) && (xDotValues > 70))
     document.getElementById("rectangle3").innerHTML = "FX1: OFF",
     synth.disconnect(pingPong),
-    //synth2.disconnect(pingPong),
+    synth2.disconnect(pingPong),
     setTimeout(myTimeout6, 2000);
 
 
@@ -339,14 +327,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ((buttonOn3 == false) && (yDotValues < 13) && (xDotValues > 70))
     document.getElementById("rectangle3").innerHTML = "FX1: ON",
     synth.connect(pingPong),
-    //synth2.connect(pingPong),
+    synth2.connect(pingPong),
     setTimeout(myTimeout7, 2000);
 
 // auto wah effect
     if ((buttonOn4 == true) && (yDotValues < 30) && (yDotValues > 20) && (xDotValues > 70))
     document.getElementById("rectangle4").innerHTML = "FX2: OFF",
     synth.disconnect(autoWah),
-    //synth2.disconnect(autoWah),
+    synth2.disconnect(autoWah),
     setTimeout(myTimeout8, 2000);
 
 
@@ -354,14 +342,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ((buttonOn4 == false) && (yDotValues < 30) && (yDotValues > 20) && (xDotValues > 70))
     document.getElementById("rectangle4").innerHTML = "FX2: ON",
     synth.connect(autoWah),
-   // synth2.connect(autoWah),
+    synth2.connect(autoWah),
     setTimeout(myTimeout9, 2000);
 
 // phaser effect
     if ((buttonOn5 == true) && (yDotValues < 50) && (yDotValues > 40) && (xDotValues > 70))
     document.getElementById("rectangle5").innerHTML = "FX3: OFF",
     synth.disconnect(phaser),
-    //synth2.disconnect(phaser),
+    synth2.disconnect(phaser),
     setTimeout(myTimeout10, 2000);
 
 
@@ -369,7 +357,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     ((buttonOn5 == false) && (yDotValues < 50) && (yDotValues > 40) && (xDotValues > 70))
     document.getElementById("rectangle5").innerHTML = "FX3: ON",
     synth.connect(phaser),
-    //synth2.connect(phaser),
+    synth2.connect(phaser),
     setTimeout(myTimeout11, 2000);
     }
 
@@ -377,7 +365,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
 
-/*   document.getElementById("looper1").addEventListener("click", function(){
+  document.getElementById("looper1").addEventListener("click", function(){
 
     // Request permission for iOS 13+ devices
     if (
@@ -424,96 +412,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       is_running = true;    
   
     }}
-    ); */
+    );
 
-
-    document.getElementById("looper1").addEventListener("click", function(){
-
-      // Request permission for iOS 13+ devices
-      if (
-        DeviceMotionEvent &&
-        typeof DeviceMotionEvent.requestPermission === "function"
-      ) {
-        DeviceMotionEvent.requestPermission();
-      }
-      
-      
-      if(this.className == 'is-playing'){
-        this.className = "";
-        this.innerHTML = "Synth: OFF"
-        synth.triggerRelease();
-        //synth2.triggerRelease();
-        window.removeEventListener("devicemotion", handleMotion);
-        is_running = false;
-  
-    
-      }else if (this.className == 'is-playing2')
-          
-      {
-  
-        this.className = "is-playing";
-        this.innerHTML = "Synth 2: ON";
-  
-        synth = new Tone.DuoSynth({
-          volume: -19,
-          voice0: {
-              oscillator: {
-                  type: "fmsawtooth",
-  
-                },
-              envelope: {
-                  attack: 0.9,
-                  decay: 0.3,
-                  sustain: 1,
-                  release: 0.9,
-              },
-              filter: {
-                  Q: 17,
-                  frequency: 850,
-  
-              },
-          },
-  
-          voice1: {
-              oscillator: {
-                  type: "pulse",
-  
-                },
-  
-          },
-  
-  
-        }).connect(gainNode);
-        window.addEventListener("devicemotion", handleMotion);
-        is_running = true;  
-    
-      }else{
-  
-  
-  
-        this.className = "is-playing2";
-        this.innerHTML = "Synth 1: ON";
-        //const synth = new Tone.AMSynth().connect(gainNode);
-  
-        synth = new Tone.MonoSynth({
-          oscillator: {
-              type: "sine2"
-          }/* ,
-          envelope: {
-              attack: 0.5,
-              decay: 0.3,
-              sustain: 1.0,
-              release: 0.8
-          } */
-      }).connect(gainNode);
-    
-
-        synth.triggerAttack("C4"); 
-        window.addEventListener("devicemotion", handleMotion);
-        is_running = true;    
-    
-      }}
-      );
 
 
 
