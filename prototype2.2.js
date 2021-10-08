@@ -27,321 +27,135 @@
 
 // 8. october Finishing the second iteration. applying some viusal feedback.
 
+
+// Tone.js parameters:
+const gainNode = new Tone.Gain().toDestination();
+const pingPong = new Tone.PingPongDelay().connect(gainNode);
+const phaser = new Tone.Phaser().connect(pingPong);
+const pitchShift = new Tone.PitchShift().connect(pingPong);
+
+
+let synth4pitch;
+const synth = new Tone.MonoSynth({
+	oscillator: {
+		type: "sine2"
+	},
+	envelope: {
+		attack: 0.5,
+		decay: 0.3,
+		sustain: 1.0,
+		release: 0.8
+	}
+}).connect(phaser);
+
+const synth2 = new Tone.MonoSynth({
+	oscillator: {
+		type: "sine"
+	},
+	envelope: {
+		attack: 0.5,
+		decay: 0.3,
+		sustain: 1.0,
+		release: 0.8
+	}
+}).connect(phaser);
+
+const synth3 = new Tone.MonoSynth({
+  oscillator: {
+    type: "sine8"
+  },
+  envelope: {
+    attack: 0.5,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.8,
+  }
+}).connect(phaser);
+
+const synth4 = new Tone.MonoSynth({
+  oscillator: {
+    type: "square2"
+  },
+  envelope: {
+    attack: 0.5,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.3,
+  }
+}).connect(pitchShift);
+
+
+const synth5 = new Tone.MembraneSynth().toDestination();
+
+
 // Other Variables
 let newAcc;
 let newAcc2;
 // let inverse = true;
 let is_running = false;
 let demo_button = document.getElementById("start_demo");
-
-
-  ///////// TONE.JS VARIABLES ///////////
-  const gainNode = new Tone.Gain().toDestination();
-
-  const pingPong = new Tone.PingPongDelay().connect(gainNode);
-
-  pingPong.wet.value = 0.2;
-  const reverb = new Tone.Reverb().connect(pingPong);
-  reverb.dampening = 1000;
-
-  reverb.wet.value = 0.8;
-  const autoWah = new Tone.AutoWah({
-      frequency: 200,
-      baseFrequency: 440,
-      wet: 0.3,
-      gain: 0.1,
-  }).connect(reverb);
-
-  // bass
-  const synth0 = new Tone.AMSynth({
-      volume: -9,
-      oscillator: {
-        type: "sine9"
-      },
-  });
-
-  // harmony
-  const synth = new Tone.DuoSynth({
-      volume: -19,
-      voice0: {
-          oscillator: {
-              type: "fmsawtooth",
-
-            },
-          envelope: {
-              attack: 0.9,
-              decay: 0.3,
-              sustain: 1,
-              release: 0.9,
-          },
-          filter: {
-              Q: 17,
-              frequency: 850,
-
-          },
-      },
-
-      voice1: {
-          oscillator: {
-              type: "pulse",
-
-            },
-
-      },
+Tone.Transport.bpm.value = 50;
 
 
 
-    })
-  const synth2 = new Tone.Synth({
-      volume: -9,
-      oscillator: {
-        type: "sine3"
-      },
-      envelope: {
-        attack: 0.1,
-        decay: 0.3,
-        sustain: 0.4,
-        release: 0.8,
-      }/* ,
-      filterEnvelope: {
-        attack: 0.01,
-        decay: 0.7,
-        sustain: 0.1,
-        release: 0.8,
-        baseFrequency: 300,
-        octaves: 4
-      } */
-    });
-//  const synth3 = new Tone.PluckSynth();
-  const synth3 = new Tone.Synth({
-      volume: -9,
-      oscillator: {
-        type: "sine6"
-      },
-      envelope: {
-        attack: 0.1,
-        decay: 0.3,
-        sustain: 0.4,
-        release: 0.5,
-      }/* ,
-      filterEnvelope: {
-        attack: 0.001,
-        decay: 0.7,
-        sustain: 0.1,
-        release: 0.8,
-        baseFrequency: 300,
-        octaves: 4
-      } */
-    });
+  // Random tone generator 
+  const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
+  // the bitwise Or does the same as Math.floor
+  //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
+  const notes = [7, 9, 12, 14, 16, 19]; 
+  const notes2 = [0, 2, 4,  7, 9, 12]; 
+  const notes3 = [-8, -5, -3 ,0, 2, 4]; 
+   // const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19]; 
 
-    // melody synth: 
-    const synth4 = new Tone.Synth({
-      volume: 1,
-      oscillator: {
-          type: "sine7"
-      },
-      envelope: {
-        attack: 0.1,
-        decay: 0.3,
-        sustain: 0.4,
-        release: 0.5,
-      }/* ,
-      filterEnvelope: {
-        attack: 0.001,
-        decay: 0.7,
-        sustain: 0.1,
-        release: 0.8,
-        baseFrequency: 300,
-        octaves: 4
-      } */
-    });
+  let randomArray = [];
+  let randomArray2 = [];
+  let randomArray3 = [];
+  function createRandomness() {
+    for (var i = 0; i < 100; i += 1) {
 
-  const synth5 = new Tone.MembraneSynth({
-      envelope: {
-          attack: 0.9,
-          decay: 0.6,
-          sustain: 0.4,
-          release: 0.5,
-        },
-     volume: -7
-  }).connect(gainNode);
-
-  // Hi hat:
-  const synth6 = new Tone.MetalSynth({
-      envelope: {
-          attack: 0.1,
-          decay: 0.2,
-          sustain: 0.1,
-          release: 0.1,
-        },
-     volume: -15,
-  }
-  ).connect(gainNode);
-
-
-  gainNode.gain.value = 0.5;
+      const randomNote = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
   
-
-//Tone.Transport.bpm.value = 40;
-
-
-
-// Random tone generator 
-
-// Defining frequencies
-
-const freq = note => 2 ** (note / 12) * 440; 
-
-
-
-   // creating a random rhythm
-   function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-  const random0 = getRandomInt(15) + 2;
-  const randomScale = getRandomInt(4);
-  const randomTimbre = getRandomInt(4);
-  const randomTempo = getRandomInt(5);
-
-
-function createRandomness() {
-// diatonic scales 
-const notes3 = [6, 8, 9, 11, 13, 14]; 
-const notes2 = [-4, -3, -1,  1, 2, 4]; 
-const notes = [-18, -16, -15 ,-13, -11, -10, -8 , -6]; 
-
-const notes3_1 = [5, 7, 8, 10, 12, 13]; 
-const notes2_1 = [-5, -4, -2,  0, 1, 3]; 
-const notes_1 = [-19, -17, -16 ,-14, -12, -11, -9 , -7]; 
-
-const pentaNotes3 = [4, 7, 9, 12, 14, 16]; 
-const pentaNotes2 = [-7, -5 , -3, 0,  2, 4, 7]; 
-const pentaNotes = [-19, -17, -15, -12 ,-10, -7, -5, -3 ,0]; 
-
-const wholeNotes3 = [10, 12, 14, 16, 18, 20]; 
-const wholeNotes2 = [-2 , 0, 2,  4, 6, 8]; 
-const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10]; 
-
-
-
-
-
- // const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19]; 
-
-let randomArray = [];
-let randomArray2 = [];
-let randomArray3 = [];
-let randomHiHatArray = [];
-let randomDrumArray = [];
-let randomMelodyArray = [];
-
-
-    if (randomTimbre == 0) 
-    synth4.oscillator.type = "fmsine";
-    if (randomTimbre == 1) 
-    synth4.oscillator.type = "pwm";
-    if (randomTimbre == 2) 
-    synth4.oscillator.type = "pulse";
-    else
-    synth4.oscillator.type = "amsawtooth4";
-    //console.log(randomTimbre, synth4.oscillator.type);
-
-    if (randomTempo == 0) 
-    Tone.Transport.bpm.value = 40;
-    if (randomTempo == 1) 
-    Tone.Transport.bpm.value = 40;
-    if (randomTempo == 2) 
-    Tone.Transport.bpm.value = 80;
-    if (randomTempo == 3) 
-    Tone.Transport.bpm.value = 120;
-    if (randomTempo == 4) 
-    Tone.Transport.bpm.value = 60;
-
-
-    document.getElementById("timeSign").innerHTML =
-    "Time signature: " + random0 + " / 16";
-
-    document.getElementById("tempo").innerHTML =
-    "BPM: " + Tone.Transport.bpm.value;
-
-    let scaleNotes = [];
-    let scaleNotes2 = [];
-    let scaleNotes3 = [];
-
-    if (randomScale == 0)
-    scaleNotes = pentaNotes,
-    scaleNotes2 = pentaNotes2,
-    scaleNotes3 = pentaNotes3,
-    document.getElementById("scale").innerHTML =
-    "Scale: pentatone";
-    if (randomScale == 1)
-    scaleNotes = wholeNotes,
-    scaleNotes2 = wholeNotes2,
-    scaleNotes3 = wholeNotes3,
-    document.getElementById("scale").innerHTML =
-    "Scale: wholetone";
-    if (randomScale == 2)
-    scaleNotes = notes_1,
-    scaleNotes2 = notes2_1,
-    scaleNotes3 = notes3_1,
-    document.getElementById("scale").innerHTML =
-    "Scale: diatonic2";
-    else
-    scaleNotes = notes,
-    scaleNotes2 = notes2,
-    scaleNotes3 = notes3,
-    document.getElementById("scale").innerHTML =
-    "Scale: diatonic";
-
+      let random = freq(randomNote());
+      randomArray.push(random);
   
-  for (var i = 0; i < random0; i += 1) {
+  
+      const randomNote2 = () => notes[Math.random() * notes2.length | 0]; // the bitwise Or does the same as Math.floor
+     let random2 = freq(randomNote2());
+     randomArray2.push(random2);
+  
+     const randomNote3 = () => notes[Math.random() * notes3.length | 0]; // the bitwise Or does the same as Math.floor
+     let random3 = freq(randomNote3());
+     randomArray3.push(random3);
 
-    const randomNote = () => scaleNotes[Math.random() * scaleNotes.length | 0]; 
-
-    let random = freq(randomNote());
-    randomArray.push(random);
-
-
-    const randomNote2 = () => scaleNotes2[Math.random() * scaleNotes2.length | 0]; 
-   let random2 = freq(randomNote2());
-   randomArray2.push(random2);
-
-   const randomNote3 = () => scaleNotes3[Math.random() * scaleNotes3.length | 0]; 
-   let random3 = freq(randomNote3());
-   randomArray3.push(random3);
-   
-
-   let random4 = getRandomInt(10);
-   let random5 = getRandomInt(14);
-   let randomMelody = getRandomInt(14);
-
-    if (random4 > 4)
-    randomHiHatArray.push(("C1 C1").split(" ")),
-    randomMelodyArray.push(random);
-    if (random4 == 1)
-    randomHiHatArray.push(("C1 C1").split(" ")),
-    randomMelodyArray.push((0 + " " + random).split(" "));
-    else
-    randomHiHatArray.push("C1"),
-    randomMelodyArray.push((random + " " + random + " " + random).split(" "));
-
-    if (random5 > 10)
-    randomDrumArray.push(("C1 C1").split(" "));
-    if (random5 == 1)
-    randomDrumArray.push(("C1 C1 C1").split(" "));
-    if (random5 > 8)
-    randomDrumArray.push("F2");
-    else
-    randomDrumArray.push("C1")
-
-};
+  };
 
 
-//console.log(randomDrumArray);
+                  
+  }
 
 
+var pattern = new Tone.Pattern(function(time, note){
+	synth.triggerAttackRelease(note, 0.5);
+}, randomArray);
+var pattern2 = new Tone.Pattern(function(time, note){
+	synth2.triggerAttackRelease(note, 0.5);
+}, randomArray2);
+var pattern3 = new Tone.Pattern(function(time, note){
+	synth3.triggerAttackRelease(note, 0.5);
+}, randomArray3);
 
-}
+var pattern5 = new Tone.Pattern(function(time, note){
+	synth5.triggerAttackRelease(note, 0.5);
+}, ["C1", ["D1", "D1"], "E3", "C1"]);
+
+pattern.start();
+pattern2.start();
+pattern3.start();
+pattern5.start();
+pattern.mute = false;
+pattern2.mute = true;
+pattern3.mute = true;
+pattern5.mute = false;
 
 
 // With this function the values won't go below a threshold 
@@ -445,7 +259,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         if ((yDotValues < 30) && (xDotValues > 80))
         pattern2.mute = true;
 
-        else if ((yDotValues > 80) && (xDotValues < 800))
+        else if ((yDotValues > 80) && (xDotValues < 80))
         pattern2.mute = false;
 
     
@@ -480,42 +294,6 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
                   }
       
 
-                  const seq0 = new Tone.Sequence((time, note) => {
-                    synth0.triggerAttackRelease(note, 2, time);
-                    // subdivisions are given as subarrays
-                }, randomArray).start(0);
-                seq0.playbackRate = 0.5;
-                
-                const seq = new Tone.Sequence((time, note) => {
-                    synth.triggerAttackRelease(note, 2, time);
-                    // subdivisions are given as subarrays
-                }, randomArray).start(0);
-                seq.playbackRate = 0.5;
-            
-                const seq2 = new Tone.Sequence((time, note) => {
-                   synth2.triggerAttackRelease(note, 0.8, time);
-                   // subdivisions are given as subarrays
-               }, randomArray2).start(0);
-            
-               const seq3 = new Tone.Sequence((time, note) => {
-                   synth3.triggerAttackRelease(note, 0.8, time);
-                   // subdivisions are given as subarrays
-               }, randomArray3).start(0);
-            
-               const seq4 = new Tone.Sequence((time, note) => {
-                synth4.triggerAttackRelease(note, 0.3, time);
-                // subdivisions are given as subarrays
-            }, randomMelodyArray).start(0);
-            
-               const pattern6 = new Tone.Sequence(function(time, note){
-                synth6.triggerAttackRelease(note, 0.9);
-                }, randomHiHatArray).start();
-              
-                const pattern5 = new Tone.Sequence(function(time, note){
-                synth5.triggerAttackRelease(note, 0.9);
-                }, randomDrumArray).start();
-            
-             
 
       this.className = "is-playing";
       this.innerHTML = "";
@@ -523,7 +301,6 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       Tone.Transport.start();
       Tone.start();
       window.addEventListener("devicemotion", handleMotion);
-      
 }
           else{
 
