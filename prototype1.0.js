@@ -10,7 +10,20 @@ let buttonOn3 = false;
 let buttonOn4 = false;
 let buttonOn5 = false;
 
-const synth = new Tone.MonoSynth({
+    // deafault synth:
+    let synth = new Tone.MonoSynth({
+      oscillator: {
+          type: "sine2"
+      }/* ,
+      envelope: {
+          attack: 0.5,
+          decay: 0.3,
+          sustain: 1.0,
+          release: 0.8
+      } */
+  }).connect(gainNode);
+
+/* const synth = new Tone.MonoSynth({
 	oscillator: {
 		type: "square"
 	},
@@ -31,7 +44,7 @@ const synth2 = new Tone.MonoSynth({
 		sustain: 1.0,
 		release: 0.8
 	}
-}).connect(gainNode);
+}).connect(gainNode); */
 
 
 //const synth = new Tone.FMSynth().connect(gainNode);
@@ -363,26 +376,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
 
-/* 
-// Buttons and interaction with GUI
-  document.getElementById("button2").addEventListener("click", function(){
-  
-    if(this.className == 'is-playing'){
-      this.className = "";
-      this.innerHTML = "Inverse: ON"
-      inverse = true;
-
-  
-    }else{
-      this.className = "is-playing";
-      this.innerHTML = "Inverse: OFF";
-      inverse = false;
-      
-  
-    }}
-    );  */
-
-  document.getElementById("looper1").addEventListener("click", function(){
+/*   document.getElementById("looper1").addEventListener("click", function(){
 
     // Request permission for iOS 13+ devices
     if (
@@ -429,111 +423,99 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       is_running = true;    
   
     }}
-    );
+    ); */
+
+
+    document.getElementById("looper1").addEventListener("click", function(){
+
+      // Request permission for iOS 13+ devices
+      if (
+        DeviceMotionEvent &&
+        typeof DeviceMotionEvent.requestPermission === "function"
+      ) {
+        DeviceMotionEvent.requestPermission();
+      }
+      
+      
+      if(this.className == 'is-playing'){
+        this.className = "";
+        this.innerHTML = "Synth: OFF"
+        synth.triggerRelease();
+        //synth2.triggerRelease();
+        window.removeEventListener("devicemotion", handleMotion);
+        is_running = false;
+  
+    
+      }else if (this.className == 'is-playing2')
+          
+      {
+  
+        this.className = "is-playing";
+        this.innerHTML = "Synth 2: ON";
+  
+        synth = new Tone.DuoSynth({
+          volume: -19,
+          voice0: {
+              oscillator: {
+                  type: "fmsawtooth",
+  
+                },
+              envelope: {
+                  attack: 0.9,
+                  decay: 0.3,
+                  sustain: 1,
+                  release: 0.9,
+              },
+              filter: {
+                  Q: 17,
+                  frequency: 850,
+  
+              },
+          },
+  
+          voice1: {
+              oscillator: {
+                  type: "pulse",
+  
+                },
+  
+          },
+  
+  
+        }).connect(gainNode);
+        window.addEventListener("devicemotion", handleMotion);
+        is_running = true;  
+    
+      }else{
+  
+  
+  
+        this.className = "is-playing2";
+        this.innerHTML = "Synth 1: ON";
+        //const synth = new Tone.AMSynth().connect(gainNode);
+  
+        synth = new Tone.MonoSynth({
+          oscillator: {
+              type: "sine2"
+          }/* ,
+          envelope: {
+              attack: 0.5,
+              decay: 0.3,
+              sustain: 1.0,
+              release: 0.8
+          } */
+      }).connect(gainNode);
+    
+
+        synth.triggerAttack("C4"); 
+        window.addEventListener("devicemotion", handleMotion);
+        is_running = true;    
+    
+      }}
+      );
+
+
 
 let fx1on = false;
 let fx2on = false;
 let fx3on = false;
-/* 
-document.getElementById("effectButton1").addEventListener("click", function(){
-
-  if (this.className == 'is-playing')
-    
-  {
-    this.className = "";
-    this.innerHTML = "FX1: OFF";
-    synth.disconnect(pingPong);
-    synth2.disconnect(pingPong);
-    let fx1on = false;
-
-
-  }else{
-    this.className = "is-playing";
-    this.innerHTML = "FX1: ON"
-    synth.connect(pingPong);
-    synth2.connect(pingPong);
-    let fx1on = true;
-
-
-}}
-); 
-
-
-
-document.getElementById("effectButton2").addEventListener("click", function(){
-
-  if (this.className == 'is-playing')
-    
-  {
-    this.className = "";
-    this.innerHTML = "FX2: OFF";
-    synth.disconnect(autoWah);
-    synth2.disconnect(autoWah);
-    let fx2on = false;
-
-
-  }else{
-    this.className = "is-playing";
-    this.innerHTML = "FX2: ON"
-    synth.connect(autoWah);
-    synth2.connect(autoWah);
-    let fx2on = true;
-
-
-
-}}
-); 
-
-document.getElementById("effectButton3").addEventListener("click", function(){
-
-  if (this.className == 'is-playing')
-    
-  {
-    this.className = "";
-    this.innerHTML = "FX3: OFF";
-    synth.disconnect(phaser);
-    synth2.disconnect(phaser);
-    let fx3on = false;
-
-
-  }else{
-    this.className = "is-playing";
-    this.innerHTML = "FX3: ON"
-    synth.connect(phaser);
-    synth2.connect(phaser);
-    let fx3on = true;
-
-
-
-}}
-); 
- */
-
-/* document.getElementById("scaleButton1").addEventListener("click", function(){
-
-    if (this.className == 'is-playing')
-      
-    {
-      this.className = "is-playing2";
-      this.innerHTML = "Penta Scale";
-      scaleSelect = ["G1", "A1","C2", "D2", "F2", "G2", "A2","C3", "D3", "F3", "G3", "A3","C4", "D4", "F4", "G4", "A4", "C5", "D5", "F5", "G5", "A5", "C6"];
-  
-
-    }else if (this.className == 'is-playing2')
-        
-    {
-      this.className = "";
-      this.innerHTML = "whole note Scale";
-      scaleSelect = ["C2", "D2", "E2", "Gb2", "Ab2", "Bb2", "C3", "D3", "Gb3", "Ab3", "Bb3", "C4", "D4", "E4", "Gb4", "Ab4", "Bb4", "C5", "D5", "E5", "Gb5", "Ab5", "Bb5", "C6"];
-
-
-  
-    }else{
-      this.className = "is-playing";
-      this.innerHTML = "Major Scale"
-      scaleSelect = ["C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3", "D3", "E3", "F3", "G3", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5"];
-  
-  
-  
-  }}
-  );  */
