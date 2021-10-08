@@ -541,13 +541,10 @@ color: white;
   
 
   0%   {opacity: 0;}
-  1%   {opacity: 0.8;}
-  30% {opacity: 0.8;}
-  35% {opacity: 0;}
+  10%   {opacity: 0.8;}
+  60% {opacity: 0.8;}
 
-
-
-  100% {z-index: -1; opacity: 0;}
+  100% {opacity: 0;}
 
 }
   #myelement{
@@ -560,7 +557,7 @@ color: white;
     background-color: #000000;
     text-align: center;
     color:rgb(255, 255, 255);
-    font-size: 15px;
+    font-size: 20px;
     
       animation-name: myAnimation;
       animation-duration: 30000ms;
