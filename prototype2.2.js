@@ -192,6 +192,19 @@ let demo_button = document.getElementById("start_demo");
 
 const freq = note => 2 ** (note / 12) * 440; 
 
+
+
+   // creating a random rhythm
+   function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+  const random0 = getRandomInt(15) + 2;
+  const randomScale = getRandomInt(4);
+  const randomTimbre = getRandomInt(4);
+  const randomTempo = getRandomInt(5);
+
+
+function createRandomness() {
 // diatonic scales 
 const notes3 = [6, 8, 9, 11, 13, 14]; 
 const notes2 = [-4, -3, -1,  1, 2, 4]; 
@@ -221,14 +234,7 @@ let randomArray3 = [];
 let randomHiHatArray = [];
 let randomDrumArray = [];
 let randomMelodyArray = [];
-   // creating a random rhythm
-   function getRandomInt(max) {
-      return Math.floor(Math.random() * max);
-    }
-    const random0 = getRandomInt(15) + 2;
-    const randomScale = getRandomInt(4);
-    const randomTimbre = getRandomInt(4);
-    const randomTempo = getRandomInt(5);
+
 
     if (randomTimbre == 0) 
     synth4.oscillator.type = "fmsine";
@@ -286,12 +292,6 @@ let randomMelodyArray = [];
     scaleNotes3 = notes3,
     document.getElementById("scale").innerHTML =
     "Scale: diatonic";
-
-
-
-
-
-function createRandomness() {
 
   
   for (var i = 0; i < random0; i += 1) {
