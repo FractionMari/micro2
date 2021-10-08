@@ -337,14 +337,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     else if 
-    ((buttonOn4 == false) && (yDotValues < 20) && (xDotValues > 70))
+    ((buttonOn4 == false) && (yDotValues < 30) && (yDotValues > 20) && (xDotValues > 70))
     document.getElementById("rectangle4").innerHTML = "FX2: ON",
     synth.connect(autoWah),
     synth2.connect(autoWah),
     setTimeout(myTimeout9, 2000);
 
 // phaser effect
-    if ((buttonOn5 == true) && (yDotValues < 20) && (xDotValues > 70))
+    if ((buttonOn5 == true) && (yDotValues < 50) && (yDotValues > 40) && (xDotValues > 70))
     document.getElementById("rectangle5").innerHTML = "FX3: OFF",
     synth.disconnect(phaser),
     synth2.disconnect(phaser),
