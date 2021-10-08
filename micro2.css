@@ -549,7 +549,7 @@ color: white;
 }
   #myelement{
     position: absolute;
-
+    pointer-events: none;
     top: 0px;
     left: 0px;
     height: 100%;
