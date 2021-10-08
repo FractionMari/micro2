@@ -242,6 +242,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('pitchwheel', pitchWheel);
     pitchShift(pitchWheel, synth, scaleSelect);
     pitchShift(pitchWheel, synth2, scaleSelect);
+    pitchShift(pitchWheel, synth3, scaleSelect);
 
     // Effects
     
@@ -354,6 +355,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle3").innerHTML = "FX1: OFF",
     synth.disconnect(pingPong),
     synth2.disconnect(pingPong),
+    synth3.disconnect(pingPong),
     setTimeout(myTimeout6, 2000);
 
 
@@ -362,6 +364,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle3").innerHTML = "FX1: ON",
     synth.connect(pingPong),
     synth2.connect(pingPong),
+    synth3.connect(pingPong),
     setTimeout(myTimeout7, 2000);
 
 // auto wah effect
@@ -369,6 +372,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle4").innerHTML = "FX2: OFF",
     synth.disconnect(autoWah),
     synth2.disconnect(autoWah),
+    synth3.disconnect(autoWah),
     setTimeout(myTimeout8, 2000);
 
 
@@ -377,6 +381,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle4").innerHTML = "FX2: ON",
     synth.connect(autoWah),
     synth2.connect(autoWah),
+    synth3.connect(autoWah),
     setTimeout(myTimeout9, 2000);
 
 // phaser effect
@@ -384,6 +389,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle5").innerHTML = "FX3: OFF",
     synth.disconnect(phaser),
     synth2.disconnect(phaser),
+    synth3.disconnect(phaser),
     setTimeout(myTimeout10, 2000);
 
 
@@ -392,6 +398,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle5").innerHTML = "FX3: ON",
     synth.connect(phaser),
     synth2.connect(phaser),
+    synth3.connect(phaser),
     setTimeout(myTimeout11, 2000);
     }
 
