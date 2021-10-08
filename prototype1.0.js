@@ -12,27 +12,61 @@ let buttonOn5 = false;
 
 
 
-const synth = new Tone.MonoSynth({
-	oscillator: {
-		type: "square"
-	},
-	envelope: {
-		attack: 0.5,
-		decay: 0.2,
-		sustain: 1.0,
-		release: 0.8
-	}
+const synth = new Tone.DuoSynth({
+  volume: -19,
+  voice0: {
+      oscillator: {
+          type: "fmsawtooth",
+
+        },
+      envelope: {
+          attack: 0.9,
+          decay: 0.3,
+          sustain: 1,
+          release: 0.9,
+      },
+      filter: {
+          Q: 17,
+          frequency: 850,
+
+      },
+  },
+
+  voice1: {
+      oscillator: {
+          type: "pulse",
+
+        },
+
+  },
+
+
 }).connect(gainNode);
-const synth2 = new Tone.MonoSynth({
-	oscillator: {
-		type: "sine"
-	},
-	envelope: {
-		attack: 0.5,
-		decay: 0.2,
-		sustain: 1.0,
-		release: 0.8
-	}
+
+const synth2 = new Tone.Synth({
+  volume: -9,
+  oscillator: {
+    type: "sine6"
+  },
+  envelope: {
+    attack: 0.1,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.5,
+  }
+}).connect(gainNode);
+
+const synth3 = new Tone.Synth({
+  volume: -9,
+  oscillator: {
+    type: "square6"
+  },
+  envelope: {
+    attack: 0.1,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.5,
+  }
 }).connect(gainNode);
 
 
@@ -376,11 +410,13 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     }
     
     
-    if(this.className == 'is-playing'){
+    if(this.className == 'is-playing3'){
       this.className = "";
       this.innerHTML = "Synth: OFF"
       synth.triggerRelease();
       synth2.triggerRelease();
+      synth3.triggerRelease();
+
       window.removeEventListener("devicemotion", handleMotion);
       is_running = false;
 
@@ -394,6 +430,18 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
       synth.triggerRelease();
       synth2.triggerAttack("C4"); 
+      window.addEventListener("devicemotion", handleMotion);
+      is_running = true;  
+
+    }else if (this.className == 'is-playing')
+        
+    {
+
+      this.className = "is-playing3";
+      this.innerHTML = "Synth 3: ON";
+
+      synth2.triggerRelease();
+      synth3.triggerAttack("C4"); 
       window.addEventListener("devicemotion", handleMotion);
       is_running = true;  
   
