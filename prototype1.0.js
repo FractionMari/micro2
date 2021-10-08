@@ -241,7 +241,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       buttonOn = 3;
     }
 
-    if ((buttonOn == 3) && (yDotValues > 75) && (xDotValues < 35))
+    if ((buttonOn == 3) && (yDotValues > 73) && (xDotValues < 33))
     document.getElementById("rectangle").innerHTML = "Scale 1",
     scaleSelect = ["G1", "A1","C2", "D2", "F2", "G2", "A2","C3", "D3", "F3", "G3", "A3","C4", "D4", "F4", "G4", "A4", "C5", "D5", "F5", "G5", "A5", "C6"],
   
@@ -249,7 +249,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     else if 
-    ((buttonOn == 1) && (yDotValues > 75) && (xDotValues < 35))
+    ((buttonOn == 1) && (yDotValues > 73) && (xDotValues < 33))
     document.getElementById("rectangle").innerHTML = "Scale 2",
     scaleSelect = ["C2", "D2", "E2", "Gb2", "Ab2", "Bb2", "C3", "D3", "Gb3", "Ab3", "Bb3", "C4", "D4", "E4", "Gb4", "Ab4", "Bb4", "C5", "D5", "E5", "Gb5", "Ab5", "Bb5", "C6"],
 
@@ -257,7 +257,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     else if 
-    ((buttonOn == 2) && (yDotValues > 75) && (xDotValues < 35))
+    ((buttonOn == 2) && (yDotValues > 73) && (xDotValues < 33))
     document.getElementById("rectangle").innerHTML = "Scale 3",
     scaleSelect = ["C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3", "D3", "E3", "F3", "G3", "A3", "B3", "C4", "D4", "E4", "F4", "G4", "A4", "B4", "C5", "D5", "E5", "F5"],
 
@@ -275,14 +275,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     // On and off inverse mode
-    if ((buttonOn2 == true) && (yDotValues > 75) && (xDotValues > 35))
+    if ((buttonOn2 == true) && (yDotValues > 73) && (xDotValues > 58))
     document.getElementById("rectangle2").innerHTML = "Inverse: ON",
     inverse = true,
     setTimeout(myTimeout4, 2000);
 
 
     else if 
-    ((buttonOn2 == false) && (yDotValues > 75) && (xDotValues > 35))
+    ((buttonOn2 == false) && (yDotValues > 73) && (xDotValues > 58))
     document.getElementById("rectangle2").innerHTML = "Inverse: OFF",
     inverse = false,
     setTimeout(myTimeout5, 2000);
@@ -352,7 +352,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     else if 
-    ((buttonOn5 == false) && (yDotValues < 20) && (xDotValues > 70))
+    ((buttonOn5 == false) && (yDotValues < 50) && (yDotValues > 40) && (xDotValues > 70))
     document.getElementById("rectangle5").innerHTML = "FX3: ON",
     synth.connect(phaser),
     synth2.connect(phaser),
