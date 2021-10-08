@@ -434,7 +434,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 let fx1on = false;
 let fx2on = false;
 let fx3on = false;
-
+/* 
 document.getElementById("effectButton1").addEventListener("click", function(){
 
   if (this.className == 'is-playing')
@@ -507,7 +507,7 @@ document.getElementById("effectButton3").addEventListener("click", function(){
 
 }}
 ); 
-
+ */
 
 /* document.getElementById("scaleButton1").addEventListener("click", function(){
 
