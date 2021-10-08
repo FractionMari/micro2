@@ -424,6 +424,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       synth2.triggerRelease();
       synth3.triggerRelease();
 
+
       window.removeEventListener("devicemotion", handleMotion);
       is_running = false;
 
@@ -463,6 +464,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
       synth2.triggerRelease();
       synth.triggerAttack("C4"); 
+
+
       window.addEventListener("devicemotion", handleMotion);
       is_running = true;    
   
