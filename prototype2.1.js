@@ -183,7 +183,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     let yValue = event.acceleration.y; 
     let zValue = event.acceleration.z;
     let totAcc = (Math.abs(xValue) + Math.abs(yValue) + Math.abs(zValue));
-    let elem = document.getElementById("myAnimation3"); 
+    let elem = document.getElementById("myAnimation"); 
  
 
     ///////////////////////////////////////////////
