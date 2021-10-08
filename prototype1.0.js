@@ -263,7 +263,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     setTimeout(myTimeout3, 2000);
 
-
+/* 
     function myTimeout4() {
       buttonOn2 = false;
     }
@@ -271,21 +271,29 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     function myTimeout5() {
       buttonOn2 = true;
     }
+ */
 
+    function myTimeout4(value) {
+      value = false;
+    }
+
+    function myTimeout5(value) {
+      value = true;
+    }
 
 
     // On and off inverse mode
     if ((buttonOn2 == true) && (yDotValues > 75) && (xDotValues > 35))
     document.getElementById("rectangle2").innerHTML = "Inverse: ON",
     inverse = true,
-    setTimeout(myTimeout4, 2000);
+    setTimeout(myTimeout4(buttonOn2), 2000);
 
 
     else if 
     ((buttonOn2 == false) && (yDotValues > 75) && (xDotValues > 35))
     document.getElementById("rectangle2").innerHTML = "Inverse: OFF",
     inverse = false,
-    setTimeout(myTimeout5, 2000);
+    setTimeout(myTimeout5(buttonOn2), 2000);
 
     // Effects on and off
 
