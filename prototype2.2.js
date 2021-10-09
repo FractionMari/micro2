@@ -173,19 +173,109 @@ let demo_button = document.getElementById("start_demo");
 Tone.Transport.bpm.value = 50;
 
 
-
+gainNode.gain.value = 0.5;
   // Random tone generator 
   const freq = note => 2 ** (note / 12) * 440; // 440 is the frequency of A4
   // the bitwise Or does the same as Math.floor
   //const notes = [-12, -10,  -8, -7,  -5, -3 , -1,0, 2, 4, 5, 7, 9, 11, 12]; // Close to your 100, 400, 1600 and 6300
-  const notes = [7, 9, 12, 14, 16, 19]; 
-  const notes2 = [0, 2, 4,  7, 9, 12]; 
-  const notes3 = [-8, -5, -3 ,0, 2, 4]; 
-   // const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19]; 
+//   const notes = [7, 9, 12, 14, 16, 19]; 
+//   const notes2 = [0, 2, 4,  7, 9, 12]; 
+//   const notes3 = [-8, -5, -3 ,0, 2, 4]; 
+// const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19];
+   
+const notes3 = [6, 8, 9, 11, 13, 14]; 
+const notes2 = [-4, -3, -1,  1, 2, 4]; 
+const notes = [-18, -16, -15 ,-13, -11, -10, -8 , -6]; 
+
+const notes3_1 = [5, 7, 8, 10, 12, 13]; 
+const notes2_1 = [-5, -4, -2,  0, 1, 3]; 
+const notes_1 = [-19, -17, -16 ,-14, -12, -11, -9 , -7]; 
+
+const pentaNotes3 = [4, 7, 9, 12, 14, 16]; 
+const pentaNotes2 = [-7, -5 , -3, 0,  2, 4, 7]; 
+const pentaNotes = [-19, -17, -15, -12 ,-10, -7, -5, -3 ,0]; 
+
+const wholeNotes3 = [10, 12, 14, 16, 18, 20]; 
+const wholeNotes2 = [-2 , 0, 2,  4, 6, 8]; 
+const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10]; 
+
+
 
   let randomArray = [];
   let randomArray2 = [];
   let randomArray3 = [];
+  let randomHiHatArray = [];
+  let randomDrumArray = [];
+  let randomMelodyArray = [];
+
+  // creating a random rhythm
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+  const random0 = getRandomInt(15) + 2;
+  const randomScale = getRandomInt(4);
+  const randomTimbre = getRandomInt(4);
+  const randomTempo = getRandomInt(5);
+
+  if (randomTimbre == 0) 
+  synth4.oscillator.type = "fmsine";
+  if (randomTimbre == 1) 
+  synth4.oscillator.type = "pwm";
+  if (randomTimbre == 2) 
+  synth4.oscillator.type = "pulse";
+  else
+  synth4.oscillator.type = "amsawtooth4";
+  //console.log(randomTimbre, synth4.oscillator.type);
+
+  if (randomTempo == 0) 
+  Tone.Transport.bpm.value = 40;
+  if (randomTempo == 1) 
+  Tone.Transport.bpm.value = 40;
+  if (randomTempo == 2) 
+  Tone.Transport.bpm.value = 80;
+  if (randomTempo == 3) 
+  Tone.Transport.bpm.value = 120;
+  if (randomTempo == 4) 
+  Tone.Transport.bpm.value = 60;
+
+
+  document.getElementById("timeSign").innerHTML =
+  "Time signature: " + random0 + " / 16";
+
+  document.getElementById("tempo").innerHTML =
+  "BPM: " + Tone.Transport.bpm.value;
+
+  let scaleNotes = [];
+  let scaleNotes2 = [];
+  let scaleNotes3 = [];
+
+  if (randomScale == 0)
+  scaleNotes = pentaNotes,
+  scaleNotes2 = pentaNotes2,
+  scaleNotes3 = pentaNotes3,
+  document.getElementById("scale").innerHTML =
+  "Scale: pentatone";
+  if (randomScale == 1)
+  scaleNotes = wholeNotes,
+  scaleNotes2 = wholeNotes2,
+  scaleNotes3 = wholeNotes3,
+  document.getElementById("scale").innerHTML =
+  "Scale: wholetone";
+  if (randomScale == 2)
+  scaleNotes = notes_1,
+  scaleNotes2 = notes2_1,
+  scaleNotes3 = notes3_1,
+  document.getElementById("scale").innerHTML =
+  "Scale: diatonic2";
+  else
+  scaleNotes = notes,
+  scaleNotes2 = notes2,
+  scaleNotes3 = notes3,
+  document.getElementById("scale").innerHTML =
+  "Scale: diatonic";
+  //console.log(random0);
+  //console.log(randomScale);
+  
   function createRandomness() {
     for (var i = 0; i < 100; i += 1) {
 
