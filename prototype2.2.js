@@ -30,9 +30,20 @@
 
 // Tone.js parameters:
 const gainNode = new Tone.Gain().toDestination();
+
 const pingPong = new Tone.PingPongDelay().connect(gainNode);
-const phaser = new Tone.Phaser().connect(pingPong);
-const pitchShift = new Tone.PitchShift().connect(pingPong);
+
+pingPong.wet.value = 0.2;
+const reverb = new Tone.Reverb().connect(pingPong);
+reverb.dampening = 1000;
+
+reverb.wet.value = 0.8;
+const autoWah = new Tone.AutoWah({
+    frequency: 200,
+    baseFrequency: 440,
+    wet: 0.3,
+    gain: 0.1,
+}).connect(reverb);
 
 let buttonOn = false;
 let buttonOn2 = false;
@@ -489,13 +500,15 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         if ((buttonOn == false) && (yDotValues < 15) && (xDotValues > 75))
         document.getElementById("rectangle6").innerHTML = "Synth1: on",
         setTimeout(myTimeout1, 2000),
-        seq0.mute = false;
+        synth.connect(autoWah),
+        synth0.connect(autoWah);
         //updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
 
         else if ((buttonOn == true) && (yDotValues < 15) && (xDotValues > 75))
         document.getElementById("rectangle6").innerHTML = "Synth1: off",
         setTimeout(myTimeout2, 2000),
-        seq0.mute = true;
+        synth.disconnect(autoWah),
+        synth0.disconnect(autoWah);
 
         // On and off Pattern2
         if ((yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
