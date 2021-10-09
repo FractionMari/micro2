@@ -226,10 +226,16 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
+
+  function getRandomInt2(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  let randomrandom = getRandomInt(18) + 2;
   const random0 = getRandomInt(15) + 2;
   const randomScale = getRandomInt(4);
-  const randomTimbre = getRandomInt(4);
-  const randomTempo = getRandomInt(11);
+  const randomTimbre = getRandomInt2(4);
+  const randomTempo = getRandomInt(randomrandom);
 
   if (randomTimbre == 0) 
   synth4.oscillator.type = "fmsine";
@@ -252,7 +258,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   if (randomTempo == 4) 
   Tone.Transport.bpm.value = 60; */
 
-  Tone.Transport.bpm.value = (randomTempo + 3) * 15;
+  Tone.Transport.bpm.value = (randomTempo + 3) * randomrandom;
 
 
   document.getElementById("timeSign").innerHTML =
