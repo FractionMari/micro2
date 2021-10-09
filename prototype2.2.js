@@ -530,7 +530,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         synth.connect(autoWah),
         synth0.connect(autoWah),
         rectangle6.style.opacity = 1,
-        rectangle.style.background = "#d9ff0017",
+        rectangle.style.background = "#1100ffb9",
 
         setTimeout(myTimeout1, 2000);
         //updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
