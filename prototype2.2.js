@@ -231,7 +231,10 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
     return Math.floor(Math.random() * max);
   }
 
-  let randomrandom = getRandomInt(18);
+ 
+
+  let randomrandom = getRandomInt2(18);
+
   const random0 = getRandomInt(15) + 2;
   const randomScale = getRandomInt(4);
   const randomTimbre = getRandomInt2(4);
@@ -247,16 +250,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   synth4.oscillator.type = "amsawtooth4";
   //console.log(randomTimbre, synth4.oscillator.type);
 
-/*   if (randomTempo == 0) 
-  Tone.Transport.bpm.value = 40;
-  if (randomTempo == 1) 
-  Tone.Transport.bpm.value = 40;
-  if (randomTempo == 2) 
-  Tone.Transport.bpm.value = 80;
-  if (randomTempo == 3) 
-  Tone.Transport.bpm.value = 120;
-  if (randomTempo == 4) 
-  Tone.Transport.bpm.value = 60; */
+
 
   Tone.Transport.bpm.value = (randomTempo + 3) * 15;
 
@@ -466,6 +460,22 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         function myTimeout2() {
           buttonOn = false;
         }
+
+        function myTimeout3() {
+          buttonOn2 = true;
+        }
+    
+        function myTimeout4() {
+          buttonOn2 = false;
+        }
+
+        function myTimeout5() {
+          buttonOn3 = true;
+        }
+    
+        function myTimeout6() {
+          buttonOn3 = false;
+        }
     
 
 
@@ -484,6 +494,30 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         synth.disconnect(autoWah),
         synth0.disconnect(autoWah),
         setTimeout(myTimeout2, 2000);
+
+        if ((buttonOn2 == false) &&(yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
+        document.getElementById("rectangle7").innerHTML = "Synth2: on",
+        synth2.connect(autoWah),
+        synth3.connect(autoWah),
+        setTimeout(myTimeout3, 2000);
+
+        else if ((buttonOn2 == true) &&(yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
+        document.getElementById("rectangle7").innerHTML = "Synth2: on",
+        synth2.disconnect(autoWah),
+        synth3.disconnect(autoWah),
+        setTimeout(myTimeout4, 2000);
+
+
+        // On and off Pattern3
+        if ((buttonOn3 == false) &&(yDotValues < 80) && (yDotValues > 62) && (xDotValues > 75))
+        synth4.connect(autoWah),
+        synth5.connect(autoWah),
+        setTimeout(myTimeout5, 2000);
+
+        else if ((buttonOn3 == true) &&(yDotValues < 80) && (yDotValues > 62) && (xDotValues > 75))
+        synth4.disconnect(autoWah),
+        synth5.disconnect(autoWah),
+        setTimeout(myTimeout6, 2000);
 
 /*         // On and off Pattern2
         if ((yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
