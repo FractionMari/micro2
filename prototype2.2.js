@@ -242,16 +242,16 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
 
   const random0 = getRandomInt(15) + 2;
   const randomScale = getRandomInt(10);
-  const randomTimbre = getRandomInt2(4);
+  const randomTimbre = getRandomInt2(8);
   const randomTempo = getRandomInt(randomrandom);
 
-  if (randomTimbre == 0) 
+  if ((randomTimbre == 0) || ( randomTimbre == 7 ))
   synth4.oscillator.type = "fmsine";
-  if (randomTimbre == 1) 
+  else if ((randomTimbre == 1) || ( randomTimbre == 6 ))
   synth4.oscillator.type = "pwm";
-  if (randomTimbre == 2) 
+  else if ((randomTimbre == 2) || ( randomTimbre == 5 ))
   synth4.oscillator.type = "pulse";
-  else
+  else if ((randomTimbre == 3) || ( randomTimbre == 4 ))
   synth4.oscillator.type = "amsawtooth4";
   //console.log(randomTimbre, synth4.oscillator.type);
 
