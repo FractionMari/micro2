@@ -205,13 +205,17 @@ const notes3_1 = [5, 7, 8, 10, 12, 13];
 const notes2_1 = [-5, -4, -2,  0, 1, 3]; 
 const notes_1 = [-19, -17, -16 ,-14, -12, -11, -9 , -7]; 
 
-const pentaNotes3 = [4, 7, 9, 12, 14, 16]; 
-const pentaNotes2 = [-7, -5 , -3, 0,  2, 4, 7]; 
-const pentaNotes = [-19, -17, -15, -12 ,-10, -7, -5, -3 ,0]; 
+const pentaNotes3 = [3, 6, 8, 11, 13, 15]; 
+const pentaNotes2 = [-8, -6 , -4, -1,  1, 3, 6]; 
+const pentaNotes = [-20, -18, -16, -13 ,-11, -8, -6, -4 ,-1]; 
 
 const wholeNotes3 = [10, 12, 14, 16, 18, 20]; 
 const wholeNotes2 = [-2 , 0, 2,  4, 6, 8]; 
 const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10]; 
+
+const wholeNotes6 = [11, 13, 15, 17, 19, 21]; 
+const wholeNotes5 = [-1 , 1, 3,  5, 7, 9]; 
+const wholeNotes4 = [-21 ,-19, -17, -15, -13 ,-11]; 
 
 // harmonic scales
 const harmNotes3 = [8, 9, 12, 14, 16, 17, 18];
@@ -241,7 +245,7 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   let randomrandom = getRandomInt2(18);
 
   const random0 = getRandomInt(15) + 2;
-  const randomScale = getRandomInt(10);
+  const randomScale = getRandomInt(12);
   const randomTimbre = getRandomInt2(8);
   const randomTempo = getRandomInt(randomrandom);
 
@@ -270,37 +274,44 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   let scaleNotes2 = [];
   let scaleNotes3 = [];
 
-  if ((randomScale == 0) || ( randomScale == 9 ))
+  if ((randomScale == 0) || ( randomScale == 11 ))
   scaleNotes = pentaNotes,
   scaleNotes2 = pentaNotes2,
   scaleNotes3 = pentaNotes3,
   document.getElementById("scale").innerHTML =
   "Scale: pentatone";
-  else if ((randomScale == 1) || ( randomScale == 8 ))
+  else if ((randomScale == 1) || ( randomScale == 10 ))
   scaleNotes = wholeNotes,
   scaleNotes2 = wholeNotes2,
   scaleNotes3 = wholeNotes3,
   document.getElementById("scale").innerHTML =
   "Scale: wholetone";
-  else if ((randomScale == 2) || ( randomScale == 7 ))
+  else if ((randomScale == 2) || ( randomScale == 9 ))
   scaleNotes = notes_1,
   scaleNotes2 = notes2_1,
   scaleNotes3 = notes3_1,
   document.getElementById("scale").innerHTML =
   "Scale: diatonic2";
-  else if ((randomScale == 3) || ( randomScale == 6 ))
+  else if ((randomScale == 3) || ( randomScale == 8 ))
   scaleNotes = harmNotes,
   scaleNotes2 = harmNotes2,
   scaleNotes3 = harmNotes3,
   document.getElementById("scale").innerHTML =
   "Scale: double harmonic";
 
-  else if ((randomScale == 4) || ( randomScale == 5 ))
+  else if ((randomScale == 4) || ( randomScale == 7 ))
   scaleNotes = notes,
   scaleNotes2 = notes2,
   scaleNotes3 = notes3,
   document.getElementById("scale").innerHTML =
   "Scale: diatonic";
+
+  else if ((randomScale == 5) || ( randomScale == 6 ))
+  scaleNotes = wholeNotes4,
+  scaleNotes2 = wholeNotes5,
+  scaleNotes3 = wholeNotes6,
+  document.getElementById("scale").innerHTML =
+  "Scale: wholetone2";
   //console.log(random0);
   console.log(randomScale);
 
