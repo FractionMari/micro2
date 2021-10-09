@@ -30,9 +30,7 @@
 
 // Tone.js parameters:
 const gainNode = new Tone.Gain().toDestination();
-
 const pingPong = new Tone.PingPongDelay().connect(gainNode);
-
 pingPong.wet.value = 0.2;
 const reverb = new Tone.Reverb().connect(pingPong);
 reverb.dampening = 1000;
@@ -420,7 +418,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     // and visual feedback indicated by the opacity of the element in GUI
 
     gainNode.gain.rampTo(newAcc2, 0.1);
-    Tone.Transport.bpm.rampTo(tempo, 0.5);
+    //Tone.Transport.bpm.rampTo(tempo, 0.5);
 
     ////////////////////////////////////////////
     ///////// Red Dot Monitoring in GUI ///////
@@ -559,7 +557,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     const pattern5 = new Tone.Sequence(function(time, note){
     synth5.triggerAttackRelease(note, 0.9);
     }, randomDrumArray).start();
-    
+
       window.addEventListener("devicemotion", handleMotion);
 }
           else{
