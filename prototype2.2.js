@@ -508,6 +508,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         synth.connect(autoWah),
         synth0.connect(autoWah),
+        rectangle6.style.opacity = 1,
         setTimeout(myTimeout1, 2000);
         //updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
 
@@ -516,6 +517,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         synth.disconnect(autoWah),
         synth0.disconnect(autoWah),
+        rectangle6.style.opacity = 0.2,
         setTimeout(myTimeout2, 2000);
 
         if ((buttonOn2 == false) &&(yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
