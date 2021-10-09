@@ -497,7 +497,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         synth4pitch = Math.abs((yDotValues * -1) * 2);
 
 
-        gainNode.gain.rampTo(gainValue, 0.3);
+       // gainNode.gain.rampTo(gainValue, 0.3);
         
 
     }
