@@ -34,6 +34,11 @@ const pingPong = new Tone.PingPongDelay().connect(gainNode);
 const phaser = new Tone.Phaser().connect(pingPong);
 const pitchShift = new Tone.PitchShift().connect(pingPong);
 
+let buttonOn = false;
+let buttonOn2 = false;
+let buttonOn3 = false;
+let buttonOn4 = false;
+let buttonOn5 = false;
 
 let synth4pitch;
 
@@ -324,7 +329,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
 
                   
   }
-  
+
   const seq0 = new Tone.Sequence((time, note) => {
     synth0.triggerAttackRelease(note, 2, time);
     // subdivisions are given as subarrays
@@ -466,24 +471,34 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         phaser.frequency.value = xDotValues / 2;
         phaser.octaves = (yDotValues / 20);
-
-       phaser.wet.value = yDotValues / 160;
-
-
+        phaser.wet.value = yDotValues / 100;
         pingPong.feedback.value = (xDotValues / 300);
         pitchShift.pitch = Math.floor(((yDotValues * -1) + 75) / 10);
         
-        
-        // On and off Pattern1
-        if ((yDotValues < 40) && (xDotValues < 40))
-        pattern.mute = false,
-        updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
+        function myTimeout1() {
+          buttonOn = true;
+        }
+    
+        function myTimeout2() {
+          buttonOn = false;
+        }
+    
 
-        else if ((yDotValues > 80) && (xDotValues < 40))
-        pattern.mute = true;
+
+        // On and off Pattern1
+        if ((buttonOn == false) && (yDotValues < 15) && (xDotValues > 75))
+        document.getElementById("rectangle6").innerHTML = "Synth1: on",
+        setTimeout(myTimeout1, 2000),
+        seq0.mute = false;
+        //updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
+
+        else if ((buttonOn == true) && (yDotValues < 15) && (xDotValues > 75))
+        document.getElementById("rectangle6").innerHTML = "Synth1: off",
+        setTimeout(myTimeout2, 2000),
+        seq0.mute = true;
 
         // On and off Pattern2
-        if ((yDotValues < 30) && (xDotValues > 80))
+        if ((yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
         pattern2.mute = true;
 
         else if ((yDotValues > 80) && (xDotValues < 80))
@@ -491,7 +506,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
     
         // On and off Pattern3
-        if (yDotValues < 10)
+        if ((yDotValues < 80) && (yDotValues > 62) && (xDotValues > 75))
         pattern3.mute = false;
 
         else if (yDotValues > 100)
