@@ -196,10 +196,16 @@ gainNode.gain.value = 0.5;
 //   const notes2 = [0, 2, 4,  7, 9, 12]; 
 //   const notes3 = [-8, -5, -3 ,0, 2, 4]; 
 // const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19];
-   
+/*    
 const notes3 = [6, 8, 9, 11, 13, 14]; 
 const notes2 = [-4, -3, -1,  1, 2, 4]; 
-const notes = [-18, -16, -15 ,-13, -11, -10, -8 , -6]; 
+const notes = [-18, -16, -15 ,-13, -11, -10, -8 , -6];  */
+
+
+const notes3 = ['A4', 'B4', 'C#4', 'D4', 'E4', 'F#4', 'G#4']; 
+const notes2 = ['A3', 'B3', 'C#3', 'D3', 'E3', 'F#3', 'G#3']; 
+const notes = ['A2', 'B2', 'C#2', 'D2', 'E2', 'F#2', 'G#2']; 
+
 
 const notes3_1 = [5, 7, 8, 10, 12, 13]; 
 const notes2_1 = [-5, -4, -2,  0, 1, 3]; 
