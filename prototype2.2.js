@@ -213,6 +213,11 @@ const wholeNotes3 = [10, 12, 14, 16, 18, 20];
 const wholeNotes2 = [-2 , 0, 2,  4, 6, 8]; 
 const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10]; 
 
+// harmonic scales
+const harmNotes3 = [8, 9, 12, 14, 16, 17, 18];
+const harmNotes2 = [-2, -1, 2, 4, 6, 7, 8];
+const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
+
 
 
   let randomArray = [];
@@ -236,7 +241,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   let randomrandom = getRandomInt2(18);
 
   const random0 = getRandomInt(15) + 2;
-  const randomScale = getRandomInt(4);
+  const randomScale = getRandomInt(5);
   const randomTimbre = getRandomInt2(4);
   const randomTempo = getRandomInt(randomrandom);
 
@@ -283,6 +288,13 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   scaleNotes3 = notes3_1,
   document.getElementById("scale").innerHTML =
   "Scale: diatonic2";
+  if (randomScale == 3)
+  scaleNotes = harmNotes,
+  scaleNotes2 = harmNotes2,
+  scaleNotes3 = harmNotes3,
+  document.getElementById("scale").innerHTML =
+  "Scale: double harmonic";
+
   else
   scaleNotes = notes,
   scaleNotes2 = notes2,
