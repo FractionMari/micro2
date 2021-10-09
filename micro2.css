@@ -685,6 +685,7 @@ color: white;
 
   .monitoring {
     position: absolute;
+    z-index: -1;
     top: 30px;
     width: 900px;
     height: 500px;
@@ -692,6 +693,7 @@ color: white;
     margin: auto;
     display: block;
     text-align: left;
+    font-size: 20%;
   
   }
   
