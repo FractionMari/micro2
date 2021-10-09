@@ -445,9 +445,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         // Effects
         
 
-        phaser.frequency.value = xDotValues / 2;
-        phaser.octaves = (yDotValues / 20);
-        phaser.wet.value = yDotValues / 100;
+      //  phaser.frequency.value = xDotValues / 2;
+      //  phaser.octaves = (yDotValues / 20);
+      //  phaser.wet.value = yDotValues / 100;
         pingPong.feedback.value = (xDotValues / 300);
      //   pitchShift.pitch = Math.floor(((yDotValues * -1) + 75) / 10);
         
