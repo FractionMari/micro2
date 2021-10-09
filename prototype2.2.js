@@ -502,7 +502,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         setTimeout(myTimeout3, 2000);
 
         else if ((buttonOn2 == true) &&(yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
-        document.getElementById("rectangle7").innerHTML = "Synth2: on",
+        document.getElementById("rectangle7").innerHTML = "Synth2: off",
         synth2.disconnect(autoWah),
         synth3.disconnect(autoWah),
         setTimeout(myTimeout4, 2000);
