@@ -530,7 +530,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         synth.connect(autoWah),
         synth0.connect(autoWah),
         rectangle6.style.opacity = 1,
-        rectangle6.style.background = "#1100ffb9",
+        rectangle6.style.background = "#1100ff52",
 
         setTimeout(myTimeout1, 2000);
         //updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
@@ -548,6 +548,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         synth2.connect(autoWah),
         synth3.connect(autoWah),
         rectangle7.style.opacity = 1,
+        rectangle7.style.background = "#1100ff52",
         setTimeout(myTimeout3, 2000);
 
         else if ((buttonOn2 == true) &&(yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
@@ -564,6 +565,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         synth4.connect(autoWah),
         synth5.connect(autoWah),
         rectangle8.style.opacity = 1,
+        rectangle8.style.background = "#1100ff52",
         setTimeout(myTimeout5, 2000);
 
         else if ((buttonOn3 == true) &&(yDotValues < 80) && (yDotValues > 62) && (xDotValues > 75))
