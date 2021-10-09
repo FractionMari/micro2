@@ -532,12 +532,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         document.getElementById("rectangle7").innerHTML = "Synth2: on",
         synth2.connect(autoWah),
         synth3.connect(autoWah),
+        rectangle7.style.opacity = 1,
         setTimeout(myTimeout3, 2000);
 
         else if ((buttonOn2 == true) &&(yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
         document.getElementById("rectangle7").innerHTML = "Synth2: off",
         synth2.disconnect(autoWah),
         synth3.disconnect(autoWah),
+        rectangle7.style.opacity = 0.2,
         setTimeout(myTimeout4, 2000);
 
 
@@ -546,12 +548,14 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         document.getElementById("rectangle8").innerHTML = "Melody: on",
         synth4.connect(autoWah),
         synth5.connect(autoWah),
+        rectangle8.style.opacity = 1,
         setTimeout(myTimeout5, 2000);
 
         else if ((buttonOn3 == true) &&(yDotValues < 80) && (yDotValues > 62) && (xDotValues > 75))
         document.getElementById("rectangle8").innerHTML = "Melody: off",
         synth4.disconnect(autoWah),
         synth5.disconnect(autoWah),
+        rectangle8.style.opacity = 0.2,
         setTimeout(myTimeout6, 2000);
 
 /*         // On and off Pattern2
