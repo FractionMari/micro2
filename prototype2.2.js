@@ -229,7 +229,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   const random0 = getRandomInt(15) + 2;
   const randomScale = getRandomInt(4);
   const randomTimbre = getRandomInt(4);
-  const randomTempo = getRandomInt(5);
+  const randomTempo = getRandomInt(11);
 
   if (randomTimbre == 0) 
   synth4.oscillator.type = "fmsine";
@@ -241,7 +241,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   synth4.oscillator.type = "amsawtooth4";
   //console.log(randomTimbre, synth4.oscillator.type);
 
-  if (randomTempo == 0) 
+/*   if (randomTempo == 0) 
   Tone.Transport.bpm.value = 40;
   if (randomTempo == 1) 
   Tone.Transport.bpm.value = 40;
@@ -250,7 +250,9 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   if (randomTempo == 3) 
   Tone.Transport.bpm.value = 120;
   if (randomTempo == 4) 
-  Tone.Transport.bpm.value = 60;
+  Tone.Transport.bpm.value = 60; */
+
+  Tone.Transport.bpm.value = (randomTempo + 3) * 15;
 
 
   document.getElementById("timeSign").innerHTML =
