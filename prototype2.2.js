@@ -276,33 +276,33 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   scaleNotes3 = pentaNotes3,
   document.getElementById("scale").innerHTML =
   "Scale: pentatone";
-  if (randomScale == 1)
+  else if (randomScale == 1)
   scaleNotes = wholeNotes,
   scaleNotes2 = wholeNotes2,
   scaleNotes3 = wholeNotes3,
   document.getElementById("scale").innerHTML =
   "Scale: wholetone";
-  if (randomScale == 2)
+  else if (randomScale == 2)
   scaleNotes = notes_1,
   scaleNotes2 = notes2_1,
   scaleNotes3 = notes3_1,
   document.getElementById("scale").innerHTML =
   "Scale: diatonic2";
-  if (randomScale == 3)
+  else if (randomScale == 3)
   scaleNotes = harmNotes,
   scaleNotes2 = harmNotes2,
   scaleNotes3 = harmNotes3,
   document.getElementById("scale").innerHTML =
   "Scale: double harmonic";
 
-  else
+  else if (randomScale == 4)
   scaleNotes = notes,
   scaleNotes2 = notes2,
   scaleNotes3 = notes3,
   document.getElementById("scale").innerHTML =
   "Scale: diatonic";
   //console.log(random0);
-  //console.log(randomScale);
+  console.log(randomScale);
 
   function createRandomness() {
     for (var i = 0; i < 100; i += 1) {
