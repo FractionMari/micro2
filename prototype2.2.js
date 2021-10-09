@@ -341,40 +341,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
                   
   }
 
-  const seq0 = new Tone.Sequence((time, note) => {
-    synth0.triggerAttackRelease(note, 2, time);
-    // subdivisions are given as subarrays
-}, randomArray).start(0);
-seq0.playbackRate = 0.5;
 
-const seq = new Tone.Sequence((time, note) => {
-    synth.triggerAttackRelease(note, 2, time);
-    // subdivisions are given as subarrays
-}, randomArray).start(0);
-seq.playbackRate = 0.5;
-
-const seq2 = new Tone.Sequence((time, note) => {
-   synth2.triggerAttackRelease(note, 0.8, time);
-   // subdivisions are given as subarrays
-}, randomArray2).start(0);
-
-const seq3 = new Tone.Sequence((time, note) => {
-   synth3.triggerAttackRelease(note, 0.8, time);
-   // subdivisions are given as subarrays
-}, randomArray3).start(0);
-
-const seq4 = new Tone.Sequence((time, note) => {
-synth4.triggerAttackRelease(note, 0.3, time);
-// subdivisions are given as subarrays
-}, randomMelodyArray).start(0);
-
-const pattern6 = new Tone.Sequence(function(time, note){
-synth6.triggerAttackRelease(note, 0.9);
-}, randomHiHatArray).start();
-
-const pattern5 = new Tone.Sequence(function(time, note){
-synth5.triggerAttackRelease(note, 0.9);
-}, randomDrumArray).start();
 
 
 /* var pattern = new Tone.Pattern(function(time, note){
@@ -557,6 +524,42 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       
       Tone.Transport.start();
       Tone.start();
+
+      const seq0 = new Tone.Sequence((time, note) => {
+        synth0.triggerAttackRelease(note, 2, time);
+        // subdivisions are given as subarrays
+    }, randomArray).start(0);
+    seq0.playbackRate = 0.5;
+    
+    const seq = new Tone.Sequence((time, note) => {
+        synth.triggerAttackRelease(note, 2, time);
+        // subdivisions are given as subarrays
+    }, randomArray).start(0);
+    seq.playbackRate = 0.5;
+    
+    const seq2 = new Tone.Sequence((time, note) => {
+       synth2.triggerAttackRelease(note, 0.8, time);
+       // subdivisions are given as subarrays
+    }, randomArray2).start(0);
+    
+    const seq3 = new Tone.Sequence((time, note) => {
+       synth3.triggerAttackRelease(note, 0.8, time);
+       // subdivisions are given as subarrays
+    }, randomArray3).start(0);
+    
+    const seq4 = new Tone.Sequence((time, note) => {
+    synth4.triggerAttackRelease(note, 0.3, time);
+    // subdivisions are given as subarrays
+    }, randomMelodyArray).start(0);
+    
+    const pattern6 = new Tone.Sequence(function(time, note){
+    synth6.triggerAttackRelease(note, 0.9);
+    }, randomHiHatArray).start();
+    
+    const pattern5 = new Tone.Sequence(function(time, note){
+    synth5.triggerAttackRelease(note, 0.9);
+    }, randomDrumArray).start();
+    
       window.addEventListener("devicemotion", handleMotion);
 }
           else{
