@@ -520,8 +520,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       this.className = "is-playing";
       this.innerHTML = "";
       
-      Tone.Transport.start();
-      Tone.start();
+
 
       const seq0 = new Tone.Sequence((time, note) => {
         synth0.triggerAttackRelease(note, 2, time);
@@ -559,6 +558,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     }, randomDrumArray).start();
 
       window.addEventListener("devicemotion", handleMotion);
+      Tone.Transport.start();
+      Tone.start();
 }
           else{
 
