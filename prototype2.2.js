@@ -275,7 +275,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   "Scale: diatonic";
   //console.log(random0);
   //console.log(randomScale);
-  
+
   function createRandomness() {
     for (var i = 0; i < 100; i += 1) {
 
@@ -293,14 +293,75 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
      let random3 = freq(randomNote3());
      randomArray3.push(random3);
 
+     let random4 = getRandomInt(10);
+     let random5 = getRandomInt(14);
+     let randomMelody = getRandomInt(14);
+
+     if (random4 > 4)
+      randomHiHatArray.push(("C1 C1").split(" ")),
+      randomMelodyArray.push(random);
+      if (random4 == 1)
+      randomHiHatArray.push(("C1 C1").split(" ")),
+      randomMelodyArray.push((0 + " " + random).split(" "));
+      else
+      randomHiHatArray.push("C1"),
+      randomMelodyArray.push((random + " " + random + " " + random).split(" "));
+
+      if (random5 > 10)
+      randomDrumArray.push(("C1 C1").split(" "));
+      if (random5 == 1)
+      randomDrumArray.push(("C1 C1 C1").split(" "));
+      if (random5 > 8)
+      randomDrumArray.push("F2");
+      else
+      randomDrumArray.push("C1")
+
+
+
+
   };
 
 
                   
   }
+  
+  const seq0 = new Tone.Sequence((time, note) => {
+    synth0.triggerAttackRelease(note, 2, time);
+    // subdivisions are given as subarrays
+}, randomArray).start(0);
+seq0.playbackRate = 0.5;
+
+const seq = new Tone.Sequence((time, note) => {
+    synth.triggerAttackRelease(note, 2, time);
+    // subdivisions are given as subarrays
+}, randomArray).start(0);
+seq.playbackRate = 0.5;
+
+const seq2 = new Tone.Sequence((time, note) => {
+   synth2.triggerAttackRelease(note, 0.8, time);
+   // subdivisions are given as subarrays
+}, randomArray2).start(0);
+
+const seq3 = new Tone.Sequence((time, note) => {
+   synth3.triggerAttackRelease(note, 0.8, time);
+   // subdivisions are given as subarrays
+}, randomArray3).start(0);
+
+const seq4 = new Tone.Sequence((time, note) => {
+synth4.triggerAttackRelease(note, 0.3, time);
+// subdivisions are given as subarrays
+}, randomMelodyArray).start(0);
+
+const pattern6 = new Tone.Sequence(function(time, note){
+synth6.triggerAttackRelease(note, 0.9);
+}, randomHiHatArray).start();
+
+const pattern5 = new Tone.Sequence(function(time, note){
+synth5.triggerAttackRelease(note, 0.9);
+}, randomDrumArray).start();
 
 
-var pattern = new Tone.Pattern(function(time, note){
+/* var pattern = new Tone.Pattern(function(time, note){
 	synth.triggerAttackRelease(note, 0.5);
 }, randomArray);
 var pattern2 = new Tone.Pattern(function(time, note){
@@ -321,7 +382,7 @@ pattern5.start();
 pattern.mute = false;
 pattern2.mute = true;
 pattern3.mute = true;
-pattern5.mute = false;
+pattern5.mute = false; */
 
 
 // With this function the values won't go below a threshold 
