@@ -417,7 +417,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     // Switch between inverted and non-inverted volume-control, 
     // and visual feedback indicated by the opacity of the element in GUI
 
-    gainNode.gain.rampTo(newAcc2, 0.1);
+    //gainNode.gain.rampTo(newAcc2, 0.1);
     //Tone.Transport.bpm.rampTo(tempo, 0.5);
 
     ////////////////////////////////////////////
