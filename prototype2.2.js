@@ -196,15 +196,16 @@ gainNode.gain.value = 0.5;
 //   const notes2 = [0, 2, 4,  7, 9, 12]; 
 //   const notes3 = [-8, -5, -3 ,0, 2, 4]; 
 // const notes3 = [-8, -5, -3 ,0, 2, 4,  7, 9, 12, 14, 16, 19];
-/*    
+
 const notes3 = [6, 8, 9, 11, 13, 14]; 
 const notes2 = [-4, -3, -1,  1, 2, 4]; 
-const notes = [-18, -16, -15 ,-13, -11, -10, -8 , -6];  */
+const notes = [-18, -16, -15 ,-13, -11, -10, -8 , -6];
 
+/* 
 
 const notes3 = ['A4', 'B4', 'C#4', 'D4', 'E4', 'F#4', 'G#4']; 
 const notes2 = ['A3', 'B3', 'C#3', 'D3', 'E3', 'F#3', 'G#3']; 
-const notes = ['A2', 'B2', 'C#2', 'D2', 'E2', 'F#2', 'G#2']; 
+const notes = ['A2', 'B2', 'C#2', 'D2', 'E2', 'F#2', 'G#2'];  */
 
 
 const notes3_1 = [5, 7, 8, 10, 12, 13]; 
@@ -322,27 +323,29 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   console.log(randomScale);
 
   function createRandomness() {
-    for (var i = 0; i < 100; i += 1) {
+   
+    for (var i = 0; i < random0; i += 1) {
 
-      const randomNote = () => notes[Math.random() * notes.length | 0]; // the bitwise Or does the same as Math.floor
+      const randomNote = () => scaleNotes[Math.random() * scaleNotes.length | 0]; 
   
       let random = freq(randomNote());
       randomArray.push(random);
   
   
-      const randomNote2 = () => notes[Math.random() * notes2.length | 0]; // the bitwise Or does the same as Math.floor
+      const randomNote2 = () => scaleNotes2[Math.random() * scaleNotes2.length | 0]; 
      let random2 = freq(randomNote2());
      randomArray2.push(random2);
   
-     const randomNote3 = () => notes[Math.random() * notes3.length | 0]; // the bitwise Or does the same as Math.floor
+     const randomNote3 = () => scaleNotes3[Math.random() * scaleNotes3.length | 0]; 
      let random3 = freq(randomNote3());
      randomArray3.push(random3);
+     
 
      let random4 = getRandomInt(10);
      let random5 = getRandomInt(14);
      let randomMelody = getRandomInt(14);
 
-     if (random4 > 4)
+      if (random4 > 4)
       randomHiHatArray.push(("C1 C1").split(" ")),
       randomMelodyArray.push(random);
       if (random4 == 1)
@@ -360,7 +363,6 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
       randomDrumArray.push("F2");
       else
       randomDrumArray.push("C1")
-
 
 
 
