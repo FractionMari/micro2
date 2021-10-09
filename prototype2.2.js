@@ -499,18 +499,20 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         // On and off Pattern1
         if ((buttonOn == false) && (yDotValues < 15) && (xDotValues > 75))
         document.getElementById("rectangle6").innerHTML = "Synth1: on",
-        setTimeout(myTimeout1, 2000),
+
         synth.connect(autoWah),
-        synth0.connect(autoWah);
+        synth0.connect(autoWah),
+        setTimeout(myTimeout1, 2000);
         //updateFieldIfNotNull('pitchwheel', pitchShift.pitch);
 
         else if ((buttonOn == true) && (yDotValues < 15) && (xDotValues > 75))
         document.getElementById("rectangle6").innerHTML = "Synth1: off",
-        setTimeout(myTimeout2, 2000),
-        synth.disconnect(autoWah),
-        synth0.disconnect(autoWah);
 
-        // On and off Pattern2
+        synth.disconnect(autoWah),
+        synth0.disconnect(autoWah),
+        setTimeout(myTimeout2, 2000);
+
+/*         // On and off Pattern2
         if ((yDotValues < 50) && (yDotValues > 32) && (xDotValues > 75))
         pattern2.mute = true;
 
@@ -523,7 +525,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         pattern3.mute = false;
 
         else if (yDotValues > 100)
-        pattern3.mute = true;
+        pattern3.mute = true; */
 
 
         let gainValue = (((event.accelerationIncludingGravity.y * -1)  + 10) / 50);
