@@ -231,7 +231,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
     return Math.floor(Math.random() * max);
   }
 
-  let randomrandom = getRandomInt(18) + 2;
+  let randomrandom = getRandomInt(18);
   const random0 = getRandomInt(15) + 2;
   const randomScale = getRandomInt(4);
   const randomTimbre = getRandomInt2(4);
@@ -258,7 +258,7 @@ const wholeNotes = [-20 ,-18, -16, -14, -12 ,-10];
   if (randomTempo == 4) 
   Tone.Transport.bpm.value = 60; */
 
-  Tone.Transport.bpm.value = (randomTempo + 3) * randomrandom;
+  Tone.Transport.bpm.value = (randomTempo + 3) * 15;
 
 
   document.getElementById("timeSign").innerHTML =
