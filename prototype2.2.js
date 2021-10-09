@@ -510,11 +510,13 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
         // On and off Pattern3
         if ((buttonOn3 == false) &&(yDotValues < 80) && (yDotValues > 62) && (xDotValues > 75))
+        document.getElementById("rectangle8").innerHTML = "Melody: on",
         synth4.connect(autoWah),
         synth5.connect(autoWah),
         setTimeout(myTimeout5, 2000);
 
         else if ((buttonOn3 == true) &&(yDotValues < 80) && (yDotValues > 62) && (xDotValues > 75))
+        document.getElementById("rectangle8").innerHTML = "Melody: off",
         synth4.disconnect(autoWah),
         synth5.disconnect(autoWah),
         setTimeout(myTimeout6, 2000);
