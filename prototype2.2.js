@@ -60,7 +60,7 @@ let synth4pitch;
     });
 
     // harmony
-    const synth = new Tone.DuoSynth({
+    let synth = new Tone.DuoSynth({
         volume: -19,
         voice0: {
             oscillator: {
@@ -90,7 +90,7 @@ let synth4pitch;
 
 
 
-      })
+      });
     const synth2 = new Tone.Synth({
         volume: -9,
         oscillator: {
@@ -258,6 +258,7 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   const random0 = getRandomInt(15) + 2;
   const randomScale = getRandomInt(14);
   const randomTimbre = getRandomInt2(8);
+  const randomTimbre2 = getRandomInt2(8);
   const randomTempo = getRandomInt(randomrandom);
 
   if ((randomTimbre == 0) || ( randomTimbre == 7 ))
@@ -271,8 +272,48 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   //console.log(randomTimbre, synth4.oscillator.type);
 
 
+// Random musical instrument:
 
-  Tone.Transport.bpm.value = (randomTempo + 3) * 15;
+if ((randomTimbre2 == 0) || ( randomTimbre2 == 7 ))
+synth = new Tone.Sampler({
+	urls: {
+		A1: "A1.mp3",
+		A2: "A2.mp3",
+	},
+	baseUrl: "https://tonejs.github.io/audio/casio/",
+	onload: () => {
+		sampler.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5);
+	}
+});
+
+else if ((randomTimbre2 == 1) || ( randomTimbre2 == 6 ))
+synth = new Tone.AMSynth();
+else if ((randomTimbre2 == 2) || ( randomTimbre2 == 5 ))
+synth = new Tone.FMSynth();
+else if ((randomTimbre2 == 3) || ( randomTimbre2 == 4 ))
+synth = new Tone.Synth({
+  volume: -9,
+  oscillator: {
+    type: "sine6"
+  },
+  envelope: {
+    attack: 0.1,
+    decay: 0.3,
+    sustain: 0.4,
+    release: 0.5,
+  }/* ,
+  filterEnvelope: {
+    attack: 0.001,
+    decay: 0.7,
+    sustain: 0.1,
+    release: 0.8,
+    baseFrequency: 300,
+    octaves: 4
+  } */
+});
+//console.log(randomTimbre, synth4.oscillator.type);
+
+
 
 
   document.getElementById("timeSign").innerHTML =
