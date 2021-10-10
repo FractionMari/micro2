@@ -208,7 +208,7 @@ let synth4pitch;
 
 
 
-    });
+    }).connect(gainNode);
 
 // Other Variables
 let newAcc;
