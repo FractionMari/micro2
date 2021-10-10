@@ -294,27 +294,22 @@ synth = new Tone.Sampler({
 
 });
 else if ((randomTimbre2 == 2) || ( randomTimbre2 == 5 ))
-synth = new Tone.FMSynth();
+synth = new Tone.Sampler({
+	urls: {
+		Ab3: "samples/2Ab3.mp3",
+		Ab2: "samples/2Ab2.mp3",
+	},
+
+
+});
 else if ((randomTimbre2 == 3) || ( randomTimbre2 == 4 ))
-synth = new Tone.Synth({
-  volume: -9,
-  oscillator: {
-    type: "sine6"
-  },
-  envelope: {
-    attack: 0.1,
-    decay: 0.3,
-    sustain: 0.4,
-    release: 0.5,
-  }/* ,
-  filterEnvelope: {
-    attack: 0.001,
-    decay: 0.7,
-    sustain: 0.1,
-    release: 0.8,
-    baseFrequency: 300,
-    octaves: 4
-  } */
+synth = new Tone.Sampler({
+	urls: {
+		G1: "samples/3G1.mp3",
+		G2: "samples/3G2.mp3",
+	},
+
+
 });
 //console.log(randomTimbre, synth4.oscillator.type);
 
