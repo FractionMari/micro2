@@ -178,6 +178,38 @@ let synth4pitch;
     ).connect(gainNode);
 
 
+    let synth7 = new Tone.DuoSynth({
+      volume: -19,
+      voice0: {
+          oscillator: {
+              type: "fmsawtooth",
+
+            },
+          envelope: {
+              attack: 0.9,
+              decay: 0.3,
+              sustain: 1,
+              release: 0.9,
+          },
+          filter: {
+              Q: 17,
+              frequency: 850,
+
+          },
+      },
+
+      voice1: {
+          oscillator: {
+              type: "pulse",
+
+            },
+
+      },
+
+
+
+    });
+
 // Other Variables
 let newAcc;
 let newAcc2;
@@ -727,6 +759,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     synth4.triggerAttackRelease(note, 0.3, time);
     // subdivisions are given as subarrays
     }, randomMelodyArray).start(0);
+    seq4.playbackRate = 0.5;
     
     const pattern6 = new Tone.Sequence(function(time, note){
     synth6.triggerAttackRelease(note, 0.9);
@@ -742,7 +775,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 }
           else{
 
-     synth4.triggerAttackRelease(440, 0.2);    
+     synth7.triggerAttackRelease(synth4pitch, 0.2);    
 
 
     
