@@ -52,7 +52,7 @@ let buttonOn5 = false;
 let synth4pitch;
 
     // bass
-    const synth0 = new Tone.AMSynth({
+    let synth0 = new Tone.AMSynth({
         volume: -9,
         oscillator: {
           type: "sine9"
@@ -259,8 +259,12 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   const randomScale = getRandomInt(14);
   const randomTimbre = getRandomInt2(8);
   const randomTimbre2 = getRandomInt2(8);
+  const randomTimbre3 = getRandomInt2(8);
   const randomTempo = getRandomInt(randomrandom);
 
+  console.log(randomTimbre);
+  console.log(randomTimbre2);
+  console.log(randomTimbre3);
   if ((randomTimbre == 0) || ( randomTimbre == 7 ))
   synth4.oscillator.type = "fmsine";
   else if ((randomTimbre == 1) || ( randomTimbre == 6 ))
@@ -284,7 +288,7 @@ synth = new Tone.Sampler({
 
 }),
 
-synth2 = new Tone.Sampler({
+synth0 = new Tone.Sampler({
 	urls: {
 		A1: "A1.mp3",
 		A2: "A2.mp3",
@@ -303,7 +307,7 @@ synth = new Tone.Sampler({
 
 }),
 
-synth2 = new Tone.Sampler({
+synth0 = new Tone.Sampler({
 	urls: {
 		Ab3: "samples/Ab3.mp3",
 		Db3: "samples/Db3.mp3",
@@ -321,7 +325,7 @@ synth = new Tone.Sampler({
 
 }),
 
-synth2 = new Tone.Sampler({
+synth0 = new Tone.Sampler({
 	urls: {
 		Ab3: "samples/2Ab3.mp3",
 		Ab2: "samples/2Ab2.mp3",
@@ -339,7 +343,7 @@ synth = new Tone.Sampler({
 
 }),
 
-synth2 = new Tone.Sampler({
+synth0 = new Tone.Sampler({
 	urls: {
 		G1: "samples/3G1.mp3",
 		G2: "samples/3G2.mp3",
