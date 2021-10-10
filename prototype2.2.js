@@ -281,13 +281,18 @@ synth = new Tone.Sampler({
 		A2: "A2.mp3",
 	},
 	baseUrl: "https://tonejs.github.io/audio/casio/",
-	onload: () => {
-		sampler.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5);
-	}
+
 });
 
 else if ((randomTimbre2 == 1) || ( randomTimbre2 == 6 ))
-synth = new Tone.AMSynth();
+synth = new Tone.Sampler({
+	urls: {
+		Ab3: "samples/Ab3.mp3",
+		Db3: "samples/Db3.mp3",
+	},
+
+
+});
 else if ((randomTimbre2 == 2) || ( randomTimbre2 == 5 ))
 synth = new Tone.FMSynth();
 else if ((randomTimbre2 == 3) || ( randomTimbre2 == 4 ))
