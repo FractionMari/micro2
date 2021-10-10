@@ -91,7 +91,7 @@ let synth4pitch;
 
 
       });
-    const synth2 = new Tone.Synth({
+    let synth2 = new Tone.Synth({
         volume: -9,
         oscillator: {
           type: "sine3"
@@ -282,10 +282,28 @@ synth = new Tone.Sampler({
 	},
 	baseUrl: "https://tonejs.github.io/audio/casio/",
 
+}),
+
+synth2 = new Tone.Sampler({
+	urls: {
+		A1: "A1.mp3",
+		A2: "A2.mp3",
+	},
+	baseUrl: "https://tonejs.github.io/audio/casio/",
+
 });
 
 else if ((randomTimbre2 == 1) || ( randomTimbre2 == 6 ))
 synth = new Tone.Sampler({
+	urls: {
+		Ab3: "samples/Ab3.mp3",
+		Db3: "samples/Db3.mp3",
+	},
+
+
+}),
+
+synth2 = new Tone.Sampler({
 	urls: {
 		Ab3: "samples/Ab3.mp3",
 		Db3: "samples/Db3.mp3",
@@ -301,9 +319,27 @@ synth = new Tone.Sampler({
 	},
 
 
+}),
+
+synth2 = new Tone.Sampler({
+	urls: {
+		Ab3: "samples/2Ab3.mp3",
+		Ab2: "samples/2Ab2.mp3",
+	},
+
+
 });
 else if ((randomTimbre2 == 3) || ( randomTimbre2 == 4 ))
 synth = new Tone.Sampler({
+	urls: {
+		G1: "samples/3G1.mp3",
+		G2: "samples/3G2.mp3",
+	},
+
+
+}),
+
+synth2 = new Tone.Sampler({
 	urls: {
 		G1: "samples/3G1.mp3",
 		G2: "samples/3G2.mp3",
