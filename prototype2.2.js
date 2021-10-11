@@ -465,6 +465,8 @@ synth0 = new Tone.Sampler({
      const randomNote3 = () => scaleNotes3[Math.random() * scaleNotes3.length | 0]; 
      let random3 = freq(randomNote3());
      randomArray3.push(random3);
+
+     
      
 
      let random4 = getRandomInt(10);
@@ -479,10 +481,10 @@ synth0 = new Tone.Sampler({
       randomMelodyArray.push((0 + " " + random).split(" "));
       if (random4 > 7)
       randomHiHatArray.push(("C1").split(" ")),
-      randomMelodyArray.push((random5 + " " + random4).split(" "));
+      randomMelodyArray.push((random + " " + random2).split(" "));
       else
       randomHiHatArray.push("C1"),
-      randomMelodyArray.push((random + " " + random3 + " " + random4).split(" "));
+      randomMelodyArray.push((random + " " + random3 + " " + random).split(" "));
 
       if (random5 > 10)
       randomDrumArray.push(("C1 C1").split(" "));
@@ -490,6 +492,8 @@ synth0 = new Tone.Sampler({
       randomDrumArray.push(("C1 C1 C1").split(" "));
       if (random5 > 8)
       randomDrumArray.push("F2");
+      if (random5 > 4)
+      randomDrumArray.push(("C1 F2").split(" "));
       else
       randomDrumArray.push("C1")
 
