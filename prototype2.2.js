@@ -627,6 +627,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('x_dots', xDotValues);
     updateFieldIfNotNull('y_dots', yDotValues);
       
+    autoWah.baseFrequency.value = yDotValues; 
 
     ///////////////////////////////////////////////
     /////// Variables for effects and pitch ///////
