@@ -636,7 +636,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       
     autoWah.Q.value = xDotValues / 3;
     autoWah.baseFrequency = yDotValues; 
-    autoWah.octaves = xDotValues;
+
 
     ///////////////////////////////////////////////
     /////// Variables for effects and pitch ///////
