@@ -281,14 +281,14 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
 
  
 
-  let randomrandom = getRandomInt2(18);
+
 
   const random0 = getRandomInt(15) + 2;
   const randomScale = getRandomInt(14);
   const randomTimbre = getRandomInt2(8);
   const randomTimbre2 = getRandomInt2(8);
   const randomTimbre3 = getRandomInt2(8);
-  const randomTempo = getRandomInt(randomrandom);
+  const randomTempo = getRandomInt(12);
 
   console.log(randomTimbre);
   console.log(randomTimbre2);
@@ -381,6 +381,17 @@ synth0 = new Tone.Sampler({
 });
 //console.log(randomTimbre, synth4.oscillator.type);
 
+if ((randomTempo == 0) || ( randomTempo == 5 ))
+Tone.Transport.bpm.value = 60;
+  else if ((randomTempo == 1) || ( randomTempo == 6 ))
+  Tone.Transport.bpm.value = 90;
+  else if ((randomTempo == 2) || ( randomTempo == 7 ))
+  Tone.Transport.bpm.value = 120;
+  else if ((randomTempo == 3) || ( randomTempo == 8 ))
+  Tone.Transport.bpm.value = 150;
+  else if ((randomTempo == 4) || ( randomTempo == 9 ))
+  Tone.Transport.bpm.value = 180;
+  
 
 
 
