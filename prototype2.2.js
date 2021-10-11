@@ -631,7 +631,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('x_dots', xDotValues);
     updateFieldIfNotNull('y_dots', yDotValues);
       
-    autoWah.Q.value = xDotValues / 3;
+    //autoWah.Q.value = xDotValues / ;
     autoWah.baseFrequency = yDotValues / 2; 
 
 
@@ -647,7 +647,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       //  phaser.frequency.value = xDotValues / 2;
       //  phaser.octaves = (yDotValues / 20);
       //  phaser.wet.value = yDotValues / 100;
-        pingPong.feedback.value = (xDotValues / 300);
+        pingPong.feedback.value = (yDotValues);
      //   pitchShift.pitch = Math.floor(((yDotValues * -1) + 75) / 10);
         
         function myTimeout1() {
