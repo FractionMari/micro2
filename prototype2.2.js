@@ -233,11 +233,6 @@ const notes3 = [6, 8, 10, 11, 13, 15];
 const notes2 = [-4, -2, -1,  1, 3, 5]; 
 const notes = [-18, -16, -14 ,-13, -11, -9, -7, -6];
 
-/* 
-
-const notes3 = ['A4', 'B4', 'C#4', 'D4', 'E4', 'F#4', 'G#4']; 
-const notes2 = ['A3', 'B3', 'C#3', 'D3', 'E3', 'F#3', 'G#3']; 
-const notes = ['A2', 'B2', 'C#2', 'D2', 'E2', 'F#2', 'G#2'];  */
 
 
 const notes3_1 = [5, 7, 9, 10, 12, 14]; 
@@ -390,10 +385,10 @@ synth0 = new Tone.Sampler({
 
 
   document.getElementById("timeSign").innerHTML =
-  "Time signature: " + random0 + " / 16";
+  "Time signature: " + "<br>" + random0 + " / 16";
 
   document.getElementById("tempo").innerHTML =
-  "BPM: " + Tone.Transport.bpm.value;
+  "BPM: " + "<br>" + Tone.Transport.bpm.value;
 
   let scaleNotes = [];
   let scaleNotes2 = [];
