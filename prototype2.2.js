@@ -632,7 +632,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('y_dots', yDotValues);
       
     autoWah.Q.value = xDotValues / 3;
-    autoWah.baseFrequency = yDotValues; 
+    autoWah.baseFrequency = yDotValues / 2; 
 
 
     ///////////////////////////////////////////////
