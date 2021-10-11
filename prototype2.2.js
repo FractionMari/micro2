@@ -134,7 +134,7 @@ let synth4pitch;
       });
 
       // melody synth: 
-      const synth4 = new Tone.Synth({
+      let synth4 = new Tone.Synth({
         volume: 1,
         oscillator: {
             type: "sine7"
@@ -300,7 +300,14 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   else if ((randomTimbre == 2) || ( randomTimbre == 5 ))
   synth4.oscillator.type = "pulse";
   else if ((randomTimbre == 3) || ( randomTimbre == 4 ))
-  synth4.oscillator.type = "amsawtooth4";
+  synth4 = new Tone.Sampler({
+    urls: {
+      Ab3: "samples/2Ab3.mp3",
+      Ab2: "samples/2Ab2.mp3",
+    },
+  
+  
+  });
   //console.log(randomTimbre, synth4.oscillator.type);
 
 
@@ -628,6 +635,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('y_dots', yDotValues);
       
     autoWah.baseFrequency = yDotValues; 
+    autoWah.octaves = xDotValues;
 
     ///////////////////////////////////////////////
     /////// Variables for effects and pitch ///////
