@@ -786,10 +786,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     const pattern6 = new Tone.Sequence(function(time, note){
     synth6.triggerAttackRelease(note, 0.9);
     }, randomHiHatArray).start();
+    pattern6.playbackRate = 0.5;
     
     const pattern5 = new Tone.Sequence(function(time, note){
     synth5.triggerAttackRelease(note, 0.9);
     }, randomDrumArray).start();
+    pattern5.playbackRate = 0.5;
 
       window.addEventListener("devicemotion", handleMotion);
       Tone.Transport.start();
