@@ -464,7 +464,7 @@ synth0 = new Tone.Sampler({
      console.log(randomArray);
      console.log(random);
 
-     const randomNote6 = () => scaleNotes4[Math.random() * scaleNotes.length | 0]; 
+     const randomNote6 = () => scaleNotes[Math.random() * scaleNotes.length | 0]; 
      let random6 = freq(randomNote6());
      randomArray6.push(random6);
 
