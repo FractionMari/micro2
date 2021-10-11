@@ -686,14 +686,14 @@ color: white;
   .monitoring {
     position: absolute;
     z-index: -1;
-    top: 65%;
+    top: 60%;
     width: 50%;
     height: 50px;
     padding: 0;
     margin: auto;
     display: block;
     text-align: left;
-    font-size: 100%;
+    font-size: 70%;
     color:#f3f704c4;
   
   }
