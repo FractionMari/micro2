@@ -270,6 +270,7 @@ const harmNotes = [-12, -11, -8, -6, -4, -3, -2]
   let randomArray = [];
   let randomArray2 = [];
   let randomArray3 = [];
+  let randomArray6 = [];
   let randomHiHatArray = [];
   let randomDrumArray = [];
   let randomMelodyArray = [];
@@ -465,9 +466,15 @@ synth0 = new Tone.Sampler({
      const randomNote3 = () => scaleNotes3[Math.random() * scaleNotes3.length | 0]; 
      let random3 = freq(randomNote3());
      randomArray3.push(random3);
+     console.log(randomArray);
+     console.log(random);
+
+     const randomNote6 = () => scaleNotes4[Math.random() * scaleNotes.length | 0]; 
+     let random6 = freq(randomNote6());
+     randomArray6.push(random6);
 
      
-     
+   
 
      let random4 = getRandomInt(10);
      let random5 = getRandomInt(14);
@@ -480,11 +487,24 @@ synth0 = new Tone.Sampler({
       randomHiHatArray.push(("C1 C1").split(" ")),
       randomMelodyArray.push((0 + " " + random).split(" "));
       if (random4 > 7)
+      randomHiHatArray.push(("C2 C2").split(" ")),
+      randomMelodyArray.push((random + " " + random6).split(" "));
+
+      if (random4 == 6)
+      randomHiHatArray.push("C1"),
+      randomMelodyArray.push(random6);
+
+      if (random4 == 5)
+      randomHiHatArray.push("C1"),
+      randomMelodyArray.push((random6 + " " + random6).split(" "));
+
+      if (random4 == 4)
       randomHiHatArray.push(("C1").split(" ")),
       randomMelodyArray.push((random + " " + random2).split(" "));
+
       else
       randomHiHatArray.push("C1"),
-      randomMelodyArray.push((random + " " + random3 + " " + random).split(" "));
+      randomMelodyArray.push((random + " " + random2 + " " + random6).split(" "));
 
       if (random5 > 10)
       randomDrumArray.push(("C1 C1").split(" "));
