@@ -471,13 +471,13 @@ synth0 = new Tone.Sampler({
      let random5 = getRandomInt(14);
      let randomMelody = getRandomInt(14);
 
-      if (random4 > 4)
+      if (random4 < 4)
       randomHiHatArray.push(("C1 C1").split(" ")),
       randomMelodyArray.push(random);
       if (random4 == 1)
       randomHiHatArray.push(("C1 C1").split(" ")),
       randomMelodyArray.push((0 + " " + random).split(" "));
-      if (random4 < 8)
+      if (random4 > 7)
       randomHiHatArray.push(("C1").split(" ")),
       randomMelodyArray.push((random5 + " " + random4).split(" "));
       else
