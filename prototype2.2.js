@@ -477,9 +477,12 @@ synth0 = new Tone.Sampler({
       if (random4 == 1)
       randomHiHatArray.push(("C1 C1").split(" ")),
       randomMelodyArray.push((0 + " " + random).split(" "));
+      if (random4 < 8)
+      randomHiHatArray.push(("C1").split(" ")),
+      randomMelodyArray.push((random5 + " " + random4).split(" "));
       else
       randomHiHatArray.push("C1"),
-      randomMelodyArray.push((random + " " + random + " " + random).split(" "));
+      randomMelodyArray.push((random + " " + random3 + " " + random4).split(" "));
 
       if (random5 > 10)
       randomDrumArray.push(("C1 C1").split(" "));
