@@ -37,10 +37,7 @@ reverb.dampening = 1000;
 
 reverb.wet.value = 0.8;
 const autoWah = new Tone.AutoWah({
-    frequency: 200,
-    baseFrequency: 440,
-    wet: 0.3,
-    gain: 0.1,
+  
 }).connect(reverb);
 
 let buttonOn = false;
