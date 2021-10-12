@@ -35,7 +35,7 @@ const pitchChange = new Tone.PitchShift().connect(gainNode);
 const pingPong = new Tone.PingPongDelay().connect(pitchChange);
 pingPong.wet.value = 0.2;
 const reverb = new Tone.Reverb().connect(pingPong);
-reverb.dampening = 1000;
+reverb.dampening = 500;
 
 reverb.wet.value = 0.2;
 const autoWah = new Tone.AutoWah({
