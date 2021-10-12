@@ -648,7 +648,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       //  phaser.frequency.value = xDotValues / 2;
       //  phaser.octaves = (yDotValues / 20);
       //  phaser.wet.value = yDotValues / 100;
-        pingPong.feedback.value = yDotValues;
+        pingPong.feedback.value = (yDotValues / 300);
      //   pitchShift.pitch = Math.floor(((yDotValues * -1) + 75) / 10);
         
         function myTimeout1() {
