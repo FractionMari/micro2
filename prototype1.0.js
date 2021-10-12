@@ -292,7 +292,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle").innerHTML = "Scale: 3",
     scaleSelect = ["C2", "D2", "E2", "Gb2", "Ab2", "Bb2", "C3", "D3", "Gb3", "Ab3", "Bb3", "C4", "D4", "E4", "Gb4", "Ab4", "Bb4", "C5", "D5", "E5", "Gb5", "Ab5", "Bb5", "C6"],
     rectangle.style.opacity = 1,
-    rectangle.style.background = "#0a007c52",
+    rectangle.style.background = "#00ff1552",
     setTimeout(myTimeout2, 2000);
 
 
@@ -301,7 +301,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     document.getElementById("rectangle").innerHTML = "Scale: 1",
     scaleSelect = ["G1", "A1","C2", "D2", "F2", "G2", "A2","C3", "D3", "F3", "G3", "A3","C4", "D4", "F4", "G4", "A4", "C5", "D5", "F5", "G5", "A5", "C6"],
     rectangle.style.opacity = 1,
-    rectangle.style.background = "#05003852",
+    rectangle.style.background = "#fffb0052",
     setTimeout(myTimeout3, 2000);
 
 
