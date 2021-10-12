@@ -81,12 +81,12 @@ let is_running = false;
 let demo_button = document.getElementById("start_demo");
 
 
-// With this function the values won't go below a threshold 
+// With this function the values won't go below a threshold  (borrowed from this StackOverflow conversation: https://stackoverflow.com/questions/5842747/how-can-i-use-javascript-to-limit-a-number-between-a-min-max-value/54464006)
 function clamp(min, max, val) {
   return Math.min(Math.max(min, +val), max);
 }
 
-//Scaling any incoming number
+//Scaling any incoming number (borrowed from this StackOverflow conversation: https://stackoverflow.com/questions/36387135/scale-changing-number-to-a-range-using-javascript)
 function generateScaleFunction(prevMin, prevMax, newMin, newMax) {
 var offset = newMin - prevMin,
     scale = (newMax - newMin) / (prevMax - prevMin);
