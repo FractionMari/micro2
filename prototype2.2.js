@@ -755,7 +755,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         let gainValue = (((event.accelerationIncludingGravity.y * -1)  + 10) / 50);
         synth4pitch = Math.abs((yDotValues * -1) * 2);
 
-        pitchChangePitch = Math.abs((yDotValues * -1) / 10);
+        pitchChangePitch = Math.floor((yDotValues / 2) - 25);
 
 
        // gainNode.gain.rampTo(gainValue, 0.3);
