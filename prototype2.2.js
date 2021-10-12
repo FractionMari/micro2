@@ -835,7 +835,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     pitchChange.pitch = pitchChangePitch,
-     setTimeout(myFunction, 1000);
+     setTimeout(myFunction, 2000);
        
 
 
