@@ -37,7 +37,7 @@ pingPong.wet.value = 0.2;
 const reverb = new Tone.Reverb().connect(pingPong);
 reverb.dampening = 500;
 
-reverb.wet.value = 0.2;
+reverb.wet.value = 0.3;
 const autoWah = new Tone.AutoWah({
   
 }).connect(reverb);
@@ -828,10 +828,12 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
           else{
 
             function myFunction() {
-              pitchChange.pitch = 0;;
+              //pitchChange.pitch = 0;;
+              pitchChange.pitch.rampTo(0, 0.2);
             }
 
-     pitchChange.pitch = pitchChangePitch,
+            pitchChange.pitch.rampTo(pitchChangePitch, 0.2);
+    // pitchChange.pitch = pitchChangePitch,
      setTimeout(myFunction, 1000);
        
 
