@@ -30,7 +30,9 @@
 
 // Tone.js parameters:
 const gainNode = new Tone.Gain().toDestination();
-const pingPong = new Tone.PingPongDelay().connect(gainNode);
+
+const pitchChange = new Tone.PitchShift().connect(gainNode);
+const pingPong = new Tone.PingPongDelay().connect(pitchChange);
 pingPong.wet.value = 0.2;
 const reverb = new Tone.Reverb().connect(pingPong);
 reverb.dampening = 1000;
@@ -753,6 +755,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
         let gainValue = (((event.accelerationIncludingGravity.y * -1)  + 10) / 50);
         synth4pitch = Math.abs((yDotValues * -1) * 2);
 
+        pitchChangePitch = Math.abs((yDotValues * -1) / 10);
+
 
        // gainNode.gain.rampTo(gainValue, 0.3);
         
@@ -823,7 +827,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 }
           else{
 
-     synth7.triggerAttackRelease(synth4pitch, 0.2);    
+     pitchChange = pitchChangePitch,
+     pitchChange = 0;    
 
 
     
