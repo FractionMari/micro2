@@ -38,7 +38,7 @@ const reverb = new Tone.Reverb().connect(gainNode);
 reverb.dampening = 500;
 
 reverb.wet.value = 0.3;
-const autoWah = new Tone.AutoWah(50, 6, -30).connect(reverb);
+const autoWah = new Tone.AutoWah(50, 6, -10).connect(reverb);
 autoWah.Q.value = 6;
 let buttonOn = false;
 let buttonOn2 = false;
