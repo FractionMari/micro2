@@ -633,9 +633,11 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     updateFieldIfNotNull('x_dots', xDotValues);
     updateFieldIfNotNull('y_dots', yDotValues);
       
-    autoWah.Q.value = xDotValues / 10;
-    autoWah.baseFrequency = yDotValues; 
-    autoWah.wet.value = 0.5; 
+
+
+    autoWah.Q.value = 2;
+    autoWah.baseFrequency = yDotValues;
+    autoWah.octaves = xDotValues / 10;
 
 
     ///////////////////////////////////////////////
