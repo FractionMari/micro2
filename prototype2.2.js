@@ -34,13 +34,13 @@ const gainNode = new Tone.Gain().toDestination();
 const pitchChange = new Tone.PitchShift().connect(gainNode);
 const pingPong = new Tone.PingPongDelay().connect(pitchChange);
 pingPong.wet.value = 0.2;
-const reverb = new Tone.Reverb().connect(pingPong);
-reverb.dampening = 1000;
+const autoWah = new Tone.Reverb().connect(pingPong);
+//reverb.dampening = 1000;
 
-reverb.wet.value = 0.2;
-const autoWah = new Tone.AutoWah(100, 5, -10).connect(reverb);
-autoWah.Q.value = 9;
-autoWah.wet.value = 0.2;
+//reverb.wet.value = 0.2;
+//const autoWah = new Tone.AutoWah(100, 5, -10).connect(reverb);
+//autoWah.Q.value = 9;
+//autoWah.wet.value = 0.2;
 let buttonOn = false;
 let buttonOn2 = false;
 let buttonOn3 = false;
@@ -635,7 +635,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
 
-    autoWah.baseFrequency = yDotValues;
+    //autoWah.baseFrequency = yDotValues;
     pingPong.delayTime = xDotValues / 100;
    // autoWah.octaves = (xDotValues / 20) + 5;
 
