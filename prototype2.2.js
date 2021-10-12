@@ -387,15 +387,15 @@ synth0 = new Tone.Sampler({
 //console.log(randomTimbre, synth4.oscillator.type);
 
 if ((randomTempo == 0) || ( randomTempo == 5 ))
-Tone.Transport.bpm.value = 60;
+Tone.Transport.bpm.value = 40;
   else if ((randomTempo == 1) || ( randomTempo == 6 ))
-  Tone.Transport.bpm.value = 90;
+  Tone.Transport.bpm.value = 60;
   else if ((randomTempo == 2) || ( randomTempo == 7 ))
-  Tone.Transport.bpm.value = 120;
+  Tone.Transport.bpm.value = 90;
   else if ((randomTempo == 3) || ( randomTempo == 8 ))
-  Tone.Transport.bpm.value = 150;
+  Tone.Transport.bpm.value = 120;
   else if ((randomTempo == 4) || ( randomTempo == 9 ))
-  Tone.Transport.bpm.value = 180;
+  Tone.Transport.bpm.value = 50;
   
 
 
