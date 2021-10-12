@@ -38,10 +38,8 @@ const reverb = new Tone.Reverb().connect(pitchChange);
 reverb.dampening = 500;
 
 reverb.wet.value = 0.3;
-const autoWah = new Tone.AutoWah({
-  
-}).connect(reverb);
-
+const autoWah = new Tone.AutoWah(50, 6, -30).connect(reverb);
+autoWah.Q.value = 6;
 let buttonOn = false;
 let buttonOn2 = false;
 let buttonOn3 = false;
@@ -635,9 +633,9 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       
 
 
-    autoWah.Q.value = 2;
-    autoWah.baseFrequency = yDotValues;
-    autoWah.octaves = xDotValues / 10;
+
+    autoWah.wet.value = yDotValues / 100;
+   // autoWah.octaves = (xDotValues / 20) + 5;
 
 
     ///////////////////////////////////////////////
