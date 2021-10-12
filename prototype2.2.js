@@ -636,6 +636,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 
 
     autoWah.baseFrequency = yDotValues;
+    pingPong.delayTime = xDotValues / 100;
    // autoWah.octaves = (xDotValues / 20) + 5;
 
 
@@ -656,7 +657,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       //pingPong.delayTime.rampTo(pingPongXaxis,pingPongYaxis);
       //pingPong.delayTime.value = pingPongXaxis + "n";
     //  pingPong.feedback.value = pingPongYaxis;
-      pingPong.wet.value = pingPongXaxis;
+   //   pingPong.wet.value = pingPongXaxis;
      //   pitchShift.pitch = Math.floor(((yDotValues * -1) + 75) / 10);
         
         function myTimeout1() {
