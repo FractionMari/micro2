@@ -356,6 +356,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     synth.disconnect(pingPong),
     synth2.disconnect(pingPong),
     synth3.disconnect(pingPong),
+    rectangle3.style.opacity = 0.2,
     setTimeout(myTimeout6, 2000);
 
 
@@ -365,6 +366,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     synth.connect(pingPong),
     synth2.connect(pingPong),
     synth3.connect(pingPong),
+    rectangle3.style.opacity = 1,
+    rectangle3.style.background = "#1100ff52",
     setTimeout(myTimeout7, 2000);
 
 // auto wah effect
@@ -373,6 +376,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     synth.disconnect(autoWah),
     synth2.disconnect(autoWah),
     synth3.disconnect(autoWah),
+    rectangle4.style.opacity = 0.2,
+
     setTimeout(myTimeout8, 2000);
 
 
@@ -382,6 +387,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     synth.connect(autoWah),
     synth2.connect(autoWah),
     synth3.connect(autoWah),
+    rectangle4.style.opacity = 1,
+    rectangle4.style.background = "#1100ff52",
     setTimeout(myTimeout9, 2000);
 
 // phaser effect
@@ -390,6 +397,7 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     synth.disconnect(phaser),
     synth2.disconnect(phaser),
     synth3.disconnect(phaser),
+    rectangle5.style.opacity = 0.2,
     setTimeout(myTimeout10, 2000);
 
 
@@ -399,6 +407,8 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
     synth.connect(phaser),
     synth2.connect(phaser),
     synth3.connect(phaser),
+    rectangle5.style.opacity = 1,
+    rectangle5.style.background = "#1100ff52",
     setTimeout(myTimeout11, 2000);
     }
 
