@@ -651,10 +651,10 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
       //  phaser.octaves = (yDotValues / 20);
       //  phaser.wet.value = yDotValues / 100;
       let pingPongYaxis = (yDotValues / 100);
-      let pingPongXaxis = xDotValues / 100;
+      let pingPongXaxis = xDotValues / 200;
       //pingPong.delayTime.rampTo(pingPongXaxis,pingPongYaxis);
       //pingPong.delayTime.value = pingPongXaxis + "n";
-      pingPong.feedback.value = pingPongYaxis;
+    //  pingPong.feedback.value = pingPongYaxis;
       pingPong.wet.value = pingPongXaxis;
      //   pitchShift.pitch = Math.floor(((yDotValues * -1) + 75) / 10);
         
@@ -827,8 +827,13 @@ function updateFieldIfNotNull(fieldName, value, precision=2){
 }
           else{
 
+            function myFunction() {
+              pitchChange = 0;;
+            }
+
      pitchChange = pitchChangePitch,
-     pitchChange = 0;    
+     setTimeout(myFunction, 1000);
+       
 
 
     
